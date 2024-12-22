@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.event.TransactionPhase;
 import org.springframework.transaction.event.TransactionalEventListener;
 
-import com.like.login.adapter.out.db.jpa.LogInOutHistoryRepository;
+import com.like.login.adapter.out.db.data.LogInOutHistoryRepository;
 import com.like.login.domain.LogInOutHistory;
 import com.like.login.domain.LoginSuccessEvent;
 import com.like.login.domain.LogInOutHistory.LOG_TYPE;

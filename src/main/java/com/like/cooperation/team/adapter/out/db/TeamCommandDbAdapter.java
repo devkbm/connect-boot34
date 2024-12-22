@@ -2,7 +2,7 @@ package com.like.cooperation.team.adapter.out.db;
 
 import org.springframework.stereotype.Repository;
 
-import com.like.cooperation.team.adapter.out.db.jpa.TeamJpaRepository;
+import com.like.cooperation.team.adapter.out.db.data.TeamJpaRepository;
 import com.like.cooperation.team.domain.Team;
 import com.like.cooperation.team.port.out.TeamCommandDbPort;
 

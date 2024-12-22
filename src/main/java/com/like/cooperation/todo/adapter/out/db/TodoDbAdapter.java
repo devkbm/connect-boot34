@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.like.cooperation.todo.adapter.out.db.jpa.TodoJpaRepository;
+import com.like.cooperation.todo.adapter.out.db.data.TodoJpaRepository;
 import com.like.cooperation.todo.domain.QTodo;
 import com.like.cooperation.todo.domain.Todo;
 import com.like.cooperation.todo.port.out.TodoCommandDbPort;

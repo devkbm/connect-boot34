@@ -6,8 +6,8 @@ import org.springframework.stereotype.Service;
 
 import com.like.cooperation.workcalendar.domain.WorkCalendarEvent;
 import com.like.cooperation.workcalendar.port.in.dto.WorkCalendarEventSaveDTO;
-import com.like.cooperation.workcalendar.adapter.out.db.jpa.WorkCalendarEventJpaRepository;
-import com.like.cooperation.workcalendar.adapter.out.db.jpa.WorkCalendarJpaRepository;
+import com.like.cooperation.workcalendar.adapter.out.db.data.WorkCalendarEventJpaRepository;
+import com.like.cooperation.workcalendar.adapter.out.db.data.WorkCalendarJpaRepository;
 import com.like.cooperation.workcalendar.domain.WorkCalendar;
 
 @Service

@@ -1,7 +1,7 @@
 package com.like.system.systemcode.port.in.dto;
 
-import com.like.system.systemcode.adapter.out.persistence.jpa.entity.JpaBizCode;
-import com.like.system.systemcode.adapter.out.persistence.jpa.entity.JpaBizCodeType;
+import com.like.system.systemcode.adapter.out.db.entity.JpaBizCode;
+import com.like.system.systemcode.adapter.out.db.entity.JpaBizCodeType;
 
 import lombok.Builder;
 

@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.like.system.holiday.adapter.out.db.jpa.HolidayJpaRepository;
+import com.like.system.holiday.adapter.out.db.data.HolidayJpaRepository;
 import com.like.system.holiday.domain.Holiday;
 import com.like.system.holiday.domain.HolidayId;
 import com.like.system.holiday.domain.QHoliday;

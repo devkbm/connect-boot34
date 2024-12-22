@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.like.cooperation.workcalendar.adapter.out.db.jpa.WorkCalendarMemberJpaRepository;
+import com.like.cooperation.workcalendar.adapter.out.db.data.WorkCalendarMemberJpaRepository;
 import com.like.cooperation.workcalendar.domain.WorkCalendarMember;
 import com.like.cooperation.workcalendar.port.out.WorkCalendarMemberCommandDbPort;
 

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.like.login.domain.CustomUserDetails;
-import com.like.system.user.adapter.out.db.jpa.SystemUserRepository;
+import com.like.system.user.adapter.out.db.data.SystemUserRepository;
 import com.like.system.user.domain.SystemUser;
 import com.like.system.user.domain.SystemUserId;
 

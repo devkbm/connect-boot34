@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.like.system.webresource.adapter.out.db.jpa.WebResourceJpaRepository;
+import com.like.system.webresource.adapter.out.db.data.WebResourceJpaRepository;
 import com.like.system.webresource.domain.WebResource;
 import com.like.system.webresource.port.in.dto.WebResourceQueryDTO;
 import com.like.system.webresource.port.out.WebResourceQueryDbPort;

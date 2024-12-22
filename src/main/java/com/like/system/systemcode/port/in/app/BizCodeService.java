@@ -3,12 +3,12 @@ package com.like.system.systemcode.port.in.app;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.like.system.systemcode.adapter.out.persistence.jpa.entity.JpaBizCode;
-import com.like.system.systemcode.adapter.out.persistence.jpa.entity.JpaBizCodeId;
-import com.like.system.systemcode.adapter.out.persistence.jpa.entity.JpaBizCodeType;
-import com.like.system.systemcode.adapter.out.persistence.jpa.entity.JpaBizCodeTypeId;
-import com.like.system.systemcode.adapter.out.persistence.jpa.repository.BizCodeRepository;
-import com.like.system.systemcode.adapter.out.persistence.jpa.repository.BizCodeTypeJpaRepository;
+import com.like.system.systemcode.adapter.out.db.data.BizCodeRepository;
+import com.like.system.systemcode.adapter.out.db.data.BizCodeTypeJpaRepository;
+import com.like.system.systemcode.adapter.out.db.entity.JpaBizCode;
+import com.like.system.systemcode.adapter.out.db.entity.JpaBizCodeId;
+import com.like.system.systemcode.adapter.out.db.entity.JpaBizCodeType;
+import com.like.system.systemcode.adapter.out.db.entity.JpaBizCodeTypeId;
 import com.like.system.systemcode.port.in.dto.BizCodeDTO;
 
 @Service

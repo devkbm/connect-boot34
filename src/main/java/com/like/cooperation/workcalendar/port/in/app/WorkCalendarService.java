@@ -3,8 +3,8 @@ package com.like.cooperation.workcalendar.port.in.app;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.like.cooperation.workcalendar.adapter.out.db.jpa.WorkCalendarJpaRepository;
-import com.like.cooperation.workcalendar.adapter.out.db.jpa.WorkCalendarMemberJpaRepository;
+import com.like.cooperation.workcalendar.adapter.out.db.data.WorkCalendarJpaRepository;
+import com.like.cooperation.workcalendar.adapter.out.db.data.WorkCalendarMemberJpaRepository;
 import com.like.cooperation.workcalendar.domain.WorkCalendar;
 import com.like.cooperation.workcalendar.domain.WorkCalendarMember;
 import com.like.cooperation.workcalendar.domain.WorkCalendarMemberId;

@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.like.system.systemcode.adapter.out.persistence.jpa.entity.JpaBizCode;
-import com.like.system.systemcode.adapter.out.persistence.jpa.repository.BizCodeQueryRepository;
+import com.like.system.systemcode.adapter.out.db.data.BizCodeQueryRepository;
+import com.like.system.systemcode.adapter.out.db.entity.JpaBizCode;
 
 @Service
 @Transactional(readOnly = true)

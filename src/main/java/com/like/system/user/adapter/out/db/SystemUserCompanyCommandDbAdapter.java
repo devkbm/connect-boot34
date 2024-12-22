@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
 
-import com.like.system.user.adapter.out.db.jpa.SystemUserCompanyRepository;
+import com.like.system.user.adapter.out.db.data.SystemUserCompanyRepository;
 import com.like.system.user.domain.SystemUserCompany;
 import com.like.system.user.domain.SystemUserCompanyId;
 import com.like.system.user.port.out.SystemUserCompanyCommandDbPort;

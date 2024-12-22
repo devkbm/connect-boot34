@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
 
-import com.like.hrm.staff.adapter.out.db.jpa.StaffJpaRepository;
+import com.like.hrm.staff.adapter.out.db.data.StaffJpaRepository;
 import com.like.hrm.staff.domain.Staff;
 import com.like.hrm.staff.domain.StaffId;
 import com.like.hrm.staff.port.out.StaffCommandDbPort;

@@ -3,9 +3,6 @@ package com.like.core.jpa.domain;
 import java.io.Serializable;
 import java.util.Objects;
 
-import jakarta.persistence.Embeddable;
-
-@Embeddable
 public final class AuditorDetails implements Serializable {    
 	private static final long serialVersionUID = 6038720304169228462L;
 	

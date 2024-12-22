@@ -2,7 +2,7 @@ package com.like.cooperation.workcalendar.adapter.out.db;
 
 import org.springframework.stereotype.Repository;
 
-import com.like.cooperation.workcalendar.adapter.out.db.jpa.WorkCalendarEventJpaRepository;
+import com.like.cooperation.workcalendar.adapter.out.db.data.WorkCalendarEventJpaRepository;
 import com.like.cooperation.workcalendar.domain.WorkCalendarEvent;
 import com.like.cooperation.workcalendar.port.out.WorkCalendarEventCommandDbPort;
 

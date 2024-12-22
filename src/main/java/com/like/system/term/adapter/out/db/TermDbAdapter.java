@@ -2,7 +2,7 @@ package com.like.system.term.adapter.out.db;
 
 import org.springframework.stereotype.Repository;
 
-import com.like.system.term.adapter.out.db.jpa.TermDictionaryJpaRepository;
+import com.like.system.term.adapter.out.db.data.TermDictionaryJpaRepository;
 import com.like.system.term.domain.TermDictionary;
 import com.like.system.term.port.out.TermCommandDbPort;
 
