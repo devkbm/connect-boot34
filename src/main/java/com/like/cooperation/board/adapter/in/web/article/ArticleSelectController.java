@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.like.cooperation.board.port.in.article.ArticleSelectUseCase;
 import com.like.cooperation.board.port.in.article.dto.ArticleResponseDTO;
@@ -27,18 +26,11 @@ public class ArticleSelectController {
 	@GetMapping("/api/grw/board/article/{id}")
 	public ResponseEntity<?> getArticle(@PathVariable String id, HttpSession session) {						
 							
-		ArticleResponseDTO response =  useCase.select(Base64Util.fromBase64Decode(id));				
+		Long decodedId = Base64Util.fromBase64Decode(id);
+		
+		ArticleResponseDTO response =  useCase.select(decodedId);				
 		
 		return toOne(response, MessageUtil.getQueryMessage(response == null ? 0 : 1));
 	}
-	
-	@GetMapping("/api/grw/board/article/hitcnt")
-	public ResponseEntity<?> updateArticleHitCnt(@RequestParam String id,
-												 @RequestParam String userId) {								
-				
-		useCase.plusHitCount(Base64Util.fromBase64Decode(id), userId);			
-										
-		return toOne(null, String.format("%d건 업데이트 하였습니다.", 1));
-	}	
-	
+			
 }

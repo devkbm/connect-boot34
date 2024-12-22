@@ -10,22 +10,18 @@ import com.like.cooperation.board.port.in.article.ArticleSelectUseCase;
 import com.like.cooperation.board.port.in.article.dto.ArticleResponseDTO;
 import com.like.cooperation.board.port.in.article.dto.ArticleResponseDTOMapper;
 import com.like.cooperation.board.port.out.ArticleCommandDbPort;
-import com.like.cooperation.board.port.out.ArticleUserHitCountDbPort;
 import com.like.system.file.export.FileInfoDTO;
 import com.like.system.file.export.FileInfoDTOSelectUseCase;
 
 @Service
 public class ArticleSelectService implements ArticleSelectUseCase {
 
-	ArticleCommandDbPort dbPort;
-	ArticleUserHitCountDbPort userHitCountPort;
+	ArticleCommandDbPort dbPort;	
 	FileInfoDTOSelectUseCase fileSelectUseCase;
 	
-	ArticleSelectService(ArticleCommandDbPort dbPort
-						,ArticleUserHitCountDbPort userHitCountPort
-						,FileInfoDTOSelectUseCase fileSelectUseCase) {
-		this.dbPort = dbPort;
-		this.userHitCountPort = userHitCountPort;
+	ArticleSelectService(ArticleCommandDbPort dbPort						
+						,FileInfoDTOSelectUseCase fileSelectUseCase) {		
+		this.dbPort = dbPort;		
 		this.fileSelectUseCase = fileSelectUseCase;
 	}
 	
@@ -39,17 +35,6 @@ public class ArticleSelectService implements ArticleSelectUseCase {
 		}
 		
 		return ArticleResponseDTOMapper.toDTO(this.dbPort.select(id).orElse(null), fileList);
-	}
-
-	@Override
-	public void plusHitCount(Long articleId, String userId) {
-		Article article = this.dbPort.select(articleId)
-				  					 .orElseThrow(() -> new IllegalArgumentException("존재 하지 않은 게시글입니다."));
-
-		article.updateHitCnt();
-		
-		this.userHitCountPort.plusHitCount(article, userId);
-		
 	}
 
 }

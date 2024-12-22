@@ -102,6 +102,7 @@ public class Board extends AbstractAuditEntity {
 		this.useYn = useYn;			
 	}
 	               
+	/*
 	public void addArticle(ArticleContents content
 					      ,ArticlePassword password
 						  ,List<ArticleAttachedFile> files) {
@@ -109,6 +110,7 @@ public class Board extends AbstractAuditEntity {
 		
 		this.articles.add(new Article(this, content, password, files));					
 	}
+	*/
 	
 	public void addBookmark(String userId) {
 		if (this.bookmarks == null) this.bookmarks = new LinkedHashSet<>();

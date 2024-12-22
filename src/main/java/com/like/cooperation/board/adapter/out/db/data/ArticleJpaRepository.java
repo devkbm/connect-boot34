@@ -1,4 +1,4 @@
-package com.like.cooperation.board.adapter.out.db.jpa;
+package com.like.cooperation.board.adapter.out.db.data;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.querydsl.ListQuerydslPredicateExecutor;

@@ -15,6 +15,7 @@ public record ArticleSaveDTO(
 		String boardId,
 		String articleId,
 		String articleParentId,
+		String userId,
 		@NotEmpty(message="제목은 필수 입력 사항입니다.")
 		String title,
 		String contents,

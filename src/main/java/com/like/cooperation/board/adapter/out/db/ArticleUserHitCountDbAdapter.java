@@ -2,7 +2,7 @@ package com.like.cooperation.board.adapter.out.db;
 
 import org.springframework.stereotype.Repository;
 
-import com.like.cooperation.board.adapter.out.db.jpa.ArticleUserHitCountJpaRepository;
+import com.like.cooperation.board.adapter.out.db.data.ArticleUserHitCountJpaRepository;
 import com.like.cooperation.board.domain.Article;
 import com.like.cooperation.board.domain.ArticleUserHitCount;
 import com.like.cooperation.board.domain.ArticleUserHitCountId;

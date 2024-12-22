@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
 
-import com.like.cooperation.board.adapter.out.db.jpa.ArticleJpaRepository;
+import com.like.cooperation.board.adapter.out.db.data.ArticleJpaRepository;
 import com.like.cooperation.board.adapter.out.db.mybatis.BoardMapper;
 import com.like.cooperation.board.port.in.article.dto.ArticleQueryDTO;
 import com.like.cooperation.board.port.in.article.dto.ArticleResponseDTO;

@@ -26,7 +26,7 @@ public class ArticleResponseDTOMapper {
 				 .modifiedBy(entity.getModifiedBy() == null ? null : entity.getModifiedBy().getLoggedUser())
 				 .articleId(Base64Util.toBase64Encode(entity.getArticleId()))
 				 .articleParentId(entity.getArticleParentId())							 
-				 .userName(entity.getUserName())
+				 .userName(entity.getCreatedBy().getLoggedUser())
 				 .boardId(Base64Util.toBase64Encode(entity.getBoard().getBoardId()))				
 				 .title(entity.getContent().getTitle())
 				 .contents(entity.getContent().getContents())

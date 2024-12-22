@@ -1,4 +1,4 @@
-package com.like.cooperation.board.adapter.out.db.jpa;
+package com.like.cooperation.board.adapter.out.db.querydsl;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.like.cooperation.board.adapter.out.db;
+package com.like.cooperation.board.adapter.out.db.querydsl;
 
 import com.like.cooperation.board.domain.Board;
 import com.like.cooperation.board.domain.QBoard;

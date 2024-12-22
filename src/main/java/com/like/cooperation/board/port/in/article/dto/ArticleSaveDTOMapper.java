@@ -13,6 +13,7 @@ public class ArticleSaveDTOMapper {
 		Article entity = Article.builder()	
 							    .board(board)
 							    .articleId(Base64Util.fromBase64Decode(dto.articleId()))
+							    .userId(dto.userId())
 							    .content(new ArticleContents(dto.title(), dto.contents()))						  						  
 							    .password(new ArticlePassword(dto.pwd()))
 							    .isFixedTop(dto.isFiexedTop())

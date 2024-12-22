@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
 
-import com.like.cooperation.board.adapter.out.db.jpa.BoardJpaRepository;
+import com.like.cooperation.board.adapter.out.db.data.BoardJpaRepository;
 import com.like.cooperation.board.domain.Board;
 import com.like.cooperation.board.port.out.BoardCommandDbPort;
 

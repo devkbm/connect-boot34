@@ -676,13 +676,13 @@ CREATE TABLE GRWARTICLE (
   	ARTICLE_ID          	INT             	NOT NULL  AUTO_INCREMENT,
   	ARTICLE_P_ID        	INT             	NULL    	,
   	BOARD_ID            	INT             	NOT NULL	,
+  	USER_ID             	VARCHAR(500)    	NOT NULL	,
   	TITLE               	VARCHAR(500)		NULL    	,
-  	CONTENTS            	TEXT			    NULL    	,
-  	SEQ                 	INT             	NULL    	,
-  	HIT_CNT             	INT             	NULL    	,
-  	HIER_DEPTH          	INT             	NULL    	,
-  	FIXED_TOP_YN        	BOOLEAN         	NULL    	,
+  	CONTENTS            	TEXT			    NULL    	,  	
   	PWD                 	VARCHAR(500)		NULL    	,
+  	DEPTH_LEVEL          	INT             	NULL    	,
+  	HIT_CNT             	INT             	NULL    	,  	
+  	TOP_FIXED_YN        	BOOLEAN         	NULL    	,  	
   	constraint pk_grwarticle primary key(ARTICLE_ID),  
   	constraint fk_grwarticle1 	foreign key(BOARD_ID) references GRWBOARD(BOARD_ID)
 );

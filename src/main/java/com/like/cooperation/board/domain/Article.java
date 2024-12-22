@@ -13,7 +13,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import org.hibernate.annotations.Comment;
-import org.hibernate.annotations.Formula;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.like.core.jpa.domain.AbstractAuditEntity;
@@ -46,28 +45,27 @@ public class Article extends AbstractAuditEntity {
 	@Comment("게시글 부모ID")
 	@Column(name="ARTICLE_P_ID")
 	Long articleParentId;		
-				
+			
+	@Column(name="USER_ID")
+	String userId;
+	
 	@Embedded
 	ArticleContents content;
+	
+	@Embedded
+	ArticlePassword password;
+		       
+	@Comment("계층 레벨")
+	@Column(name="DEPTH_LEVEL")
+    int depth;
 	
 	@Comment("조회 수")
 	@Column(name="HIT_CNT")
     int hitCount;
 	
-	@Comment("출력순서")
-	@Column(name="SEQ")
-    Integer seq;
-        
-	@Comment("계층 레벨")
-	@Column(name="HIER_DEPTH")
-    int depth;			
-	
-	@Column(name="FIXED_TOP_YN")
+	@Column(name="TOP_FIXED_YN")
 	boolean isFixedTop;
-	
-	@Embedded
-	ArticlePassword password;
-    
+		    
 	/**
 	 * 게시판 외래키
 	 */           
@@ -77,14 +75,12 @@ public class Article extends AbstractAuditEntity {
     	                          
     @OneToMany(mappedBy = "article", fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     List<ArticleAttachedFile> files;
-			
-	@Formula("(SELECT X.USER_NAME FROM COMUSER X WHERE X.USER_ID = CREATED_USER_ID)")
-	String userName;
-			
+			    			
 	@Transient
 	Boolean editable;
 		
 	public Article(Board board
+			      ,String userId
 			      ,ArticleContents content
 			      ,ArticlePassword password
 				  ,List<ArticleAttachedFile> files) {
@@ -94,8 +90,7 @@ public class Article extends AbstractAuditEntity {
 		this.board = board;
 		this.content = content;
 		this.password = password;
-		this.files = files;
-				
+		this.files = files;				
 	}
 	
 	public void modifyEntity(ArticleContents content
