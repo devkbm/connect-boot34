@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.like.cooperation.board.port.in.article.ArticleQueryByListUseCase;
 import com.like.cooperation.board.port.in.article.dto.ArticleQueryDTO;
-import com.like.cooperation.board.port.in.article.dto.ArticleResponseDTO;
+import com.like.cooperation.board.port.in.article.dto.ArticleOneDTO;
 import com.like.cooperation.board.port.out.ArticleQueryByListDbPort;
 
 @Transactional(readOnly = true)
@@ -21,7 +21,7 @@ public class ArticleQueryByListService implements ArticleQueryByListUseCase {
 	}
 	
 	@Override
-	public List<ArticleResponseDTO> getList(ArticleQueryDTO dto) {
+	public List<ArticleOneDTO> getList(ArticleQueryDTO dto) {
 		return this.port.getList(dto);
 	}
 	

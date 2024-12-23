@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotBlank;
 
 import com.like.system.systemcode.adapter.out.db.entity.JpaBizCodeType;
 import com.like.system.systemcode.adapter.out.db.entity.JpaBizTypeEnum;
-import com.like.system.systemcode.adapter.out.persistence.jpa.entity.QJpaBizCodeType;
+import com.like.system.systemcode.adapter.out.db.entity.QJpaBizCodeType;
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.dsl.BooleanExpression;
 

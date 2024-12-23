@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ArticleResponseDTO {
+public class ArticleOneDTO {
 
 	LocalDateTime createdDt;
 	String createdBy;
@@ -27,12 +27,9 @@ public class ArticleResponseDTO {
 	String title;
 	String contents;
 	String pwd;
-	int hitCount;			
-	Integer seq;
+	int hitCount;				
 	Integer depth;	
-	Boolean editable;
-	Boolean isAttachedFile;
-    Integer fileCount;	
+	Boolean editable;	
 	List<FileResponseDTO> fileList;
 		
 }

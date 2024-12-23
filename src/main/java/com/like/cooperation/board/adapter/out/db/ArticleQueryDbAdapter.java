@@ -8,8 +8,8 @@ import org.springframework.stereotype.Repository;
 import com.like.cooperation.board.adapter.out.db.data.ArticleJpaRepository;
 import com.like.cooperation.board.adapter.out.db.mybatis.BoardMapper;
 import com.like.cooperation.board.port.in.article.dto.ArticleQueryDTO;
-import com.like.cooperation.board.port.in.article.dto.ArticleResponseDTO;
-import com.like.cooperation.board.port.in.article.dto.ArticleResponseDTOMapper;
+import com.like.cooperation.board.port.in.article.dto.ArticleOneDTO;
+import com.like.cooperation.board.port.in.article.dto.ArticleOneDTOMapper;
 import com.like.cooperation.board.port.out.ArticleQueryByListDbPort;
 import com.like.system.file.export.FileInfoDTOSelectUseCase;
 
@@ -29,11 +29,11 @@ public class ArticleQueryDbAdapter implements ArticleQueryByListDbPort {
 	}
 	
 	@Override
-	public List<ArticleResponseDTO> getList(ArticleQueryDTO dto) {
+	public List<ArticleOneDTO> getList(ArticleQueryDTO dto) {
 		
 		return this.repository.findAll(dto.getBooleanBuilder(), Sort.by(Sort.Direction.DESC, "articleId"))
 							  .stream()
-							  .map(e -> ArticleResponseDTOMapper.toDTO(e, fileSelectUseCse.select(e.getFileIds())))
+							  .map(e -> ArticleOneDTOMapper.toDTO(e, fileSelectUseCse.select(e.getFileIds())))
 							  .toList();
 	}
 

@@ -1,8 +1,8 @@
 package com.like.cooperation.board.port.out;
 
-import com.like.cooperation.board.port.in.article.dto.ArticleResponseDTO;
+import com.like.cooperation.board.port.in.article.dto.ArticleOneDTO;
 
 public interface ArticleSelectDbPort {
 
-	ArticleResponseDTO get(Long id);
+	ArticleOneDTO get(Long id);
 }

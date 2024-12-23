@@ -9,16 +9,16 @@ import com.like.core.util.SessionUtil;
 import com.like.system.file.export.FileInfoDTO;
 import com.like.system.file.export.FileResponseDTO;
 
-public class ArticleResponseDTOMapper {
+public class ArticleOneDTOMapper {
 	
-	public static ArticleResponseDTO toDTO(Article entity, List<FileInfoDTO> list) {
+	public static ArticleOneDTO toDTO(Article entity, List<FileInfoDTO> list) {
 		
     	if (entity == null) return null;
     	
 		//List<ArticleAttachedFile> fileInfoList = entity.getAttachedFileInfoList();
 		List<FileResponseDTO> responseList = convertFileResponseDTO(list);
 							
-		return ArticleResponseDTO
+		return ArticleOneDTO
 				 .builder()
 				 .createdDt(entity.getCreatedDt())
 				 .createdBy(entity.getCreatedBy() == null ? null : entity.getCreatedBy().getLoggedUser())

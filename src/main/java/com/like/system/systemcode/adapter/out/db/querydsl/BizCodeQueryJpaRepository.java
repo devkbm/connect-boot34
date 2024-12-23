@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import com.like.system.systemcode.adapter.out.db.data.BizCodeQueryRepository;
 import com.like.system.systemcode.adapter.out.db.entity.JpaBizCode;
-import com.like.system.systemcode.adapter.out.persistence.jpa.entity.QJpaBizCode;
+import com.like.system.systemcode.adapter.out.db.entity.QJpaBizCode;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 
 @Repository

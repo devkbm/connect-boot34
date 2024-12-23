@@ -1,7 +1,7 @@
 package com.like.cooperation.board.port.in.article;
 
-import com.like.cooperation.board.port.in.article.dto.ArticleResponseDTO;
+import com.like.cooperation.board.port.in.article.dto.ArticleOneDTO;
 
 public interface ArticleSelectUseCase {
-	ArticleResponseDTO select(Long id);	
+	ArticleOneDTO select(Long id);	
 }
