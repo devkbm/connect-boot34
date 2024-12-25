@@ -6,9 +6,9 @@ import com.like.cooperation.board.domain.ArticlePassword;
 import com.like.cooperation.board.domain.Board;
 import com.like.cooperation.board.util.Base64Util;
 
-public class ArticleSaveDTOMapper {
+public class ArticleFormSaveDTOMapper {
 
-	public static Article newArticle(ArticleSaveDTO dto, Board board) {	
+	public static Article newArticle(ArticleFormSaveDTO dto, Board board) {	
 		
 		Article entity = Article.builder()	
 							    .board(board)
@@ -24,7 +24,7 @@ public class ArticleSaveDTOMapper {
 		return entity;
 	}
     
-    public static void modifyArticle(ArticleSaveDTO dto, Article entity) {	    		  	    	
+    public static void modifyArticle(ArticleFormSaveDTO dto, Article entity) {	    		  	    	
     	entity.modifyEntity(new ArticleContents(dto.title(), dto.contents()), dto.isFiexedTop());
     	
     	entity.setAppUrl(dto.clientAppUrl());

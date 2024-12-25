@@ -72,8 +72,8 @@ public class Article extends AbstractAuditEntity {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "BOARD_ID", nullable=false, updatable=false)
 	Board board;
-    	                          
-    @OneToMany(mappedBy = "article", fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+    	                              
+    @OneToMany(mappedBy = "article")
     List<ArticleAttachedFile> files;
 			    			
 	@Transient
@@ -133,10 +133,6 @@ public class Article extends AbstractAuditEntity {
 	
 	public void setFiles(List<ArticleAttachedFile> files) {
 		this.files = files;
-	}
-	
-	public Boolean getEditable(String userId) {			
-		return this.getCreatedBy() == null ? false : this.getCreatedBy().getLoggedUser().equals(userId);
 	}	
 			
 }

@@ -1,8 +1,10 @@
 package com.like.cooperation.board.port.in.article.dto;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
+import com.like.system.file.export.FileInfoDTO;
 import com.like.system.file.export.FileResponseDTO;
 
 import lombok.AllArgsConstructor;
@@ -14,15 +16,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ArticleOneDTO {
+public class ArticleFormSelectDTO {
 
 	LocalDateTime createdDt;
 	String createdBy;
 	LocalDateTime modifiedDt;
 	String modifiedBy;
 	String userName;
-	String boardId;
-	String articleId;
+	Long boardId;
+	Long articleId;
 	Long articleParentId;
 	String title;
 	String contents;
@@ -32,4 +34,13 @@ public class ArticleOneDTO {
 	Boolean editable;	
 	List<FileResponseDTO> fileList;
 		
+	public void addFileList(List<FileInfoDTO> fileInfoList) {
+    	List<FileResponseDTO> responseList = new ArrayList<>();	
+    	
+    	for (FileInfoDTO fileInfo : fileInfoList) {							
+			responseList.add(FileResponseDTO.convert(fileInfo));				
+		}
+    	    	
+    	this.setFileList(responseList);    	
+    }
 }

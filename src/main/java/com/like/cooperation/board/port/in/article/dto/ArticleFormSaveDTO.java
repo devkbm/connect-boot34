@@ -5,7 +5,7 @@ import java.util.List;
 
 import jakarta.validation.constraints.NotEmpty;
 
-public record ArticleSaveDTO(
+public record ArticleFormSaveDTO(
 		LocalDateTime createdDt,
 		String createdBy,
 		LocalDateTime modifiedDt,

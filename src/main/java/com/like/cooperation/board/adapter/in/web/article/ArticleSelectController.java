@@ -10,9 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.like.cooperation.board.port.in.article.ArticleSelectUseCase;
-import com.like.cooperation.board.port.in.article.dto.ArticleOneDTO;
+import com.like.cooperation.board.port.in.article.dto.ArticleFormSelectDTO;
 import com.like.cooperation.board.util.Base64Util;
 import com.like.core.message.MessageUtil;
+import com.like.core.util.SessionUtil;
 
 @Controller
 public class ArticleSelectController {	
@@ -28,7 +29,7 @@ public class ArticleSelectController {
 							
 		Long decodedId = Base64Util.fromBase64Decode(id);
 		
-		ArticleOneDTO response =  useCase.select(decodedId);				
+		ArticleFormSelectDTO response = useCase.select(SessionUtil.getUserId(), decodedId);				
 		
 		return toOne(response, MessageUtil.getQueryMessage(response == null ? 0 : 1));
 	}

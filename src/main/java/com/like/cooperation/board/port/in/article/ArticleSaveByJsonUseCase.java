@@ -1,7 +1,7 @@
 package com.like.cooperation.board.port.in.article;
 
-import com.like.cooperation.board.port.in.article.dto.ArticleSaveDTO;
+import com.like.cooperation.board.port.in.article.dto.ArticleFormSaveDTO;
 
 public interface ArticleSaveByJsonUseCase {
-	void save(ArticleSaveDTO dto);	
+	void save(ArticleFormSaveDTO dto);	
 }

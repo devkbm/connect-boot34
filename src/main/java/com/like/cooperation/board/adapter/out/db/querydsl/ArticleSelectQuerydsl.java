@@ -3,7 +3,7 @@ package com.like.cooperation.board.adapter.out.db.querydsl;
 import org.springframework.stereotype.Repository;
 
 import com.like.cooperation.board.domain.QArticle;
-import com.like.cooperation.board.port.in.article.dto.ArticleOneDTO;
+import com.like.cooperation.board.port.in.article.dto.ArticleFormSelectDTO;
 
 import com.querydsl.core.types.Expression;
 import com.querydsl.core.types.Projections;
@@ -22,16 +22,16 @@ public class ArticleSelectQuerydsl {
 	}	
 	
 	
-	public ArticleOneDTO get(Long id) {
+	public ArticleFormSelectDTO get(String readerUserId, Long articleId) {
 		
 		Expression<Boolean> editable = new CaseBuilder()
-				.when(qArticle.userId.eq("")).then(true)
+				.when(qArticle.userId.eq(readerUserId)).then(true)
 				.otherwise(false)
 				.as("editable");
 		
 		return queryFactory
 				.select(
-					Projections.fields(ArticleOneDTO.class,
+					Projections.fields(ArticleFormSelectDTO.class,
 						qArticle.board.boardId,
 						qArticle.articleId,
 						qArticle.articleParentId,
@@ -43,7 +43,7 @@ public class ArticleSelectQuerydsl {
 						editable
 					))
 			   .from(qArticle)				   
-			   .where(qArticle.articleId.eq(id))
+			   .where(qArticle.articleId.eq(articleId))
 			   .fetchFirst();
 	}	
 	

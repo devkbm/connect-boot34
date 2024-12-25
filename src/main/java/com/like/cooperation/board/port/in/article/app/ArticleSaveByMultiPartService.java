@@ -7,7 +7,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.like.cooperation.board.domain.Article;
 import com.like.cooperation.board.domain.ArticleAttachedFile;
-import com.like.cooperation.board.domain.AttachedFileConverter;
 import com.like.cooperation.board.domain.Board;
 import com.like.cooperation.board.port.in.article.ArticleSaveByMultiPartUseCase;
 import com.like.cooperation.board.port.in.article.dto.ArticleSaveMultipartDTO;

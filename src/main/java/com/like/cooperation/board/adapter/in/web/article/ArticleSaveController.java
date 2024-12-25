@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.like.cooperation.board.port.in.article.ArticleSaveByJsonUseCase;
-import com.like.cooperation.board.port.in.article.dto.ArticleSaveDTO;
+import com.like.cooperation.board.port.in.article.dto.ArticleFormSaveDTO;
 import com.like.core.message.MessageUtil;
 
 @Controller
@@ -25,7 +25,7 @@ public class ArticleSaveController {
 					
 	@PostMapping("/api/grw/board/article")
 	@ResponseBody
-	public ResponseEntity<?> saveArticleJson(@RequestBody @Valid ArticleSaveDTO dto) throws Exception {															
+	public ResponseEntity<?> saveArticleJson(@RequestBody @Valid ArticleFormSaveDTO dto) throws Exception {															
 										
 		useCase.save(dto);											
 		
