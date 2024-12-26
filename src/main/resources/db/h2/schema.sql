@@ -664,7 +664,7 @@ CREATE TABLE GRWBOARD (
 COMMENT ON TABLE GRWBOARD IS '게시판';
 
 
-CREATE TABLE GRWARTICLE (
+CREATE TABLE GRWPOST (
 	CREATED_DT			  	DATETIME			NULL		,
 	CREATED_USER_ID			VARCHAR(50)			NULL		,
 	CREATED_HOST_IP			VARCHAR(50)			NULL		,
@@ -673,8 +673,8 @@ CREATE TABLE GRWARTICLE (
 	MODIFIED_USER_ID		VARCHAR(50)			NULL		,
 	MODIFIED_HOST_IP		VARCHAR(50)			NULL		,
 	MODIFIED_APP_URL		VARCHAR(500)		NULL		,
-  	ARTICLE_ID          	INT             	NOT NULL  AUTO_INCREMENT,
-  	ARTICLE_P_ID        	INT             	NULL    	,
+  	POST_ID          		INT             	NOT NULL  AUTO_INCREMENT,
+  	POST_P_ID        		INT             	NULL    	,
   	BOARD_ID            	INT             	NOT NULL	,
   	USER_ID             	VARCHAR(500)    	NOT NULL	,
   	TITLE               	VARCHAR(500)		NULL    	,
@@ -683,12 +683,12 @@ CREATE TABLE GRWARTICLE (
   	DEPTH_LEVEL          	INT             	NULL    	,
   	HIT_CNT             	INT             	NULL    	,  	
   	TOP_FIXED_YN        	BOOLEAN         	NULL    	,  	
-  	constraint pk_grwarticle primary key(ARTICLE_ID),  
-  	constraint fk_grwarticle1 	foreign key(BOARD_ID) references GRWBOARD(BOARD_ID)
+  	constraint pk_grwpost primary key(POST_ID),  
+  	constraint fk_grwpost1 	foreign key(BOARD_ID) references GRWBOARD(BOARD_ID)
 );
-COMMENT ON TABLE GRWARTICLE IS '게시글';
+COMMENT ON TABLE GRWPOST IS '게시글';
 
-CREATE TABLE GRWARTICLEFILE (
+CREATE TABLE GRWPOSTFILE (
 	CREATED_DT			  	DATETIME			NULL		,
 	CREATED_USER_ID			VARCHAR(50)			NULL		,
 	CREATED_HOST_IP			VARCHAR(50)			NULL		,
@@ -697,16 +697,16 @@ CREATE TABLE GRWARTICLEFILE (
 	MODIFIED_USER_ID		VARCHAR(50)			NULL		,
 	MODIFIED_HOST_IP		VARCHAR(50)			NULL		,
 	MODIFIED_APP_URL		VARCHAR(500)		NULL		,
-  	ARTICLE_FILE_ID     	INT             	NOT NULL  AUTO_INCREMENT,
-  	ARTICLE_ID          	INT             	NOT NULL	,  
+  	POST_FILE_ID     	INT             	NOT NULL  AUTO_INCREMENT,
+  	POST_ID          	INT             	NOT NULL	,  
   	FILE_ID             	BINARY(16)      	NOT NULL	,  
-  	constraint pk_grwarticlefile primary key(ARTICLE_FILE_ID),  
-  	constraint fk_grwarticlefile1 foreign key(ARTICLE_ID) references GRWARTICLE(ARTICLE_ID)
+  	constraint pk_grwpostfile primary key(POST_FILE_ID),  
+  	constraint fk_grwpostfile1 foreign key(POST_ID) references GRWPOST(POST_ID)
 );
-COMMENT ON TABLE GRWARTICLEFILE IS '게시글첨부파일';
+COMMENT ON TABLE GRWPOSTFILE IS '게시글첨부파일';
 
 
-CREATE TABLE GRWARTICLECHECK (
+CREATE TABLE GRWPOSTCHECK (
 	CREATED_DT			  	DATETIME			NULL		,
 	CREATED_USER_ID			VARCHAR(50)			NULL		,
 	CREATED_HOST_IP			VARCHAR(50)			NULL		,
@@ -715,13 +715,13 @@ CREATE TABLE GRWARTICLECHECK (
 	MODIFIED_USER_ID		VARCHAR(50)			NULL		,
 	MODIFIED_HOST_IP		VARCHAR(50)			NULL		,
 	MODIFIED_APP_URL		VARCHAR(500)		NULL		,  
-  	ARTICLE_ID          	INT             	NOT NULL	,
+  	POST_ID  	        	INT             	NOT NULL	,
   	USER_ID             	VARCHAR(50)     	NOT NULL	,
   	HIT_CNT             	INT             	NULL		,  
-  	constraint pk_grwarticlecheck primary key(ARTICLE_ID, USER_ID),
-  	constraint fk_grwarticlecheck1 foreign key(ARTICLE_ID) references GRWARTICLE(ARTICLE_ID)
+  	constraint pk_grwarticlecheck primary key(POST_ID, USER_ID),
+  	constraint fk_grwarticlecheck1 foreign key(POST_ID) references GRWPOST(POST_ID)
 );
-COMMENT ON TABLE GRWARTICLECHECK IS '게시글사용자조회수';
+COMMENT ON TABLE GRWPOSTCHECK IS '게시글사용자조회수';
 
 
 CREATE TABLE GRWWORKCALENDAR(

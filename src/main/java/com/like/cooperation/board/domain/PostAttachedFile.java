@@ -36,7 +36,7 @@ import lombok.ToString;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-@Table(name = "GRWARTICLEFILE")
+@Table(name = "GRWPOSTFILE")
 public class PostAttachedFile extends AbstractAuditEntity implements Serializable {
 		
 		
@@ -44,11 +44,11 @@ public class PostAttachedFile extends AbstractAuditEntity implements Serializabl
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="ARTICLE_FILE_ID")
+	@Column(name="POST_FILE_ID")
 	Long pkArticleFile;	
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "ARTICLE_ID", nullable = false)
+	@JoinColumn(name = "POST_ID", nullable = false)
 	Post article; 	
 		
 	@Column(name="FILE_ID", columnDefinition = "BINARY(16)")

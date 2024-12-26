@@ -10,12 +10,12 @@
 	
 	<select id="getArticleList" parameterType="map" resultType="com.like.cooperation.board.port.in.post.dto.PostListDTO"><![CDATA[
 		SELECT A.BOARD_ID			boardId
-		     , A.ARTICLE_ID			articleId
+		     , A.POST_ID			articleId
 		     , D.USER_NAME 			writerName
 		     , D.FK_FILE			writerImage	         	         	        
 	         , A.TITLE				title	         
 	         , A.HIT_CNT			hitCount	         			 	        
-	         , CASE WHEN A.CREATED_USER_ID = #{userId} THEN true
+	         , CASE WHEN A.USER_ID = #{userId} THEN true
 	                ELSE false
 	           END					editable
 	         , (CASE WHEN B.CNT > 0 THEN true ELSE false END) isAttachedFile
@@ -23,17 +23,17 @@
 	         , CASE WHEN C.HIT_CNT > 0 THEN true
 	                ELSE false
 	           END 					isRead 											           
-		  FROM GRWARTICLE A
+		  FROM GRWPOST A
 		  	LEFT OUTER JOIN (
-		     	SELECT X.ARTICLE_ID 
+		     	SELECT X.POST_ID 
 		     	     , COUNT(*) CNT
-                  FROM GRWARTICLEFILE X                 
+                  FROM GRWPOSTFILE X                 
                  GROUP 
-                    BY X.ARTICLE_ID
+                    BY X.POST_ID
 		    ) B
-		    ON (A.ARTICLE_ID = B.ARTICLE_ID)
-		    LEFT OUTER JOIN GRWARTICLECHECK  C
-		    ON (A.ARTICLE_ID = C.ARTICLE_ID
+		    ON (A.POST_ID = B.POST_ID)
+		    LEFT OUTER JOIN GRWPOSTCHECK  C
+		    ON (A.POST_ID = C.POST_ID
 		    AND C.USER_ID = #{userId})
 		  	LEFT OUTER JOIN COMUSER D
 		  	ON (A.CREATED_USER_ID = D.USER_ID) 
@@ -47,7 +47,7 @@
     	   AND A.CONTENTS LIKE #{data.contents}
     	]]></if><![CDATA[           
 		 ORDER
-		    BY A.ARTICLE_ID DESC		
+		    BY A.POST_ID DESC		
         limit #{pagesize} + 1 offset #{pagenumber} * #{pagesize}		    
     ]]>
 	</select>

@@ -24,7 +24,7 @@ public class PostUserHitCountId implements Serializable {
 	private static final long serialVersionUID = -5781395006298446423L;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "ARTICLE_ID", nullable=false)
+	@JoinColumn(name = "POST_ID", nullable=false)
 	//@Column(name="ARTICLE_ID")
 	Post article;
 	

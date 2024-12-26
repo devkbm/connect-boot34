@@ -23,7 +23,7 @@ import com.like.core.jpa.domain.AbstractAuditEntity;
 @JsonAutoDetect
 @Getter
 @Entity
-@Table(name = "GRWARTICLECHECK")
+@Table(name = "GRWPOSTCHECK")
 @EntityListeners(AuditingEntityListener.class)
 public class PostUserHitCount extends AbstractAuditEntity implements Serializable {
 	

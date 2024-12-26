@@ -30,7 +30,7 @@ import com.like.core.jpa.domain.AbstractAuditEntity;
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-@Table(name = "GRWARTICLE")
+@Table(name = "GRWPOST")
 @EntityListeners(AuditingEntityListener.class)
 public class Post extends AbstractAuditEntity {		
 
@@ -39,11 +39,11 @@ public class Post extends AbstractAuditEntity {
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="ARTICLE_ID")
+	@Column(name="POST_ID")
 	Long articleId;	
 		
 	@Comment("게시글 부모ID")
-	@Column(name="ARTICLE_P_ID")
+	@Column(name="POST_P_ID")
 	Long articleParentId;		
 			
 	@Column(name="USER_ID")
