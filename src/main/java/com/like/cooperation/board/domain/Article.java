@@ -33,6 +33,7 @@ import com.like.core.jpa.domain.AbstractAuditEntity;
 @Table(name = "GRWARTICLE")
 @EntityListeners(AuditingEntityListener.class)
 public class Article extends AbstractAuditEntity {		
+	// d
 	
 	/**
 	 * 게시글 키
