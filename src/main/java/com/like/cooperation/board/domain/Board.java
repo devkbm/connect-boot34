@@ -68,7 +68,7 @@ public class Board extends AbstractAuditEntity {
 	 * 게시글 리스트
 	 */	
     @OneToMany(mappedBy = "board")          
-    List<Article> articles;           
+    List<Post> articles;           
         
     /**
      * 즐겨찾기     

@@ -1,0 +1,49 @@
+package com.like.cooperation.board.adapter.out.db.querydsl;
+
+import org.springframework.stereotype.Repository;
+
+import com.like.cooperation.board.domain.QPost;
+import com.like.cooperation.board.port.in.post.dto.PostFormSelectDTO;
+import com.querydsl.core.types.Expression;
+import com.querydsl.core.types.Projections;
+import com.querydsl.core.types.dsl.CaseBuilder;
+import com.querydsl.jpa.impl.JPAQueryFactory;
+
+@Repository
+public class PostSelectQuerydsl {
+		
+	private final QPost qArticle = QPost.post;	
+	
+	private JPAQueryFactory queryFactory;
+	
+	PostSelectQuerydsl(JPAQueryFactory queryFactory) {
+		this.queryFactory = queryFactory;
+	}	
+	
+	
+	public PostFormSelectDTO get(String readerUserId, Long articleId) {
+		
+		Expression<Boolean> editable = new CaseBuilder()
+				.when(qArticle.userId.eq(readerUserId)).then(true)
+				.otherwise(false)
+				.as("editable");
+		
+		return queryFactory
+				.select(
+					Projections.fields(PostFormSelectDTO.class,
+						qArticle.board.boardId,
+						qArticle.articleId,
+						qArticle.articleParentId,
+						qArticle.userId.as("userName"),
+						qArticle.content.title,
+						qArticle.content.contents,
+						qArticle.hitCount,
+						qArticle.depth,
+						editable
+					))
+			   .from(qArticle)				   
+			   .where(qArticle.articleId.eq(articleId))
+			   .fetchFirst();
+	}	
+	
+}

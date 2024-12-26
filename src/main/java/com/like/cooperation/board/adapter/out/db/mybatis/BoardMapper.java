@@ -5,7 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.like.cooperation.board.port.in.article.dto.ArticleListDTO;
+import com.like.cooperation.board.port.in.post.dto.PostListDTO;
 
 @Mapper
 public interface BoardMapper {
@@ -16,6 +16,6 @@ public interface BoardMapper {
 	 * @return
 	 * @throws Exception
 	 */		
-	List<ArticleListDTO> getArticleList(Map<String, Object> params);
+	List<PostListDTO> getArticleList(Map<String, Object> params);
 			
 }

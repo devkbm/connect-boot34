@@ -4,16 +4,16 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
 
-import com.like.cooperation.board.adapter.out.db.data.BoardJpaRepository;
+import com.like.cooperation.board.adapter.out.db.data.BoardRepository;
 import com.like.cooperation.board.domain.Board;
 import com.like.cooperation.board.port.out.BoardCommandDbPort;
 
 @Repository
 public class BoardDbAdapter implements BoardCommandDbPort {
 
-	BoardJpaRepository repository;
+	BoardRepository repository;
 	
-	BoardDbAdapter(BoardJpaRepository repository) {
+	BoardDbAdapter(BoardRepository repository) {
 		this.repository = repository;
 	}
 
