@@ -34,7 +34,7 @@ public class PostSelectDbAdapter implements PostSelectDbPort {
 	public PostFormSelectDTO get(String readerUserId, Long articleId) {
 		 PostFormSelectDTO dto = this.query.get(readerUserId, articleId);
 		 
-		 List<String> fileIds = this.fileRepository.findAll(qArticleAttachedFile.article.articleId.eq(articleId))
+		 List<String> fileIds = this.fileRepository.findAll(qArticleAttachedFile.post.postId.eq(articleId))
 												   .stream()
 												   .map(e -> e.getFileInfo().toString())
 												   .toList();

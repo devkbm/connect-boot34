@@ -30,9 +30,9 @@ import lombok.ToString;
  * [제약조건] <br>
  *   1. <br>
  */
-@ToString(exclude= {"article"})
+@ToString(exclude= {"post"})
 @JsonAutoDetect
-@JsonIgnoreProperties(ignoreUnknown = true, value = {"article"})
+@JsonIgnoreProperties(ignoreUnknown = true, value = {"post"})
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
@@ -49,13 +49,13 @@ public class PostAttachedFile extends AbstractAuditEntity implements Serializabl
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "POST_ID", nullable = false)
-	Post article; 	
+	Post post; 	
 		
 	@Column(name="FILE_ID", columnDefinition = "BINARY(16)")
 	UUID fileInfo;
 
-	public PostAttachedFile(Post article, String fileInfo) {		
-		this.article = article;
+	public PostAttachedFile(Post post, String fileInfo) {		
+		this.post = post;
 		this.fileInfo = UUID.fromString(fileInfo);
 	}
 		

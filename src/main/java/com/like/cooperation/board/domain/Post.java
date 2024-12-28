@@ -73,7 +73,7 @@ public class Post extends AbstractAuditEntity {
 	@JoinColumn(name = "BOARD_ID", nullable=false, updatable=false)
 	Board board;
     	                              
-    @OneToMany(mappedBy = "article")
+    @OneToMany(mappedBy = "post")
     List<PostAttachedFile> files;
 			    			
 	@Transient
@@ -96,7 +96,7 @@ public class Post extends AbstractAuditEntity {
 		this.files = files;				
 	}
 	
-	public void modifyEntity(String appUrl, PostContents content, boolean isFiexedTop) {
+	public void modify(String appUrl, PostContents content, boolean isFiexedTop) {
 		this.setAppUrl(appUrl);
 		this.content = content;				
 		this.isFixedTop = isFiexedTop;

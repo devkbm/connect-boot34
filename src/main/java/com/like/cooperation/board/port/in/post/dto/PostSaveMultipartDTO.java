@@ -48,9 +48,7 @@ public record PostSaveMultipartDTO(
 	}
     
     public void modifyArticle(Post entity) {
-    	entity.modifyEntity(new PostContents(title, contents),isFiexedTop);
-    	
-    	entity.setAppUrl(clientAppUrl);
+    	entity.modify(clientAppUrl, new PostContents(title, contents),isFiexedTop);    	    
 	}
     
     public boolean isNew() {
