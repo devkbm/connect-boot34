@@ -56,7 +56,7 @@ public class WebSecurityConfigLocalTest<S extends Session> {
 			.authorizeHttpRequests(authorize -> 
 				authorize.requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
 						.requestMatchers(new AntPathRequestMatcher("/api/system/user/login")).permitAll()			// 로그인 API
-						.requestMatchers(new AntPathRequestMatcher("/h2-console/**")).permitAll()					// h2-console 
+						.requestMatchers(new AntPathRequestMatcher("/h2/**")).permitAll()					// h2-console 
 						.anyRequest().authenticated())								
 			.oauth2Login(customConfigurer -> customConfigurer
 				.successHandler(oAuth2AuthenticationSuccessHandler)

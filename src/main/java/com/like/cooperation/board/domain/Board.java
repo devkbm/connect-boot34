@@ -77,11 +77,14 @@ public class Board extends AbstractAuditEntity {
     @OrderBy("seq asc")
     Set<BoardBookmark> bookmarks;
     
-	public Board(@Nullable Board parent
-			    ,BoardType boardType
-				,String boardName
-				,String description
-				) {
+	public Board(
+			String appUrl,
+			@Nullable Board parent,
+			BoardType boardType,
+			String boardName,
+			String description
+			) {
+		this.setAppUrl(appUrl);
 		this.parent = parent;
 		this.boardType = boardType;
 		this.boardName = boardName;
@@ -89,12 +92,15 @@ public class Board extends AbstractAuditEntity {
 		this.useYn = true;		
 	}
 	
-	public void modifyEntity(@Nullable Board parent
-						    ,BoardType boardType
-						    ,String boardName
-						    ,String description						    
-						    ,Boolean useYn
-						    ,long sequence) {
+	public void modify(
+			String appUrl,
+			@Nullable Board parent,
+		    BoardType boardType,
+		    String boardName,
+		    String description,						    
+		    Boolean useYn,
+		    long sequence) {
+		this.setAppUrl(appUrl);
 		this.parent = parent;
 		this.boardType = boardType;
 		this.boardName = boardName;

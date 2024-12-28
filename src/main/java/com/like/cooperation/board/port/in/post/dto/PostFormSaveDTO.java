@@ -13,8 +13,8 @@ public record PostFormSaveDTO(
 		String clientAppUrl,
 		String companyCode,
 		String boardId,
-		String articleId,
-		String articleParentId,
+		String postId,
+		String postParentId,
 		String userId,
 		@NotEmpty(message="제목은 필수 입력 사항입니다.")
 		String title,

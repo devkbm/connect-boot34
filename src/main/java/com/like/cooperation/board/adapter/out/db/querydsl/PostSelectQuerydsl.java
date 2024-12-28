@@ -12,7 +12,7 @@ import com.querydsl.jpa.impl.JPAQueryFactory;
 @Repository
 public class PostSelectQuerydsl {
 		
-	private final QPost qArticle = QPost.post;	
+	private final QPost qPost = QPost.post;	
 	
 	private JPAQueryFactory queryFactory;
 	
@@ -24,25 +24,25 @@ public class PostSelectQuerydsl {
 	public PostFormSelectDTO get(String readerUserId, Long articleId) {
 		
 		Expression<Boolean> editable = new CaseBuilder()
-				.when(qArticle.userId.eq(readerUserId)).then(true)
+				.when(qPost.userId.eq(readerUserId)).then(true)
 				.otherwise(false)
 				.as("editable");
 		
 		return queryFactory
 				.select(
 					Projections.fields(PostFormSelectDTO.class,
-						qArticle.board.boardId,
-						qArticle.articleId,
-						qArticle.articleParentId,
-						qArticle.userId.as("userName"),
-						qArticle.content.title,
-						qArticle.content.contents,
-						qArticle.hitCount,
-						qArticle.depth,
+						qPost.board.boardId,
+						qPost.postId,
+						qPost.postParentId,
+						qPost.userId.as("userName"),
+						qPost.content.title,
+						qPost.content.contents,
+						qPost.hitCount,
+						qPost.depth,
 						editable
 					))
-			   .from(qArticle)				   
-			   .where(qArticle.articleId.eq(articleId))
+			   .from(qPost)				   
+			   .where(qPost.postId.eq(articleId))
 			   .fetchFirst();
 	}	
 	

@@ -45,13 +45,14 @@ public class BoardSaveDTOMapper {
 	}	
 	
 	public static void modifyBoard(BoardSaveDTO dto, Board board, Board parentBoard) {
-		board.modifyEntity(parentBoard
-				          ,BoardType.valueOf(dto.boardType())
-				          ,dto.boardName()
-				          ,dto.boardDescription()					          
-				          ,dto.useYn()
-				          ,dto.sequence());
-		
-		board.setAppUrl(dto.clientAppUrl());
+		board.modify(				
+				dto.clientAppUrl(),
+				parentBoard,
+				BoardType.valueOf(dto.boardType()),
+				dto.boardName(),
+	          	dto.boardDescription(),					          
+	          	dto.useYn(),
+	          	dto.sequence()
+				);		
 	}
 }

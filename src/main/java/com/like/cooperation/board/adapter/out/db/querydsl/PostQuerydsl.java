@@ -16,7 +16,7 @@ public class PostQuerydsl implements PostQueryRepository {
 
 	private JPAQueryFactory queryFactory;
 	
-	private final QPost qArticle = QPost.post;	
+	private final QPost qPost = QPost.post;	
 	private final QPostAttachedFile qAttachedFile = QPostAttachedFile.postAttachedFile;
 	// private final QArticleCheck qArticleCheck = QArticleCheck.articleCheck;	
 	
@@ -26,22 +26,22 @@ public class PostQuerydsl implements PostQueryRepository {
 	
 	public List<Post> getArticleList(Long boardId) { 			
 		
-		return queryFactory.select(qArticle)
-						   .from(qArticle)	
-						   .leftJoin(qArticle.files, qAttachedFile)
+		return queryFactory.select(qPost)
+						   .from(qPost)	
+						   .leftJoin(qPost.files, qAttachedFile)
 						   .fetchJoin()
-						   .where(qArticle.board.boardId.eq(boardId))							
+						   .where(qPost.board.boardId.eq(boardId))							
 						   .fetch();				
 	}
 	
 	@Override
 	public List<Post> getArticleList(Predicate condition) {
-		return queryFactory.select(qArticle).distinct()
-				   .from(qArticle)		  				   
-				   .leftJoin(qArticle.files, qAttachedFile)
+		return queryFactory.select(qPost).distinct()
+				   .from(qPost)		  				   
+				   .leftJoin(qPost.files, qAttachedFile)
 				   .fetchJoin()		  				   				   
 				   .where(condition)
-				   .orderBy(qArticle.articleId.desc())
+				   .orderBy(qPost.postId.desc())
 				   .fetch();
 	}	
 	

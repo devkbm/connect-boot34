@@ -52,12 +52,12 @@ public class PostSaveByJsonService implements PostSaveByJsonUseCase {
 		Board board = boardDbPort.select(Base64Util.fromBase64Decode(dto.boardId()))
 								 .orElseThrow(() -> new IllegalArgumentException("존재 하지 않은 게시판입니다."));		
 						
-		Post entity = StringUtils.hasText(dto.articleId()) ? this.findArticle(dto.articleId()) : null; 
+		Post entity = StringUtils.hasText(dto.postId()) ? this.findArticle(dto.postId()) : null; 
 								
 		if (entity == null) {
-			entity = PostFormSaveDTOMapper.newArticle(dto, board); 
+			entity = PostFormSaveDTOMapper.create(dto, board); 
 		} else {
-			PostFormSaveDTOMapper.modifyArticle(dto, entity);
+			PostFormSaveDTOMapper.modify(dto, entity);
 		}
 				
 		this.dbPort.save(entity);		

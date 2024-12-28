@@ -10,7 +10,7 @@
 	
 	<select id="getArticleList" parameterType="map" resultType="com.like.cooperation.board.port.in.post.dto.PostListDTO"><![CDATA[
 		SELECT A.BOARD_ID			boardId
-		     , A.POST_ID			articleId
+		     , A.POST_ID			postId
 		     , D.USER_NAME 			writerName
 		     , D.FK_FILE			writerImage	         	         	        
 	         , A.TITLE				title	         
@@ -36,7 +36,7 @@
 		    ON (A.POST_ID = C.POST_ID
 		    AND C.USER_ID = #{userId})
 		  	LEFT OUTER JOIN COMUSER D
-		  	ON (A.CREATED_USER_ID = D.USER_ID) 
+		  	ON (A.USER_ID = D.USER_ID) 
 		 WHERE 1=1		
            AND A.BOARD_ID = #{data.boardId}
     	]]>          	

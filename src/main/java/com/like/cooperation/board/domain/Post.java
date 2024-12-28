@@ -40,11 +40,11 @@ public class Post extends AbstractAuditEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="POST_ID")
-	Long articleId;	
+	Long postId;	
 		
 	@Comment("게시글 부모ID")
 	@Column(name="POST_P_ID")
-	Long articleParentId;		
+	Long postParentId;		
 			
 	@Column(name="USER_ID")
 	String userId;
@@ -78,29 +78,32 @@ public class Post extends AbstractAuditEntity {
 			    			
 	@Transient
 	Boolean editable;
-		
-	public Post(Board board
-			      ,String userId
-			      ,PostContents content
-			      ,PostPassword password
-				  ,List<PostAttachedFile> files) {
+	
+	public Post(
+			String appUrl,
+			Board board,
+		    String userId,
+		    PostContents content,
+		    PostPassword password,
+			List<PostAttachedFile> files) {
 		
 		if (board == null) throw new IllegalArgumentException("게시판이 존재하지 않습니다.");
 		
+		this.setAppUrl(appUrl);
 		this.board = board;
 		this.content = content;
 		this.password = password;
 		this.files = files;				
 	}
 	
-	public void modifyEntity(PostContents content
-							,boolean isFiexedTop) {
+	public void modifyEntity(String appUrl, PostContents content, boolean isFiexedTop) {
+		this.setAppUrl(appUrl);
 		this.content = content;				
 		this.isFixedTop = isFiexedTop;
 	}
 	
 	public Long getId() {
-		return this.articleId;
+		return this.postId;
 	}
 				
 	public void setBoard(Board board) {
@@ -112,7 +115,7 @@ public class Post extends AbstractAuditEntity {
 	}
 	
 	public boolean hasParentArticle() {		
-		return this.articleParentId != this.articleId ? true : false;
+		return this.postParentId != this.postId ? true : false;
 	}
 						
 	public void updateHitCnt() {

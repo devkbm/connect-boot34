@@ -21,8 +21,8 @@ public record PostSaveMultipartDTO(
 		String clientAppUrl,
 		String companyCode,
 		Long boardId,
-		Long articleId,
-		Long articleParentId,
+		Long postId,
+		Long postParentId,
 		@NotEmpty(message="제목은 필수 입력 사항입니다.")
 		String title,
 		String contents,
@@ -36,7 +36,7 @@ public record PostSaveMultipartDTO(
 	public Post newArticle(Board board) {									    			
 		Post entity = Post.builder()	
 					    .board(board)
-					    .articleId(articleId)
+					    .postId(postId)
 					    .content(new PostContents(title, contents))						  						  
 					    .password(new PostPassword(this.pwd))
 					    .isFixedTop(isFiexedTop)
@@ -54,6 +54,6 @@ public record PostSaveMultipartDTO(
 	}
     
     public boolean isNew() {
-    	return this.articleId() == null ? true : false;
+    	return this.postId() == null ? true : false;
     }
 }
