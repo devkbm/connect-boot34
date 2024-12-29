@@ -24,7 +24,7 @@ public class PostSelectController {
 		this.useCase = useCase;
 	}		
 	
-	@GetMapping("/api/grw/board/article/{id}")
+	@GetMapping("/api/grw/board/post/{id}")
 	public ResponseEntity<?> getArticle(@PathVariable String id, HttpSession session) {						
 							
 		Long decodedId = Base64Util.fromBase64Decode(id);

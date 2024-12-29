@@ -14,7 +14,7 @@
 		     , D.USER_NAME 			writerName
 		     , D.FK_FILE			writerImage	         	         	        
 	         , A.TITLE				title	         
-	         , A.HIT_CNT			hitCount	         			 	        
+	         , NVL(A.HIT_CNT,0)		hitCount	         			 	        
 	         , CASE WHEN A.USER_ID = #{userId} THEN true
 	                ELSE false
 	           END					editable

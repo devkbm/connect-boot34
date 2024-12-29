@@ -23,7 +23,7 @@ public class PostSaveController {
 		this.useCase = useCase;
 	}	
 					
-	@PostMapping("/api/grw/board/article")
+	@PostMapping("/api/grw/board/post")
 	@ResponseBody
 	public ResponseEntity<?> saveArticleJson(@RequestBody @Valid PostFormSaveDTO dto) throws Exception {															
 										

@@ -20,7 +20,7 @@ public class PostSaveByMultiPartController {
 		this.useCase = useCase;
 	}	
 			
-	@PostMapping("/api/grw/board/article_multipart")
+	@PostMapping("/api/grw/board/post_multipart")
 	@ResponseBody
 	public ResponseEntity<?> saveArticleWithMultiPartFile(PostSaveMultipartDTO dto) throws Exception {													
 											

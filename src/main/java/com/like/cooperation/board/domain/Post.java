@@ -13,6 +13,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import org.hibernate.annotations.Comment;
+import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.like.core.jpa.domain.AbstractAuditEntity;
@@ -29,9 +30,10 @@ import com.like.core.jpa.domain.AbstractAuditEntity;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Entity
+@DynamicUpdate
 @Table(name = "GRWPOST")
 @EntityListeners(AuditingEntityListener.class)
+@Entity
 public class Post extends AbstractAuditEntity {		
 
 	/**
@@ -59,9 +61,10 @@ public class Post extends AbstractAuditEntity {
 	@Column(name="DEPTH_LEVEL")
     int depth;
 	
+	
 	@Comment("조회 수")
 	@Column(name="HIT_CNT")
-    int hitCount;
+    int hitCount;	
 	
 	@Column(name="TOP_FIXED_YN")
 	boolean isFixedTop;

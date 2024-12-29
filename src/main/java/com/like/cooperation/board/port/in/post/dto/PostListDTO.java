@@ -2,7 +2,7 @@ package com.like.cooperation.board.port.in.post.dto;
 
 public record PostListDTO(
 	Long boardId,
-	Long articleId,
+	Long postId,
 	String writerName,
 	String writerImage,
 	String title,

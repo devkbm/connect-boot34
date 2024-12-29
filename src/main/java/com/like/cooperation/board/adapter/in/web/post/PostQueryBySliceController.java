@@ -21,8 +21,8 @@ public class PostQueryBySliceController {
 		this.useCase = useCase;
 	}	
 	
-	@GetMapping("/api/grw/board/article_slice")
-	public ResponseEntity<?> getArticleSlice(PostQueryDTO dto, Pageable pageable) {
+	@GetMapping("/api/grw/board/post_slice")
+	public ResponseEntity<?> getSlice(PostQueryDTO dto, Pageable pageable) {
 																			  											
 		Slice<PostListDTO> list = useCase.getAritlceSlice(SessionUtil.getUserId(), dto, pageable);
 		

@@ -19,7 +19,7 @@ public class PostUpdateHitCountController {
 		this.useCase = useCase;
 	}
 	
-	@GetMapping("/api/grw/board/article/hitcnt")
+	@GetMapping("/api/grw/board/post/hitcnt")
 	public ResponseEntity<?> updateArticleHitCnt(@RequestParam String id,
 												 @RequestParam String userId) {								
 				

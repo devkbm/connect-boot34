@@ -12,7 +12,7 @@ import com.querydsl.jpa.impl.JPAQueryFactory;
 @Repository
 public class PostSelectQuerydsl {
 		
-	private final QPost qPost = QPost.post;	
+	private final QPost qPost = QPost.post;			
 	
 	private JPAQueryFactory queryFactory;
 	
@@ -21,7 +21,7 @@ public class PostSelectQuerydsl {
 	}	
 	
 	
-	public PostFormSelectDTO get(String readerUserId, Long articleId) {
+	public PostFormSelectDTO get(String readerUserId, Long postId) {
 		
 		Expression<Boolean> editable = new CaseBuilder()
 				.when(qPost.userId.eq(readerUserId)).then(true)
@@ -41,8 +41,8 @@ public class PostSelectQuerydsl {
 						qPost.depth,
 						editable
 					))
-			   .from(qPost)				   
-			   .where(qPost.postId.eq(articleId))
+			   .from(qPost)				
+			   .where(qPost.postId.eq(postId))
 			   .fetchFirst();
 	}	
 	
