@@ -3,9 +3,9 @@ package com.like.system.webresource.port.in;
 import java.util.List;
 
 import com.like.system.webresource.port.in.dto.WebResourceQueryDTO;
-import com.like.system.webresource.port.in.dto.WebResourceSaveDTO;
+import com.like.system.webresource.port.in.dto.WebResourceSelectDTO;
 
 public interface WebResourceQueryUseCase {
 
-	List<WebResourceSaveDTO> getResourceList(WebResourceQueryDTO condition);
+	List<WebResourceSelectDTO> getResourceList(WebResourceQueryDTO condition);
 }
