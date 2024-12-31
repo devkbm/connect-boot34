@@ -4,7 +4,10 @@ import com.like.system.webresource.domain.WebResource;
 
 public class WebResourceFormSelectDTOMapper {
 
-	public static WebResourceFormSelectDTO toDTO(WebResource entity) {								
+	public static WebResourceFormSelectDTO toDTO(WebResource entity) {
+		
+		if (entity == null) return null; 
+		
 		return WebResourceFormSelectDTO
 					.builder()				    
 				    .resourceId(entity.getId())
