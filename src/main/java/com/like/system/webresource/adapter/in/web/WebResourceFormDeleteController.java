@@ -7,19 +7,19 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.like.system.webresource.port.in.WebResourceDeleteUseCase;
+import com.like.system.webresource.port.in.WebResourceFormDeleteUseCase;
 
 @RestController
-public class WebResourceDeleteController {
+public class WebResourceFormDeleteController {
 
-	private WebResourceDeleteUseCase useCase;
+	private WebResourceFormDeleteUseCase useCase;
 	
-	public WebResourceDeleteController(WebResourceDeleteUseCase useCase) {
+	public WebResourceFormDeleteController(WebResourceFormDeleteUseCase useCase) {
 		this.useCase = useCase;		
 	}	
 	
 	@DeleteMapping("/api/system/webresource/{id}")
-	public ResponseEntity<?> delResource(@PathVariable String id) {				
+	public ResponseEntity<?> delete(@PathVariable String id) {				
 												
 		useCase.delete(id);							
 		

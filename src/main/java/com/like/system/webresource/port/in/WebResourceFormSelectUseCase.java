@@ -2,7 +2,7 @@ package com.like.system.webresource.port.in;
 
 import com.like.system.webresource.port.in.dto.WebResourceSaveDTO;
 
-public interface WebResourceSelectUseCase {
+public interface WebResourceFormSelectUseCase {
 
 	WebResourceSaveDTO select(String webResourceId);
 }

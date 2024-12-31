@@ -9,21 +9,21 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.like.system.webresource.port.in.WebResourceSaveUseCase;
+import com.like.system.webresource.port.in.WebResourceFormSaveUseCase;
 import com.like.system.webresource.port.in.dto.WebResourceSaveDTO;
 
 @RestController
-public class WebResourceSaveController {
+public class WebResourceFormSaveController {
 
-	private WebResourceSaveUseCase useCase;
+	private WebResourceFormSaveUseCase useCase;
 	
-	public WebResourceSaveController(WebResourceSaveUseCase useCase) {
+	public WebResourceFormSaveController(WebResourceFormSaveUseCase useCase) {
 		this.useCase = useCase;		
 	}
 		
 		
 	@PostMapping("/api/system/webresource")
-	public ResponseEntity<?> saveResource(@RequestBody @Valid WebResourceSaveDTO dto) throws Exception {
+	public ResponseEntity<?> save(@RequestBody @Valid WebResourceSaveDTO dto) throws Exception {
 																												
 		useCase.save(dto);																						
 										 					

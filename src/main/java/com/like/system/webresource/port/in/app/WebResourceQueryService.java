@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.like.system.webresource.port.in.WebResourceQueryUseCase;
 import com.like.system.webresource.port.in.dto.WebResourceQueryDTO;
-import com.like.system.webresource.port.in.dto.WebResourceSelectDTO;
+import com.like.system.webresource.port.in.dto.WebResourceQueryResultDTO;
 import com.like.system.webresource.port.out.WebResourceQueryDbPort;
 
 @Service
@@ -19,7 +19,7 @@ public class WebResourceQueryService implements WebResourceQueryUseCase {
 	}	
 
 	@Override
-	public List<WebResourceSelectDTO> getResourceList(WebResourceQueryDTO dto) {	
+	public List<WebResourceQueryResultDTO> getResourceList(WebResourceQueryDTO dto) {	
 		return this.port.getResourceList(dto);
 	}
 }

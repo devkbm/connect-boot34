@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import com.like.system.webresource.domain.QWebResource;
 import com.like.system.webresource.port.in.dto.WebResourceQueryDTO;
-import com.like.system.webresource.port.in.dto.WebResourceSelectDTO;
+import com.like.system.webresource.port.in.dto.WebResourceQueryResultDTO;
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 
@@ -21,10 +21,10 @@ public class WebResourceQuerydsl {
 		this.queryFactory = queryFactory;
 	}
 	
-	public List<WebResourceSelectDTO> getList(WebResourceQueryDTO condition) {
+	public List<WebResourceQueryResultDTO> getList(WebResourceQueryDTO condition) {
 		return queryFactory
 				.select(
-					Projections.fields(WebResourceSelectDTO.class,							
+					Projections.fields(WebResourceQueryResultDTO.class,							
 							qWebResource.id.as("resourceId"),
 							qWebResource.name.as("resourceName"),
 							qWebResource.type.as("resourceType"),
@@ -38,10 +38,10 @@ public class WebResourceQuerydsl {
 	}
 	
 	
-	public WebResourceSelectDTO get(WebResourceQueryDTO condition) {
+	public WebResourceQueryResultDTO get(WebResourceQueryDTO condition) {
 		return queryFactory
 				.select(
-					Projections.fields(WebResourceSelectDTO.class,							
+					Projections.fields(WebResourceQueryResultDTO.class,							
 							qWebResource.id.as("resourceId"),
 							qWebResource.name.as("resourceName"),
 							qWebResource.type.as("resourceType"),

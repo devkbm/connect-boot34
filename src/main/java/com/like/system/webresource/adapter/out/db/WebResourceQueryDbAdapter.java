@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.like.system.webresource.adapter.out.db.querydsl.WebResourceQuerydsl;
 import com.like.system.webresource.port.in.dto.WebResourceQueryDTO;
-import com.like.system.webresource.port.in.dto.WebResourceSelectDTO;
+import com.like.system.webresource.port.in.dto.WebResourceQueryResultDTO;
 import com.like.system.webresource.port.out.WebResourceQueryDbPort;
 
 @Repository
@@ -21,7 +21,7 @@ public class WebResourceQueryDbAdapter implements WebResourceQueryDbPort {
 	}	
 
 	@Override
-	public List<WebResourceSelectDTO> getResourceList(WebResourceQueryDTO dto) {
+	public List<WebResourceQueryResultDTO> getResourceList(WebResourceQueryDTO dto) {
 		return this.query.getList(dto);
 	}	
 

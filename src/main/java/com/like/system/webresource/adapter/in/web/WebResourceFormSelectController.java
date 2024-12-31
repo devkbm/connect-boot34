@@ -7,20 +7,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.like.system.webresource.port.in.WebResourceSelectUseCase;
+import com.like.system.webresource.port.in.WebResourceFormSelectUseCase;
 import com.like.system.webresource.port.in.dto.WebResourceSaveDTO;;
 
 @RestController
-public class WebResourceSelectController {
+public class WebResourceFormSelectController {
 
-	private WebResourceSelectUseCase useCase;
+	private WebResourceFormSelectUseCase useCase;
 	
-	public WebResourceSelectController(WebResourceSelectUseCase useCase) {
+	public WebResourceFormSelectController(WebResourceFormSelectUseCase useCase) {
 		this.useCase = useCase;		
 	}
 	
 	@GetMapping("/api/system/webresource/{id}")
-	public ResponseEntity<?> getResource(@PathVariable String id) {				
+	public ResponseEntity<?> select(@PathVariable String id) {				
 				 							
 		WebResourceSaveDTO dto = this.useCase.select(id);
 		

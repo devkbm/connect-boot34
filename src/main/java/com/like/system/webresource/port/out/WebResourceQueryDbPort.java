@@ -4,8 +4,8 @@ import java.util.List;
 
 
 import com.like.system.webresource.port.in.dto.WebResourceQueryDTO;
-import com.like.system.webresource.port.in.dto.WebResourceSelectDTO;
+import com.like.system.webresource.port.in.dto.WebResourceQueryResultDTO;
 
 public interface WebResourceQueryDbPort {
-	List<WebResourceSelectDTO> getResourceList(WebResourceQueryDTO dto);
+	List<WebResourceQueryResultDTO> getResourceList(WebResourceQueryDTO dto);
 }

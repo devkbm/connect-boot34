@@ -13,7 +13,7 @@ import com.like.common.dto.HtmlSelectOptionRecord;
 import com.like.system.webresource.domain.WebResourceType;
 import com.like.system.webresource.port.in.WebResourceQueryUseCase;
 import com.like.system.webresource.port.in.dto.WebResourceQueryDTO;
-import com.like.system.webresource.port.in.dto.WebResourceSaveDTO;
+import com.like.system.webresource.port.in.dto.WebResourceQueryResultDTO;
 
 @RestController
 public class WebResourceQueryController {
@@ -27,7 +27,7 @@ public class WebResourceQueryController {
 	@GetMapping("/api/system/webresource")
 	public ResponseEntity<?> getWebResourceList(WebResourceQueryDTO condition) {
 										
-		List<WebResourceSaveDTO> dtoList = useCase.getResourceList(condition);
+		List<WebResourceQueryResultDTO> dtoList = useCase.getResourceList(condition);
 		
 		return toList(dtoList, String.format("%d 건 조회되었습니다.", dtoList.size())); 
 	}

@@ -1,5 +1,5 @@
 package com.like.system.webresource.port.in;
 
-public interface WebResourceDeleteUseCase {
+public interface WebResourceFormDeleteUseCase {
 	void delete(String webResourceId);
 }

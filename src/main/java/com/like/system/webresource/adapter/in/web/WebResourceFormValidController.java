@@ -7,15 +7,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.like.system.webresource.port.in.WebResourceSelectUseCase;
+import com.like.system.webresource.port.in.WebResourceFormSelectUseCase;
 import com.like.system.webresource.port.in.dto.WebResourceSaveDTO;
 
 @RestController
 public class WebResourceFormValidController {
 
-	private WebResourceSelectUseCase service;
+	private WebResourceFormSelectUseCase service;
 	
-	public WebResourceFormValidController(WebResourceSelectUseCase service) {
+	public WebResourceFormValidController(WebResourceFormSelectUseCase service) {
 		this.service = service;
 	}
 	
