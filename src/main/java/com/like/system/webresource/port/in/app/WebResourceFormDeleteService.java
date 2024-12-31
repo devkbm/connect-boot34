@@ -6,11 +6,11 @@ import com.like.system.webresource.port.in.WebResourceFormDeleteUseCase;
 import com.like.system.webresource.port.out.WebResourceCommandDbPort;
 
 @Service
-public class WebResourceDeleteService implements WebResourceFormDeleteUseCase {
+public class WebResourceFormDeleteService implements WebResourceFormDeleteUseCase {
 
 	WebResourceCommandDbPort port;
 	
-	WebResourceDeleteService(WebResourceCommandDbPort port) {
+	WebResourceFormDeleteService(WebResourceCommandDbPort port) {
 		this.port = port;
 	}
 	

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.like.system.webresource.port.in.WebResourceFormSelectUseCase;
-import com.like.system.webresource.port.in.dto.WebResourceSaveDTO;;
+import com.like.system.webresource.port.in.dto.WebResourceFormSelectDTO;
 
 @RestController
 public class WebResourceFormSelectController {
@@ -22,7 +22,7 @@ public class WebResourceFormSelectController {
 	@GetMapping("/api/system/webresource/{id}")
 	public ResponseEntity<?> select(@PathVariable String id) {				
 				 							
-		WebResourceSaveDTO dto = this.useCase.select(id);
+		WebResourceFormSelectDTO dto = this.useCase.select(id);
 		
 		return toOne(dto, String.format("%d 건 조회되었습니다.", dto != null ? 1 : 0));
 	}	
