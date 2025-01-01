@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
 import com.like.hrm.staff.port.in.license.StaffLicenseQueryUseCase;
-import com.like.hrm.staff.port.in.license.StaffLicenseSaveDTO;
+import com.like.hrm.staff.port.in.license.dto.StaffLicenseQueryResultDTO;
 
 @RestController
 public class StaffLicenseQueryController {
@@ -26,7 +26,7 @@ public class StaffLicenseQueryController {
 	@GetMapping("/api/hrm/staff/{staffId}/license")
 	public ResponseEntity<?> getLicense(@RequestParam String companyCode, @PathVariable String staffId) {
 						
-		List<StaffLicenseSaveDTO> list = useCase.select(companyCode, staffId);
+		List<StaffLicenseQueryResultDTO> list = useCase.select(companyCode, staffId);
 		
 		return toList(list, MessageUtil.getQueryMessage(list.size()));
 	}

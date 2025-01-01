@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
 import com.like.hrm.staff.port.in.family.StaffFamilyQueryUseCase;
-import com.like.hrm.staff.port.in.family.StaffFamilySaveDTO;
+import com.like.hrm.staff.port.in.family.dto.StaffFamilyQueryResultDTO;
 
 @RestController
 public class StaffFamilyQueryController {
@@ -26,7 +26,7 @@ public class StaffFamilyQueryController {
 	@GetMapping("/api/hrm/staff/{staffId}/family")
 	public ResponseEntity<?> getFamilyList(@RequestParam String companyCode, @PathVariable String staffId) {
 													
-		List<StaffFamilySaveDTO> list = useCase.select(companyCode,staffId);
+		List<StaffFamilyQueryResultDTO> list = useCase.select(companyCode,staffId);
 		
 		return toList(list, MessageUtil.getQueryMessage(list.size()));						
 	}

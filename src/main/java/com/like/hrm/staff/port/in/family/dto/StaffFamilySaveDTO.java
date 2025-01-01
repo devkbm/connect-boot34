@@ -1,4 +1,4 @@
-package com.like.hrm.staff.port.in.family;
+package com.like.hrm.staff.port.in.family.dto;
 
 import com.like.hrm.staff.domain.Staff;
 import com.like.hrm.staff.domain.family.StaffFamily;

@@ -1,4 +1,4 @@
-package com.like.hrm.staff.port.in.license;
+package com.like.hrm.staff.port.in.license.dto;
 
 import java.time.LocalDate;
 
