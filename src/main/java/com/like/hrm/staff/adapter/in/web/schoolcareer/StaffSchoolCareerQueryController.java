@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
 import com.like.hrm.staff.port.in.schoolcareer.StaffSchoolCareerQueryUseCase;
-import com.like.hrm.staff.port.in.schoolcareer.StaffSchoolCareerSaveDTO;
+import com.like.hrm.staff.port.in.schoolcareer.dto.StaffSchoolCareerQueryResultDTO;
 
 @RestController
 public class StaffSchoolCareerQueryController {
@@ -25,7 +25,7 @@ public class StaffSchoolCareerQueryController {
 	
 	@GetMapping("/api/hrm/staff/{staffId}/schoolcareer")
 	public ResponseEntity<?> getSchoolCareer(@RequestParam String companyCode, @PathVariable String staffId) {			
-		List<StaffSchoolCareerSaveDTO> list = useCase.select(companyCode, staffId);
+		List<StaffSchoolCareerQueryResultDTO> list = useCase.select(companyCode, staffId);
 		
 		return toList(list, MessageUtil.getQueryMessage(list.size()));
 	}

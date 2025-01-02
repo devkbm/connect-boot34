@@ -10,7 +10,7 @@ import lombok.AccessLevel;
 import lombok.Builder;
 
 @Builder(access = AccessLevel.PRIVATE)
-public record StaffLicenseSaveDTO(
+public record StaffLicenseFormDTO(
 		String clientAppUrl,
 		String companyCode,			
 		@NotEmpty String staffNo,
@@ -49,10 +49,10 @@ public record StaffLicenseSaveDTO(
 		entity.setAppUrl(clientAppUrl);
 	}	
 	
-	public static StaffLicenseSaveDTO toDTO(StaffLicense entity)  {
+	public static StaffLicenseFormDTO toDTO(StaffLicense entity)  {
 		if (entity == null) return null; 
 		
-		return StaffLicenseSaveDTO.builder()
+		return StaffLicenseFormDTO.builder()
 				   .companyCode(entity.getStaff().getId().companyCode())
 				   .staffNo(entity.getStaff().getId().staffNo())
 				   .staffName(entity.getStaff().getName().getName())

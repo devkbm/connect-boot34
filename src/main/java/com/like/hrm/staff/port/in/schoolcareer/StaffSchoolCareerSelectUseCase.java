@@ -1,5 +1,7 @@
 package com.like.hrm.staff.port.in.schoolcareer;
 
+import com.like.hrm.staff.port.in.schoolcareer.dto.StaffSchoolCareerFormDTO;
+
 public interface StaffSchoolCareerSelectUseCase {	
-	StaffSchoolCareerSaveDTO select(String companyCode, String staffNo, Long seq);
+	StaffSchoolCareerFormDTO select(String companyCode, String staffNo, Long seq);
 }

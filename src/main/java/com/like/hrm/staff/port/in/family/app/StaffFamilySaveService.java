@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import com.like.hrm.staff.domain.Staff;
 import com.like.hrm.staff.domain.family.StaffFamily;
 import com.like.hrm.staff.port.in.family.StaffFamilySaveUseCase;
-import com.like.hrm.staff.port.in.family.dto.StaffFamilySaveDTO;
+import com.like.hrm.staff.port.in.family.dto.StaffFamilyFormDTO;
 import com.like.hrm.staff.port.out.StaffCommandDbPort;
 
 import jakarta.persistence.EntityNotFoundException;
@@ -20,7 +20,7 @@ public class StaffFamilySaveService implements StaffFamilySaveUseCase {
 	}
 	
 	@Override
-	public void save(StaffFamilySaveDTO dto) {
+	public void save(StaffFamilyFormDTO dto) {
 		Staff staff = this.dbPort.select(dto.companyCode(), dto.staffNo())
 								 .orElseThrow(() -> new EntityNotFoundException(dto.staffNo() + " 직원정보가 존재하지 않습니다."));
 		StaffFamily entity = staff.getFamilyList().get(staff, dto.seq());

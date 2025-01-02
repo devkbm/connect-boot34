@@ -1,4 +1,4 @@
-package com.like.hrm.staff.port.in.schoolcareer;
+package com.like.hrm.staff.port.in.schoolcareer.dto;
 
 import java.time.LocalDate;
 
@@ -10,7 +10,7 @@ import lombok.AccessLevel;
 import lombok.Builder;
 
 @Builder(access = AccessLevel.PRIVATE)
-public record StaffSchoolCareerSaveDTO(
+public record StaffSchoolCareerFormDTO(
 		String clientAppUrl,
 		String companyCode,			
 		@NotEmpty String staffNo,
@@ -59,10 +59,10 @@ public record StaffSchoolCareerSaveDTO(
 		entity.setAppUrl(clientAppUrl);
 	}	
 	
-	public static StaffSchoolCareerSaveDTO toDTO(StaffSchoolCareer entity) {
+	public static StaffSchoolCareerFormDTO toDTO(StaffSchoolCareer entity) {
 		if (entity == null) return null;			
 								
-		return StaffSchoolCareerSaveDTO.builder()
+		return StaffSchoolCareerFormDTO.builder()
 				   .companyCode(entity.getStaff().getId().companyCode())
 				   .staffNo(entity.getStaff().getId().staffNo())
 				   .staffName(entity.getStaff().getName().getName())

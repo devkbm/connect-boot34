@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
 import com.like.hrm.staff.port.in.license.StaffLicenseSaveUseCase;
-import com.like.hrm.staff.port.in.license.dto.StaffLicenseSaveDTO;
+import com.like.hrm.staff.port.in.license.dto.StaffLicenseFormDTO;
 
 @RestController
 public class StaffLicenseSaveController {
@@ -23,7 +23,7 @@ public class StaffLicenseSaveController {
 	}
 		
 	@PostMapping("/api/hrm/staff/{staffId}/license")
-	public ResponseEntity<?> saveLicense(@Valid @RequestBody StaffLicenseSaveDTO dto) {						
+	public ResponseEntity<?> saveLicense(@Valid @RequestBody StaffLicenseFormDTO dto) {						
 				
 		useCase.save(dto);
 											 				

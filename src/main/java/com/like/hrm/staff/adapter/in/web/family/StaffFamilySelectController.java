@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
 import com.like.hrm.staff.port.in.family.StaffFamilySelectUseCase;
-import com.like.hrm.staff.port.in.family.dto.StaffFamilySaveDTO;
+import com.like.hrm.staff.port.in.family.dto.StaffFamilyFormDTO;
 
 
 @RestController
@@ -27,7 +27,7 @@ public class StaffFamilySelectController {
 									  ,@PathVariable String staffId
 									  ,@PathVariable Long seq) {				
 				
-		StaffFamilySaveDTO dto =  useCase.select(companyCode, staffId, seq);
+		StaffFamilyFormDTO dto =  useCase.select(companyCode, staffId, seq);
 		
 		return toOne(dto, MessageUtil.getQueryMessage(dto == null ? 0 : 1));							
 	}

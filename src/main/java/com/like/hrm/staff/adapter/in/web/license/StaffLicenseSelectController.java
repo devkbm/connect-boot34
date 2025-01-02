@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
 import com.like.hrm.staff.port.in.license.StaffLicenseSelectUseCase;
-import com.like.hrm.staff.port.in.license.dto.StaffLicenseSaveDTO;
+import com.like.hrm.staff.port.in.license.dto.StaffLicenseFormDTO;
 
 @RestController
 public class StaffLicenseSelectController {
@@ -26,7 +26,7 @@ public class StaffLicenseSelectController {
 									   ,@PathVariable String staffId
 									   ,@PathVariable Long id) {
 		
-		StaffLicenseSaveDTO dto = useCase.select(companyCode, staffId, id); 
+		StaffLicenseFormDTO dto = useCase.select(companyCode, staffId, id); 
 		
 		return toOne(dto, MessageUtil.getQueryMessage(dto == null ? 0 : 1));
 	}

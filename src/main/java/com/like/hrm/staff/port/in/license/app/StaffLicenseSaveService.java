@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import com.like.hrm.staff.domain.Staff;
 import com.like.hrm.staff.domain.license.StaffLicense;
 import com.like.hrm.staff.port.in.license.StaffLicenseSaveUseCase;
-import com.like.hrm.staff.port.in.license.dto.StaffLicenseSaveDTO;
+import com.like.hrm.staff.port.in.license.dto.StaffLicenseFormDTO;
 import com.like.hrm.staff.port.out.StaffCommandDbPort;
 
 import jakarta.persistence.EntityNotFoundException;
@@ -20,7 +20,7 @@ public class StaffLicenseSaveService implements StaffLicenseSaveUseCase {
 	}
 	
 	@Override
-	public void save(StaffLicenseSaveDTO dto) {
+	public void save(StaffLicenseFormDTO dto) {
 		Staff staff = this.dbPort.select(dto.companyCode(), dto.staffNo())
 								 .orElseThrow(() -> new EntityNotFoundException(dto.staffNo() + " 직원정보가 존재하지 않습니다."));
 		StaffLicense license = staff.getLicenseList().get(staff, dto.seq());

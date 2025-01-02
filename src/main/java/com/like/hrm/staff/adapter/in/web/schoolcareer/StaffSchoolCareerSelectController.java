@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
-import com.like.hrm.staff.port.in.schoolcareer.StaffSchoolCareerSaveDTO;
 import com.like.hrm.staff.port.in.schoolcareer.StaffSchoolCareerSelectUseCase;
+import com.like.hrm.staff.port.in.schoolcareer.dto.StaffSchoolCareerFormDTO;
 
 @RestController
 public class StaffSchoolCareerSelectController {
@@ -25,7 +25,7 @@ public class StaffSchoolCareerSelectController {
 	public ResponseEntity<?> getSchoolCareer(@RequestParam String companyCode
 											,@PathVariable String staffId
 											,@PathVariable Long seq) {			
-		StaffSchoolCareerSaveDTO dto = useCase.select(companyCode, staffId, seq);
+		StaffSchoolCareerFormDTO dto = useCase.select(companyCode, staffId, seq);
 		
 		return toOne(dto, MessageUtil.getQueryMessage(dto == null ? 0 : 1));
 	}

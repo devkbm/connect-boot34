@@ -1,7 +1,7 @@
 package com.like.hrm.staff.port.in.license;
 
-import com.like.hrm.staff.port.in.license.dto.StaffLicenseSaveDTO;
+import com.like.hrm.staff.port.in.license.dto.StaffLicenseFormDTO;
 
 public interface StaffLicenseSelectUseCase {	
-	StaffLicenseSaveDTO select(String companyCode, String staffNo, Long seq);
+	StaffLicenseFormDTO select(String companyCode, String staffNo, Long seq);
 }
