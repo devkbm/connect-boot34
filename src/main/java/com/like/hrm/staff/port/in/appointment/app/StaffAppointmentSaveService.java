@@ -4,8 +4,8 @@ import org.springframework.stereotype.Service;
 
 import com.like.hrm.staff.domain.Staff;
 import com.like.hrm.staff.domain.appointment.AppointmentRecord;
-import com.like.hrm.staff.port.in.appointment.StaffAppointmentRecordDTO;
 import com.like.hrm.staff.port.in.appointment.StaffAppointmentSaveUseCase;
+import com.like.hrm.staff.port.in.appointment.dto.StaffAppointmentRecordDTO;
 import com.like.hrm.staff.port.out.StaffCommandDbPort;
 
 import jakarta.persistence.EntityNotFoundException;

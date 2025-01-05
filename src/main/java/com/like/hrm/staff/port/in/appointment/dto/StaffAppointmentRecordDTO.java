@@ -1,4 +1,4 @@
-package com.like.hrm.staff.port.in.appointment;
+package com.like.hrm.staff.port.in.appointment.dto;
 
 import java.time.LocalDate;
 import java.util.Optional;

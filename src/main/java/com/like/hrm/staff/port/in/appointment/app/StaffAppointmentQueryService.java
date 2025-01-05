@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.like.hrm.staff.port.in.appointment.StaffAppointmentQueryUseCase;
-import com.like.hrm.staff.port.in.appointment.StaffAppointmentRecordDTO;
+import com.like.hrm.staff.port.in.appointment.dto.StaffAppointmentQueryResultDTO;
 import com.like.hrm.staff.port.out.StaffAppointmentQueryDbPort;
 
 @Transactional(readOnly = true)
@@ -20,10 +20,8 @@ public class StaffAppointmentQueryService implements StaffAppointmentQueryUseCas
 	}
 	
 	@Override
-	public List<StaffAppointmentRecordDTO> select(String companyCode, String staffNo) {
-		return this.dbPort.select(companyCode, staffNo)
-						  .stream()
-						  .map(e -> StaffAppointmentRecordDTO.convert(e))
-						  .toList();
+	public List<StaffAppointmentQueryResultDTO> select(String companyCode, String staffNo) {
+		
+		return this.dbPort.select(companyCode, staffNo);
 	}
 }

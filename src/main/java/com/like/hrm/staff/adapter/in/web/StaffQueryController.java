@@ -36,7 +36,7 @@ public class StaffQueryController {
 		
 		return toList(list, MessageUtil.getQueryMessage(list.size()));
 	}
-	
+	/*
 	@GetMapping("/api/hrm/staff/{id}/record")
 	public ResponseEntity<?> getStaffAppointmentRecordList(@RequestParam String companyCode, @PathVariable String id) {
 		
@@ -44,6 +44,7 @@ public class StaffQueryController {
 		
 		return toList(list, MessageUtil.getQueryMessage(list.size()));
 	}
+	*/
 	
 	@GetMapping("/api/hrm/staff/{id}/currentappointment")
 	public ResponseEntity<?> getStaffCurrentAppointment(@RequestParam String companyCode, @PathVariable String id) {

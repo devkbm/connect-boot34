@@ -2,8 +2,8 @@ package com.like.hrm.staff.port.in.appointment.app;
 
 import org.springframework.stereotype.Service;
 
-import com.like.hrm.staff.port.in.appointment.StaffAppointmentRecordDTO;
 import com.like.hrm.staff.port.in.appointment.StaffAppointmentSelectUseCase;
+import com.like.hrm.staff.port.in.appointment.dto.StaffAppointmentRecordDTO;
 import com.like.hrm.staff.port.out.StaffAppointmentSelectDbPort;
 
 @Service
