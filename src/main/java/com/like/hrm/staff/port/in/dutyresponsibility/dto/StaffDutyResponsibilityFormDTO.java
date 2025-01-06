@@ -1,4 +1,4 @@
-package com.like.hrm.staff.port.in.dutyresponsibility;
+package com.like.hrm.staff.port.in.dutyresponsibility.dto;
 
 import java.time.LocalDate;
 
@@ -9,7 +9,7 @@ import lombok.AccessLevel;
 import lombok.Builder;
 
 @Builder(access = AccessLevel.PRIVATE)
-public record StaffDutyResponsibilityDTO(
+public record StaffDutyResponsibilityFormDTO(
 		String clientAppUrl,
 		String companyCode,			
 		String staffNo,
@@ -50,10 +50,10 @@ public record StaffDutyResponsibilityDTO(
 	}
 	
 	
-	public static StaffDutyResponsibilityDTO toDTO(StaffDuty entity) {			
+	public static StaffDutyResponsibilityFormDTO toDTO(StaffDuty entity) {			
 		if (entity == null) return null;
 		
-		return StaffDutyResponsibilityDTO.builder()
+		return StaffDutyResponsibilityFormDTO.builder()
 				   .companyCode(entity.getStaff().getId().companyCode())
 				   .staffNo(entity.getStaff().getId().staffNo())
 				   .staffName(entity.getStaff().getName().getName())

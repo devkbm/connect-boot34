@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
-import com.like.hrm.staff.port.in.ResponseStaffDutyResponsibility;
 import com.like.hrm.staff.port.in.dutyresponsibility.StaffDutyResponsibilityQueryUseCase;
+import com.like.hrm.staff.port.in.dutyresponsibility.dto.StaffDutyResponsibilityQueryResultDTO;
 
 @RestController
 public class StaffDutyResponsibilityQueryController {
@@ -26,7 +26,7 @@ public class StaffDutyResponsibilityQueryController {
 	@GetMapping("/api/hrm/staff/{staffId}/dutyresponsibility")
 	public ResponseEntity<?> getList(@RequestParam String companyCode, @PathVariable String staffId) {
 				
-		List<ResponseStaffDutyResponsibility> list = this.useCase.select(companyCode, staffId);
+		List<StaffDutyResponsibilityQueryResultDTO> list = this.useCase.select(companyCode, staffId);
 		
 		return toList(list, MessageUtil.getQueryMessage(list.size()));
 	}

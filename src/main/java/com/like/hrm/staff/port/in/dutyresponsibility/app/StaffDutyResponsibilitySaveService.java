@@ -4,8 +4,8 @@ import org.springframework.stereotype.Service;
 
 import com.like.hrm.staff.domain.Staff;
 import com.like.hrm.staff.domain.dutyresponsibility.StaffDuty;
-import com.like.hrm.staff.port.in.dutyresponsibility.StaffDutyResponsibilityDTO;
 import com.like.hrm.staff.port.in.dutyresponsibility.StaffDutyResponsibilitySaveUseCase;
+import com.like.hrm.staff.port.in.dutyresponsibility.dto.StaffDutyResponsibilityFormDTO;
 import com.like.hrm.staff.port.out.StaffCommandDbPort;
 
 import jakarta.persistence.EntityNotFoundException;
@@ -20,7 +20,7 @@ public class StaffDutyResponsibilitySaveService implements StaffDutyResponsibili
 	}
 	
 	@Override
-	public void save(StaffDutyResponsibilityDTO dto) {
+	public void save(StaffDutyResponsibilityFormDTO dto) {
 		Staff staff = this.dbPort.select(dto.companyCode(), dto.staffNo())
 								 .orElseThrow(() -> new EntityNotFoundException(dto.staffNo() + " 직원정보가 존재하지 않습니다."));
 		StaffDuty entity = staff.getStaffDutyResponsibilityList().get(staff, dto.seq());
