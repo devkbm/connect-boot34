@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
@@ -60,10 +61,10 @@ public class DutyApplicationController {
 		return toOne(dto, MessageUtil.getQueryMessage(dto == null ? 0 : 1));
 	}
 	
-	@GetMapping("/api/hrm/dutyapplication/period/{from}/{to}/{companyCode}")
+	@GetMapping("/api/hrm/dutyapplication/period/{from}/{to}")
 	public ResponseEntity<?> getDutyApplicationPeriod(@PathVariable @DateTimeFormat(pattern="yyyyMMdd")LocalDate from
 													 ,@PathVariable @DateTimeFormat(pattern="yyyyMMdd")LocalDate to
-													 ,@PathVariable String companyCode ) {
+													 ,@RequestParam String companyCode ) {
 						
 		List<DutyApplicationDTO.DutyDate> list = DutyApplicationDTO.DutyDate.convertInitDutyDateList(holidayUtilService.select(companyCode, from, to));			
 		
