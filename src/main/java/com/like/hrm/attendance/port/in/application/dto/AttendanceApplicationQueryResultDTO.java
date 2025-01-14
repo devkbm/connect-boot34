@@ -19,5 +19,5 @@ public class AttendanceApplicationQueryResultDTO {
 	String dutyReason;
 	LocalDate fromDate;
 	LocalDate toDate;
-		
+
 }

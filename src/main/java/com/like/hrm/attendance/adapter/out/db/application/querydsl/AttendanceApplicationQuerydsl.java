@@ -6,7 +6,8 @@ import org.springframework.stereotype.Repository;
 
 import com.like.hrm.attendance.domain.application.QAttendanceApplication;
 import com.like.hrm.attendance.port.in.application.dto.AttendanceApplicationQueryResultDTO;
-
+import com.like.hrm.hrmcode.domain.QHrmCode;
+import com.like.hrm.staff.domain.QStaff;
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 
@@ -14,6 +15,8 @@ import com.querydsl.jpa.impl.JPAQueryFactory;
 public class AttendanceApplicationQuerydsl {
 
 	private final QAttendanceApplication qApplication = QAttendanceApplication.attendanceApplication;
+	private final QStaff qStaff = QStaff.staff;
+	private final QHrmCode hrmCode = QHrmCode.hrmCode;
 	
 	private JPAQueryFactory queryFactory;
 	
@@ -23,19 +26,29 @@ public class AttendanceApplicationQuerydsl {
 	
 	public List<AttendanceApplicationQueryResultDTO> select(String staffNo) {
 		return queryFactory
-				.select(
+				.select(						
 					Projections.fields(AttendanceApplicationQueryResultDTO.class,
 							qApplication.id,
 							qApplication.staffNo,
-							qApplication.staffNo.as("staffName"),
+							qStaff.name.name.as("staffName"),
 							qApplication.dutyCode,
-							qApplication.dutyCode.as("dutyName"),
+							hrmCode.codeName.as("dutyName"),
 							qApplication.dutyReason,
 							qApplication.period.from.as("fromDate"),
 							qApplication.period.to.as("toDate")
-					)
+					)					
 				)
 				.from(qApplication)
+					.join(qStaff)
+					.on(
+						qApplication.companyCode.eq(qStaff.id.companyCode)
+					.and(qApplication.staffNo.eq(qStaff.id.staffNo))
+					)
+					.leftJoin(hrmCode)
+					.on(
+						hrmCode.id.typeId.eq("HR1001")
+						.and(qApplication.dutyCode.eq(hrmCode.id.code))
+					)
 				.where(qApplication.staffNo.eq(staffNo))
 				.fetch();
 				
