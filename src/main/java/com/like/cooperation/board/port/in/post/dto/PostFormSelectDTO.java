@@ -24,8 +24,8 @@ public class PostFormSelectDTO {
 	String modifiedBy;
 	String userName;
 	Long boardId;
-	Long articleId;
-	Long articleParentId;
+	Long postId;
+	Long postParentId;
 	String title;
 	String contents;
 	String pwd;

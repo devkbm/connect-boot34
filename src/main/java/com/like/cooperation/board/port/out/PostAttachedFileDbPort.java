@@ -6,4 +6,12 @@ import com.like.cooperation.board.domain.PostAttachedFile;
 
 public interface PostAttachedFileDbPort {
 	void save(List<PostAttachedFile> files);
+	
+	void delete(Long postFileId);
+	
+	void deleteAll(Long postId);
+	
+	void deleteNotMatched(List<PostAttachedFile> files);
+	
+	
 }

@@ -21,6 +21,9 @@ import com.like.system.file.export.FileInfoDTO;
 import com.like.system.file.export.FileInfoDTOSelectUseCase;
 import com.like.system.file.export.FileUploadUseCase;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Transactional
 @Service
 public class PostSaveByJsonService implements PostSaveByJsonUseCase {
@@ -47,12 +50,14 @@ public class PostSaveByJsonService implements PostSaveByJsonUseCase {
 		this.fileSelectUseCase = fileSelectUseCase;
 	}
 	
+	
 	@Override
 	public void save(PostFormSaveDTO dto) {
+		log.info(dto.toString());
 		Board board = boardDbPort.select(Base64Util.fromBase64Decode(dto.boardId()))
 								 .orElseThrow(() -> new IllegalArgumentException("존재 하지 않은 게시판입니다."));		
 						
-		Post entity = StringUtils.hasText(dto.postId()) ? this.findArticle(dto.postId()) : null; 
+		Post entity = StringUtils.hasText(dto.postId()) ? this.findArticle(Base64Util.fromBase64Decode(dto.postId())) : null; 
 								
 		if (entity == null) {
 			entity = PostFormSaveDTOMapper.create(dto, board); 
@@ -68,15 +73,27 @@ public class PostSaveByJsonService implements PostSaveByJsonUseCase {
 			// FileInfo를 AttachedFile로 변환한다.
 			List<PostAttachedFile> attachedFileList = PostAttachedFileConverter.convert(entity, fileInfoList);
 															
-			if (!attachedFileList.isEmpty()) entity.setFiles(attachedFileList);
-						
+			entity.setFiles(attachedFileList);
+			
+			// 기존 첨부파일이 있을 경우 저장되는 파일이외의 첨부파일정보는 삭제
+			if (entity.getAttachedFileInfoList() != null) {
+				this.attachedFileDbPort.deleteNotMatched(attachedFileList);
+			}
+											
 			this.attachedFileDbPort.save(attachedFileList);		
-		}		
+		} else {
+			// 기존 첨부파일이 있을 경우 삭제
+			if (entity.getAttachedFileInfoList() != null) {
+				this.attachedFileDbPort.deleteAll(entity.getPostId());
+			}
+											
+			entity.clearFiles();		
+		}
 		
 	}
 	
-	private Post findArticle(String articleId) {
-		return this.dbPort.select(Base64Util.fromBase64Decode(articleId)).orElse(null);
+	private Post findArticle(Long postId) {
+		return this.dbPort.select(postId).orElse(null);
 	}
 	
 	private List<FileInfoDTO> findFileInfoList(List<String> ids) {

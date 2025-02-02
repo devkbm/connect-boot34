@@ -140,5 +140,9 @@ public class Post extends AbstractAuditEntity {
 	public void setFiles(List<PostAttachedFile> files) {
 		this.files = files;
 	}	
+	
+	public void clearFiles() {
+		this.files = new ArrayList<>();
+	}
 			
 }

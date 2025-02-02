@@ -35,7 +35,7 @@ public class FileServerUploadController {
 	public ResponseEntity<?> fileUpload(final MultipartHttpServletRequest request
 									   ,@RequestParam(value="appUrl", required=false) String appUrl ) throws Exception {
 						
-		List<MultipartFile> multipartFiles = convert(request);		
+		List<MultipartFile> multipartFiles = convert(request);
 								
 		List<FileInfo> list = useCase.uploadFile(multipartFiles, "kbm", appUrl);
 		

@@ -15,8 +15,9 @@ public class FileDeleteExportService implements FileDeleteUseCase {
 	FileInfoCommandDbPort dbPort;
 	FileServerRepository fileServerRepository;
 	
-	FileDeleteExportService(FileInfoCommandDbPort dbPort) {
+	FileDeleteExportService(FileInfoCommandDbPort dbPort, FileServerRepository fileServerRepository) {
 		this.dbPort = dbPort;
+		this.fileServerRepository = fileServerRepository;
 	}
 	
 	@Override

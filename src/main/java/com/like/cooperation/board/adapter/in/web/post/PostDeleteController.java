@@ -14,18 +14,18 @@ import com.like.core.message.MessageUtil;
 @Controller
 public class PostDeleteController {	
 			
-	PostDeleteUseCase useCase;
+	PostDeleteUseCase useCase;	
 		
 	public PostDeleteController(PostDeleteUseCase useCase) {		
-		this.useCase = useCase;
+		this.useCase = useCase;		
 	}	
 		
 	@DeleteMapping("/api/grw/board/post/{id}")
-	public ResponseEntity<?> deleteArticle(@PathVariable String id) {									
-		
+	public ResponseEntity<?> deleteArticle(@PathVariable String id) {
 		useCase.delete(Base64Util.fromBase64Decode(id));							
 		
 		return toList(null, MessageUtil.getDeleteMessage(1));
 	}			
+		
 	
 }
