@@ -1,14 +1,10 @@
 package com.like.hrm.payitem.domain.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -40,10 +36,6 @@ public class PayItem extends AbstractAuditEntity {
 	@Column(name="PAY_TABLE_YN")
 	Boolean usePayTable;	
 	
-	// 급여테이블
-	@Transient
-	List<PayTable> payTable = new ArrayList<>();
-
 	@Column(name="SEQ")
 	Integer seq;
 	
@@ -74,14 +66,6 @@ public class PayItem extends AbstractAuditEntity {
 		this.seq = seq;
 		this.comment = comment;
 		this.usePayTable = usePayTable;
-	}
-	
-	public void add(PayTable entity) {
-		this.payTable.add(entity);
-	}
-	
-	public void remove(PayTable entity) {
-		this.payTable.remove(entity);
-	}
+	}	
 	
 }
