@@ -1,5 +1,6 @@
 package com.like.hrm.overtime.domain.application;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -46,7 +47,19 @@ public class OverTimeApplication extends AbstractAuditEntity {
 	
 	@Column(name="LOCATION")
 	String location;
-
+	
+	@Column(name="OVTM_MINUTE")
+	Long overTimeMinute;
+	
+	@Column(name="NGT_OVTM_MINUTE")
+	Long nightOverTimeMinute;
+		
+	@Column(name="HOLY_OVTM_MINUTE")
+	Long holyDayOverTimeMinute;
+	
+	@Column(name="HOLY_NGT_OVTM_MINUTE")
+	Long holyDayNightOverTimeMinute;
+	
 	public OverTimeApplication(
 			String companyCode,
 			String staffNo,
@@ -60,7 +73,9 @@ public class OverTimeApplication extends AbstractAuditEntity {
 		this.from = from;
 		this.to = to;
 		this.contents = contents;
-		this.location = location;
+		this.location = location;		
+		
+		this.overTimeMinute = calcOverTimeMinute(this.from, this.to);
 	}
 	
 	public void modify(
@@ -73,6 +88,14 @@ public class OverTimeApplication extends AbstractAuditEntity {
 		this.to = to;
 		this.contents = contents;
 		this.location = location;
+		
+		this.overTimeMinute = calcOverTimeMinute(this.from, this.to);
 	}	
+	
+	public Long calcOverTimeMinute(LocalDateTime from, LocalDateTime to) {
+		Duration duration = Duration.between(from, to);
+		
+		return duration.getSeconds() * 60;
+	}
 	
 }
