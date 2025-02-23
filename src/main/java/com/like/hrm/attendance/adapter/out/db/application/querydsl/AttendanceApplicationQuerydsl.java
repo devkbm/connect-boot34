@@ -1,5 +1,6 @@
 package com.like.hrm.attendance.adapter.out.db.application.querydsl;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
@@ -9,6 +10,7 @@ import com.like.hrm.attendance.port.in.application.dto.AttendanceApplicationQuer
 import com.like.hrm.hrmcode.domain.QHrmCode;
 import com.like.hrm.staff.domain.QStaff;
 import com.querydsl.core.types.Projections;
+import com.querydsl.core.types.dsl.Expressions;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 
 @Repository
@@ -25,6 +27,7 @@ public class AttendanceApplicationQuerydsl {
 	}
 	
 	public List<AttendanceApplicationQueryResultDTO> select(String staffNo) {
+				
 		return queryFactory
 				.select(						
 					Projections.fields(AttendanceApplicationQueryResultDTO.class,
@@ -35,7 +38,8 @@ public class AttendanceApplicationQuerydsl {
 							hrmCode.codeName.as("dutyName"),
 							qApplication.dutyReason,
 							qApplication.period.from.as("fromDate"),
-							qApplication.period.to.as("toDate")
+							//qApplication.period.to.as("toDate"),																																							
+							Expressions.dateTemplate(LocalDate.class, "DATEADD(DAY, {0}, {1})", Expressions.constant(1), qApplication.period.to).as("toDate") // 
 					)					
 				)
 				.from(qApplication)
