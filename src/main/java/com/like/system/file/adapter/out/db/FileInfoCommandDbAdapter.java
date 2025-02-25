@@ -1,7 +1,6 @@
 package com.like.system.file.adapter.out.db;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.stereotype.Repository;
 
@@ -20,12 +19,12 @@ public class FileInfoCommandDbAdapter implements FileInfoCommandDbPort  {
 	
 	@Override
 	public FileInfo getFileInfo(String id) {
-		return this.repository.findById(UUID.fromString(id)).orElse(null);
+		return this.repository.findById(Long.parseLong(id)).orElse(null);
 	}
 	
 	@Override
 	public List<FileInfo> getFileInfo(List<String> ids) {		
-		return this.repository.findAllById(ids.stream().map(e -> UUID.fromString(e)).toList()); 
+		return this.repository.findAllById(ids.stream().map(e -> Long.parseLong(e)).toList()); 
 	}
 
 	@Override
@@ -40,7 +39,7 @@ public class FileInfoCommandDbAdapter implements FileInfoCommandDbPort  {
 	
 	@Override
 	public void delete(String id) {
-		this.repository.deleteById(UUID.fromString(id));
+		this.repository.deleteById(Long.parseLong(id));
 	}
 
 }

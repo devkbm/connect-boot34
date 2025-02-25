@@ -1,7 +1,6 @@
 package com.like.cooperation.board.domain;
 
 import java.io.Serializable;
-import java.util.UUID;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -51,12 +50,14 @@ public class PostAttachedFile extends AbstractAuditEntity implements Serializabl
 	@JoinColumn(name = "POST_ID", nullable = false)
 	Post post; 	
 		
-	@Column(name="FILE_ID", columnDefinition = "BINARY(16)")
-	UUID fileInfo;
+	//@Column(name="FILE_ID", columnDefinition = "BINARY(16)")
+	//UUID fileInfo;
+	@Column(name="FILE_ID")
+	Long fileInfo;
 
 	public PostAttachedFile(Post post, String fileInfo) {		
 		this.post = post;
-		this.fileInfo = UUID.fromString(fileInfo);
+		this.fileInfo = Long.parseLong(fileInfo);
 	}
 		
 }

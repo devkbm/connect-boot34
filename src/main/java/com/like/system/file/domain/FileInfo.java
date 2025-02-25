@@ -16,6 +16,8 @@ import org.springframework.web.multipart.MultipartFile;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.like.core.jpa.domain.AbstractAuditEntity;
 
+import io.hypersistence.tsid.TSID;
+import io.hypersistence.utils.hibernate.id.Tsid;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -31,9 +33,12 @@ public class FileInfo extends AbstractAuditEntity implements Serializable {
 			
 	private static final long serialVersionUID = 4108977246168878308L;
 
-	@Id	
-	@Column(name="FILE_ID", columnDefinition = "BINARY(16)")
-	UUID id;	
+	@Id
+	@Tsid
+	@Column(name="FILE_ID")
+	Long id;
+	//@Column(name="FILE_ID", columnDefinition = "BINARY(16)")
+	//UUID id;	
 
 	@Column(name="APP_URL")
 	String appUrl;
@@ -61,12 +66,11 @@ public class FileInfo extends AbstractAuditEntity implements Serializable {
 		
 	@Builder
 	public FileInfo(String appUrl, String userId, String contentType, /*String uuid,*/ String path, String fileName, long size) {		
-		this.id = FileIdGenerator.generateSequencialUUID();
+		//this.id = FileIdGenerator.generateSequencialUUID();	
 		this.appUrl = appUrl;
 		this.userId = userId;
 		this.contentType = contentType;
 		this.uuid = FileIdGenerator.generateSequencialUUID().toString();
-		//this.uuid = uuid;
 		this.path = path;
 		this.fileName = fileName;
 		this.size = size;

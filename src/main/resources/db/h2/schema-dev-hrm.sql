@@ -401,9 +401,9 @@ CREATE TABLE GRWPOSTFILE (
 	MODIFIED_USER_ID		VARCHAR(50)			NULL		,
 	MODIFIED_HOST_IP		VARCHAR(50)			NULL		,
 	MODIFIED_APP_URL		VARCHAR(500)		NULL		,
-  	POST_FILE_ID     	INT             	NOT NULL  AUTO_INCREMENT,
-  	POST_ID          	INT             	NOT NULL	,  
-  	FILE_ID             	BINARY(16)      	NOT NULL	,  
+  	POST_FILE_ID     		INT             	NOT NULL  AUTO_INCREMENT,
+  	POST_ID          		INT             	NOT NULL	,  
+  	FILE_ID             	BIGINT		      	NOT NULL	,  
   	constraint pk_grwpostfile primary key(POST_FILE_ID),  
   	constraint fk_grwpostfile1 foreign key(POST_ID) references GRWPOST(POST_ID)
 );
