@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.like.system.hierarchycode.domain.Code;
 import com.like.system.hierarchycode.domain.CommonCodeQueryRepository;
 import com.like.system.hierarchycode.domain.QCode;
-import com.like.system.hierarchycode.port.in.dto.CodeComboDTO;
+import com.like.system.hierarchycode.domain.port.in.dto.CodeComboDTO;
 import com.querydsl.core.types.Predicate;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 

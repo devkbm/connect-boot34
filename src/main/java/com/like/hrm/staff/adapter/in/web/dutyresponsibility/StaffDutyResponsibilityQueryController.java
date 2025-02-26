@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
-import com.like.hrm.staff.port.in.dutyresponsibility.StaffDutyResponsibilityQueryUseCase;
-import com.like.hrm.staff.port.in.dutyresponsibility.dto.StaffDutyResponsibilityQueryResultDTO;
+import com.like.hrm.staff.domain.port.in.dutyresponsibility.StaffDutyResponsibilityQueryUseCase;
+import com.like.hrm.staff.domain.port.in.dutyresponsibility.dto.StaffDutyResponsibilityQueryResultDTO;
 
 @RestController
 public class StaffDutyResponsibilityQueryController {

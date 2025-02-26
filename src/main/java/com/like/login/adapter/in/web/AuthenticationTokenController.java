@@ -11,7 +11,7 @@ import com.like.core.security.oauth2.SystemOauth2User;
 import com.like.core.util.SessionUtil;
 import com.like.core.web.util.WebRequestUtil;
 import com.like.login.domain.AuthenticationToken;
-import com.like.login.port.in.AuthenticationTokenSelectUseCase;
+import com.like.login.domain.port.in.AuthenticationTokenSelectUseCase;
 
 import jakarta.servlet.http.HttpServletRequest;
 

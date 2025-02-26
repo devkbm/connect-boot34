@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import com.like.system.dept.domain.DeptHierarchy;
 import com.like.system.dept.domain.QDept;
-import com.like.system.dept.port.out.DeptHierarchySelectDbPort;
+import com.like.system.dept.domain.port.out.DeptHierarchySelectDbPort;
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 

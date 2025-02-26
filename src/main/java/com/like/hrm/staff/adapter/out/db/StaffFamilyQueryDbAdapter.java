@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.like.hrm.staff.adapter.out.db.querydsl.StaffFamilyQuerydsl;
-import com.like.hrm.staff.port.in.family.dto.StaffFamilyQueryResultDTO;
-import com.like.hrm.staff.port.out.StaffFamilyQueryDbPort;
+import com.like.hrm.staff.domain.port.in.family.dto.StaffFamilyQueryResultDTO;
+import com.like.hrm.staff.domain.port.out.StaffFamilyQueryDbPort;
 
 @Repository
 public class StaffFamilyQueryDbAdapter implements StaffFamilyQueryDbPort {

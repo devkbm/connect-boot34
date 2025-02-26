@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.like.system.dept.adapter.out.db.data.DeptJpaRepository;
 import com.like.system.dept.domain.Dept;
 import com.like.system.dept.domain.DeptId;
-import com.like.system.dept.port.out.DeptCommandDbPort;
+import com.like.system.dept.domain.port.out.DeptCommandDbPort;
 
 @Repository
 public class DeptCommandDbAdapter implements DeptCommandDbPort {

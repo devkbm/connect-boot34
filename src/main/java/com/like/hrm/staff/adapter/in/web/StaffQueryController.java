@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
-import com.like.hrm.staff.port.in.ResponseStaff;
-import com.like.hrm.staff.port.in.ResponseStaffCurrentAppointment;
-import com.like.hrm.staff.port.in.StaffQueryConditionDTO;
-import com.like.hrm.staff.port.in.app.StaffQueryService;
+import com.like.hrm.staff.domain.port.in.ResponseStaff;
+import com.like.hrm.staff.domain.port.in.ResponseStaffCurrentAppointment;
+import com.like.hrm.staff.domain.port.in.dto.StaffQueryConditionDTO;
+import com.like.hrm.staff.domain.port.in.impl.StaffQueryService;
 
 @RestController
 public class StaffQueryController {

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import com.like.hrm.overtime.adapter.out.db.application.data.OverTimeApplicationRepository;
 import com.like.hrm.overtime.domain.application.OverTimeApplication;
-import com.like.hrm.overtime.port.out.application.OverTimeApplicationCommandDbPort;
+import com.like.hrm.overtime.domain.application.port.out.OverTimeApplicationCommandDbPort;
 
 @Repository
 public class OverTimeApplicationCommandDbAdapter implements OverTimeApplicationCommandDbPort {

@@ -8,8 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.like.system.company.port.in.CompanyQueryUseCase;
-import com.like.system.company.port.in.dto.CompanyInfoSaveDTO;
+import com.like.system.company.domain.port.in.CompanyQueryUseCase;
+import com.like.system.company.domain.port.in.dto.CompanyInfoSaveDTO;
 
 @RestController
 public class CompanyQueryController {

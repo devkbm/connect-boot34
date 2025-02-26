@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.like.common.dto.HtmlSelectOptionRecord;
 import com.like.common.dto.HtmlSelectOptionable;
-import com.like.cooperation.board.port.in.board.BoardQueryUseCase;
-import com.like.cooperation.board.port.in.board.dto.BoardQueryDTO;
-import com.like.cooperation.board.port.in.board.dto.BoardSaveDTO;
-import com.like.cooperation.board.port.in.board.dto.BoardTypeDTO;
+import com.like.cooperation.board.domain.board.port.in.BoardQueryUseCase;
+import com.like.cooperation.board.domain.board.port.in.dto.BoardQueryDTO;
+import com.like.cooperation.board.domain.board.port.in.dto.BoardSaveDTO;
+import com.like.cooperation.board.domain.board.port.in.dto.BoardTypeDTO;
 import com.like.core.message.MessageUtil;
 
 @RestController

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.like.cooperation.team.port.in.TeamJoinUseCase;
+import com.like.cooperation.team.domain.port.in.TeamJoinUseCase;
 
 @RestController
 public class TeamJoinController {

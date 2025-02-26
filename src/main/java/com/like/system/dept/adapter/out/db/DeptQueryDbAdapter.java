@@ -6,8 +6,8 @@ import org.springframework.stereotype.Repository;
 
 import com.like.system.dept.adapter.out.db.data.DeptJpaRepository;
 import com.like.system.dept.domain.Dept;
-import com.like.system.dept.port.in.dto.DeptQueryDTO;
-import com.like.system.dept.port.out.DeptQueryDbPort;
+import com.like.system.dept.domain.port.in.dto.DeptQueryDTO;
+import com.like.system.dept.domain.port.out.DeptQueryDbPort;
 
 @Repository
 public class DeptQueryDbAdapter implements DeptQueryDbPort {

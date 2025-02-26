@@ -3,10 +3,10 @@ package com.like.cooperation.board.adapter.out.db;
 import org.springframework.stereotype.Repository;
 
 import com.like.cooperation.board.adapter.out.db.data.PostUserHitCountRepository;
-import com.like.cooperation.board.domain.Post;
-import com.like.cooperation.board.domain.PostUserHitCount;
-import com.like.cooperation.board.domain.PostUserHitCountId;
-import com.like.cooperation.board.port.out.PostUserHitCountDbPort;
+import com.like.cooperation.board.domain.post.Post;
+import com.like.cooperation.board.domain.post.PostUserHitCount;
+import com.like.cooperation.board.domain.post.PostUserHitCountId;
+import com.like.cooperation.board.domain.post.port.out.PostUserHitCountDbPort;
 
 @Repository
 public class PostUserHitCountDbAdapter implements PostUserHitCountDbPort {

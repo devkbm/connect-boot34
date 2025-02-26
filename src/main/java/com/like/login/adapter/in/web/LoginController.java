@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.like.core.web.util.WebRequestUtil;
 import com.like.login.domain.AuthenticationToken;
 import com.like.login.domain.LoginSuccessEvent;
-import com.like.login.port.in.AuthenticationTokenSelectUseCase;
+import com.like.login.domain.port.in.AuthenticationTokenSelectUseCase;
 import com.like.system.user.export.SystemUserLoginDTO;
 import com.like.system.user.export.SystemUserLoginDTOSelectUseCase;
 

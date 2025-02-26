@@ -10,9 +10,9 @@ import org.springframework.data.domain.SliceImpl;
 import org.springframework.stereotype.Repository;
 
 import com.like.cooperation.board.adapter.out.db.mybatis.BoardMapper;
-import com.like.cooperation.board.port.in.post.dto.PostListDTO;
-import com.like.cooperation.board.port.in.post.dto.PostQueryDTO;
-import com.like.cooperation.board.port.out.PostQueryBySliceDbPort;
+import com.like.cooperation.board.domain.post.port.in.dto.PostListDTO;
+import com.like.cooperation.board.domain.post.port.in.dto.PostQueryDTO;
+import com.like.cooperation.board.domain.post.port.out.PostQueryBySliceDbPort;
 
 @Repository
 public class PostQueryBySliceDbAdapter implements PostQueryBySliceDbPort {

@@ -7,9 +7,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.like.cooperation.board.port.in.post.PostQueryBySliceUseCase;
-import com.like.cooperation.board.port.in.post.dto.PostListDTO;
-import com.like.cooperation.board.port.in.post.dto.PostQueryDTO;
+import com.like.cooperation.board.domain.post.port.in.PostQueryBySliceUseCase;
+import com.like.cooperation.board.domain.post.port.in.dto.PostListDTO;
+import com.like.cooperation.board.domain.post.port.in.dto.PostQueryDTO;
 import com.like.core.util.SessionUtil;
 
 @Controller

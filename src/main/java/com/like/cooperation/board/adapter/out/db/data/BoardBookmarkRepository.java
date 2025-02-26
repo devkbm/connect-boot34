@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.like.cooperation.board.domain.BoardBookmark;
+import com.like.cooperation.board.domain.board.BoardBookmark;
 
 public interface BoardBookmarkRepository extends JpaRepository<BoardBookmark, Long> {
 

@@ -4,7 +4,7 @@ import org.springframework.stereotype.Repository;
 
 import com.like.cooperation.team.adapter.out.db.data.TeamJpaRepository;
 import com.like.cooperation.team.domain.Team;
-import com.like.cooperation.team.port.out.TeamCommandDbPort;
+import com.like.cooperation.team.domain.port.out.TeamCommandDbPort;
 
 @Repository
 public class TeamCommandDbAdapter implements TeamCommandDbPort {

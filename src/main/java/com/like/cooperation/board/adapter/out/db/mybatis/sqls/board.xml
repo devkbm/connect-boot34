@@ -8,7 +8,7 @@
 	]]>     	  
 	</select>	   
 	
-	<select id="getArticleList" parameterType="map" resultType="com.like.cooperation.board.port.in.post.dto.PostListDTO"><![CDATA[
+	<select id="getArticleList" parameterType="map" resultType="com.like.cooperation.board.domain.post.port.in.dto.PostListDTO"><![CDATA[
 		SELECT A.BOARD_ID			boardId
 		     , A.POST_ID			postId
 		     , D.USER_NAME 			writerName

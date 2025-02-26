@@ -2,7 +2,7 @@ package com.like.system.systemcode.adapter.out.db.entity;
 
 import com.like.system.systemcode.domain.BizCode;
 import com.like.system.systemcode.domain.BizCodeType;
-import com.like.system.systemcode.port.in.dto.BizCodeSaveDTO;
+import com.like.system.systemcode.domain.port.in.dto.BizCodeSaveDTO;
 
 public class JpaBizCodeMapper {
 

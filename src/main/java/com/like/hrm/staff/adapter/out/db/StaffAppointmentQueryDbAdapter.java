@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.like.hrm.staff.adapter.out.db.querydsl.StaffAppointmentQuerydsl;
-import com.like.hrm.staff.port.in.appointment.dto.StaffAppointmentQueryResultDTO;
-import com.like.hrm.staff.port.out.StaffAppointmentQueryDbPort;
+import com.like.hrm.staff.domain.port.in.appointment.dto.StaffAppointmentQueryResultDTO;
+import com.like.hrm.staff.domain.port.out.StaffAppointmentQueryDbPort;
 
 @Repository
 public class StaffAppointmentQueryDbAdapter implements StaffAppointmentQueryDbPort {

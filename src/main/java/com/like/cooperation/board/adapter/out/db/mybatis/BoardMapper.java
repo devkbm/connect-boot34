@@ -5,7 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.like.cooperation.board.port.in.post.dto.PostListDTO;
+import com.like.cooperation.board.domain.post.port.in.dto.PostListDTO;
 
 @Mapper
 public interface BoardMapper {

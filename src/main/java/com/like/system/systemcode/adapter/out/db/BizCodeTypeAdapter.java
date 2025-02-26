@@ -10,11 +10,11 @@ import com.like.system.systemcode.adapter.out.db.entity.JpaBizCodeType;
 import com.like.system.systemcode.adapter.out.db.entity.JpaBizCodeTypeId;
 import com.like.system.systemcode.adapter.out.db.entity.JpaBizCodeTypeMapper;
 import com.like.system.systemcode.domain.BizCodeType;
-import com.like.system.systemcode.port.in.dto.BizCodeTypeSaveDTO;
-import com.like.system.systemcode.port.out.BizCodeTypeDeletePort;
-import com.like.system.systemcode.port.out.BizCodeTypeSavePort;
-import com.like.system.systemcode.port.out.BizCodeTypeSelectAllPort;
-import com.like.system.systemcode.port.out.BizCodeTypeSelectPort;
+import com.like.system.systemcode.domain.port.in.dto.BizCodeTypeSaveDTO;
+import com.like.system.systemcode.domain.port.out.BizCodeTypeDeletePort;
+import com.like.system.systemcode.domain.port.out.BizCodeTypeSavePort;
+import com.like.system.systemcode.domain.port.out.BizCodeTypeSelectAllPort;
+import com.like.system.systemcode.domain.port.out.BizCodeTypeSelectPort;
 
 @Repository
 @Transactional

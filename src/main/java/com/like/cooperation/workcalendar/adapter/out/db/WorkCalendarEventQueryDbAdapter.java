@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.like.cooperation.workcalendar.domain.WorkCalendarEvent;
-import com.like.cooperation.workcalendar.port.in.dto.WorkCalendarEventQueryDTO;
-import com.like.cooperation.workcalendar.port.out.WorkCalendarEventQueryDbPort;
+import com.like.cooperation.workcalendar.domain.port.in.dto.WorkCalendarEventQueryDTO;
+import com.like.cooperation.workcalendar.domain.port.out.WorkCalendarEventQueryDbPort;
 import com.like.cooperation.workcalendar.domain.QWorkCalendarEvent;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 

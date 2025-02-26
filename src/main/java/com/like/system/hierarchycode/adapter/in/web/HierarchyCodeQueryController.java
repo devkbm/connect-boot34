@@ -14,9 +14,9 @@ import com.like.common.dto.HtmlSelectOptionRecord;
 import com.like.core.message.MessageUtil;
 import com.like.system.hierarchycode.domain.Code;
 import com.like.system.hierarchycode.domain.SystemType;
-import com.like.system.hierarchycode.port.in.app.HierarchyCodeQueryService;
-import com.like.system.hierarchycode.port.in.dto.HierarchyCodeQueryDTO;
-import com.like.system.hierarchycode.port.in.dto.HierarchySaveDTO;
+import com.like.system.hierarchycode.domain.port.in.dto.HierarchyCodeQueryDTO;
+import com.like.system.hierarchycode.domain.port.in.dto.HierarchySaveDTO;
+import com.like.system.hierarchycode.domain.port.in.impl.HierarchyCodeQueryService;
 
 @RestController
 public class HierarchyCodeQueryController {

@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
-import com.like.hrm.overtime.port.in.application.OverTimeApplicationSaveUseCase;
-import com.like.hrm.overtime.port.in.application.dto.OverTimeApplicationFormDTO;
+import com.like.hrm.overtime.domain.application.port.in.OverTimeApplicationSaveUseCase;
+import com.like.hrm.overtime.domain.application.port.in.dto.OverTimeApplicationFormDTO;
 
 @RestController
 public class OverTimeApplicationSaveController {

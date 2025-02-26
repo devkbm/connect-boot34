@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
-import com.like.hrm.attendance.port.in.application.AttendanceApplicationFormSaveUseCase;
-import com.like.hrm.attendance.port.in.application.dto.AttendanceApplicationFormDTO;
+import com.like.hrm.attendance.domain.application.port.in.AttendanceApplicationFormSaveUseCase;
+import com.like.hrm.attendance.domain.application.port.in.dto.AttendanceApplicationFormDTO;
 
 @RestController
 public class AttendanceApplicationSaveController {

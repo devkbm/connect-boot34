@@ -4,8 +4,8 @@ import java.time.LocalDate;
 import java.util.List;
 
 import com.like.hrm.attendance.domain.application.AttendanceApplication;
-import com.like.hrm.attendance.domain.application.WorkChangeCode;
-import com.like.hrm.attendance.port.in.application.dto.DutyApplicationDTO;
+import com.like.hrm.attendance.domain.application.port.in.dto.DutyApplicationDTO;
+import com.like.hrm.attendance.domain.code.WorkChangeCode;
 
 public interface DutyApplicationQueryRepository {
 

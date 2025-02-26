@@ -6,8 +6,8 @@ import org.springframework.stereotype.Repository;
 
 import com.like.cooperation.board.adapter.out.db.data.PostAttachedFileRepository;
 import com.like.cooperation.board.adapter.out.db.querydsl.PostAttachedFileQuerydsl;
-import com.like.cooperation.board.domain.PostAttachedFile;
-import com.like.cooperation.board.port.out.PostAttachedFileDbPort;
+import com.like.cooperation.board.domain.post.PostAttachedFile;
+import com.like.cooperation.board.domain.post.port.out.PostAttachedFileDbPort;
 
 @Repository
 public class PostAttachedFileDbAdapter implements PostAttachedFileDbPort {

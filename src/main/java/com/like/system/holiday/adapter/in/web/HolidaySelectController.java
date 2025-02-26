@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
-import com.like.system.holiday.port.in.HolidaySelectUseCase;
-import com.like.system.holiday.port.in.dto.HolidaySaveDTO;
+import com.like.system.holiday.domain.port.in.HolidaySelectUseCase;
+import com.like.system.holiday.domain.port.in.dto.HolidaySaveDTO;
 
 @RestController
 public class HolidaySelectController {

@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.like.cooperation.board.domain.PostAttachedFile;
-import com.like.cooperation.board.domain.QPostAttachedFile;
+import com.like.cooperation.board.domain.post.QPostAttachedFile;
+import com.like.cooperation.board.domain.post.PostAttachedFile;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 
 @Repository

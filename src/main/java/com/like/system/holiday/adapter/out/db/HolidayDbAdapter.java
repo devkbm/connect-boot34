@@ -9,9 +9,9 @@ import com.like.system.holiday.adapter.out.db.data.HolidayJpaRepository;
 import com.like.system.holiday.domain.Holiday;
 import com.like.system.holiday.domain.HolidayId;
 import com.like.system.holiday.domain.QHoliday;
-import com.like.system.holiday.port.out.HolidayDeletePort;
-import com.like.system.holiday.port.out.HolidaySavePort;
-import com.like.system.holiday.port.out.HolidaySelectPort;
+import com.like.system.holiday.domain.port.out.HolidayDeletePort;
+import com.like.system.holiday.domain.port.out.HolidaySavePort;
+import com.like.system.holiday.domain.port.out.HolidaySelectPort;
 import com.querydsl.core.types.Predicate;
 
 @Repository

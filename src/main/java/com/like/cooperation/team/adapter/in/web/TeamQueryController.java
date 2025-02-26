@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.like.cooperation.team.domain.Team;
 import com.like.cooperation.team.domain.TeamMember;
-import com.like.cooperation.team.port.in.TeamQueryUseCase;
-import com.like.cooperation.team.port.in.dto.TeamQueryDTO;
+import com.like.cooperation.team.domain.port.in.TeamQueryUseCase;
+import com.like.cooperation.team.domain.port.in.dto.TeamQueryDTO;
 import com.like.core.message.MessageUtil;
 import com.like.system.user.domain.port.in.dto.SystemUserQueryDTO;
 import com.like.system.user.domain.port.in.dto.SystemUserSaveDTO;

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
 import com.like.system.holiday.domain.DateInfo;
-import com.like.system.holiday.port.in.DateInfoSelectUseCase;
+import com.like.system.holiday.domain.port.in.DateInfoSelectUseCase;
 
 @RestController
 public class HolidayQueryController {

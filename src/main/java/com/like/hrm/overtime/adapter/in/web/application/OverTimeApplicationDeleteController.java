@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
-import com.like.hrm.overtime.port.in.application.OverTimeApplicationDeleteUseCase;
+import com.like.hrm.overtime.domain.application.port.in.OverTimeApplicationDeleteUseCase;
 
 @RestController
 public class OverTimeApplicationDeleteController {

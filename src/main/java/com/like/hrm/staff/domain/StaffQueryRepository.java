@@ -2,10 +2,10 @@ package com.like.hrm.staff.domain;
 
 import java.util.List;
 
-import com.like.hrm.staff.port.in.ResponseStaffAppointmentRecord;
-import com.like.hrm.staff.port.in.ResponseStaffCurrentAppointment;
-import com.like.hrm.staff.port.in.ResponseStaffDutyResponsibility;
-import com.like.hrm.staff.port.in.StaffQueryConditionDTO;
+import com.like.hrm.staff.domain.port.in.ResponseStaffAppointmentRecord;
+import com.like.hrm.staff.domain.port.in.ResponseStaffCurrentAppointment;
+import com.like.hrm.staff.domain.port.in.ResponseStaffDutyResponsibility;
+import com.like.hrm.staff.domain.port.in.dto.StaffQueryConditionDTO;
 
 public interface StaffQueryRepository {
 

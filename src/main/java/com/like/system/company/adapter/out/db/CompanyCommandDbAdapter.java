@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.like.system.company.adapter.out.db.data.CompanyJpaRepository;
 import com.like.system.company.domain.CompanyInfo;
 import com.like.system.company.domain.CompanyInfoId;
-import com.like.system.company.port.out.CompanyCommandDbPort;
+import com.like.system.company.domain.port.out.CompanyCommandDbPort;
 
 @Repository
 public class CompanyCommandDbAdapter implements CompanyCommandDbPort {

@@ -4,10 +4,10 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.like.cooperation.board.domain.Post;
-import com.like.cooperation.board.domain.PostQueryRepository;
-import com.like.cooperation.board.domain.QPost;
-import com.like.cooperation.board.domain.QPostAttachedFile;
+import com.like.cooperation.board.domain.post.QPost;
+import com.like.cooperation.board.domain.post.QPostAttachedFile;
+import com.like.cooperation.board.domain.post.Post;
+import com.like.cooperation.board.domain.post.PostQueryRepository;
 import com.querydsl.core.types.Predicate;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 

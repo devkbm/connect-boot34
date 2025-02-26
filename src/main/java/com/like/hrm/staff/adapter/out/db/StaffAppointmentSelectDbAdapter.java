@@ -6,7 +6,7 @@ import com.like.hrm.staff.adapter.out.db.data.StaffJpaRepository;
 import com.like.hrm.staff.domain.Staff;
 import com.like.hrm.staff.domain.StaffId;
 import com.like.hrm.staff.domain.appointment.AppointmentRecord;
-import com.like.hrm.staff.port.out.StaffAppointmentSelectDbPort;
+import com.like.hrm.staff.domain.port.out.StaffAppointmentSelectDbPort;
 
 import jakarta.persistence.EntityNotFoundException;
 

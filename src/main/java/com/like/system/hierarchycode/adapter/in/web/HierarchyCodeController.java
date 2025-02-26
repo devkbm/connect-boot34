@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
 import com.like.system.hierarchycode.domain.Code;
-import com.like.system.hierarchycode.port.in.app.HierarchyCodeCommandService;
-import com.like.system.hierarchycode.port.in.dto.HierarchySaveDTO;
+import com.like.system.hierarchycode.domain.port.in.dto.HierarchySaveDTO;
+import com.like.system.hierarchycode.domain.port.in.impl.HierarchyCodeCommandService;
 
 @RestController
 public class HierarchyCodeController {
