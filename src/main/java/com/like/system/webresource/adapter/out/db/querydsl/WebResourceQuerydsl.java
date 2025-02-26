@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.like.system.webresource.domain.QWebResource;
-import com.like.system.webresource.port.in.dto.WebResourceQueryDTO;
-import com.like.system.webresource.port.in.dto.WebResourceQueryResultDTO;
+import com.like.system.webresource.domain.port.in.dto.WebResourceQueryDTO;
+import com.like.system.webresource.domain.port.in.dto.WebResourceQueryResultDTO;
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 

@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.like.common.dto.HtmlSelectOptionRecord;
 import com.like.system.webresource.domain.WebResourceType;
-import com.like.system.webresource.port.in.WebResourceQueryUseCase;
-import com.like.system.webresource.port.in.dto.WebResourceQueryDTO;
-import com.like.system.webresource.port.in.dto.WebResourceQueryResultDTO;
+import com.like.system.webresource.domain.port.in.WebResourceQueryUseCase;
+import com.like.system.webresource.domain.port.in.dto.WebResourceQueryDTO;
+import com.like.system.webresource.domain.port.in.dto.WebResourceQueryResultDTO;
 
 @RestController
 public class WebResourceQueryController {

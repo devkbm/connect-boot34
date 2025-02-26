@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
-import com.like.system.menu_role.port.in.menu.MenuGroupSelectUseCase;
-import com.like.system.menu_role.port.in.menu.dto.MenuGroupQueryDTO;
-import com.like.system.menu_role.port.in.menu.dto.MenuGroupSaveDTO;
+import com.like.system.menu_role.domain.menu.port.in.MenuGroupSelectUseCase;
+import com.like.system.menu_role.domain.menu.port.in.dto.MenuGroupQueryDTO;
+import com.like.system.menu_role.domain.menu.port.in.dto.MenuGroupSaveDTO;
 
 @RestController
 public class MenuGroupSelectController {

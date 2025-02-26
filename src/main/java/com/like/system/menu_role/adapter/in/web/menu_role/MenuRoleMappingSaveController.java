@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
-import com.like.system.menu_role.port.in.menu_role.MenuRoleMappingSaveUseCase;
-import com.like.system.menu_role.port.in.menu_role.dto.MenuRoleMappingSaveDTO;
+import com.like.system.menu_role.domain.menu_role.port.in.MenuRoleMappingSaveUseCase;
+import com.like.system.menu_role.domain.menu_role.port.in.dto.MenuRoleMappingSaveDTO;
 
 import jakarta.validation.Valid;
 

@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
-import com.like.system.menu_role.port.in.menu.MenuHierarchyNgZorro;
-import com.like.system.menu_role.port.in.menu.MenuHierarchySelectUseCase;
+import com.like.system.menu_role.domain.menu.port.in.MenuHierarchyNgZorro;
+import com.like.system.menu_role.domain.menu.port.in.MenuHierarchySelectUseCase;
 
 
 @Slf4j

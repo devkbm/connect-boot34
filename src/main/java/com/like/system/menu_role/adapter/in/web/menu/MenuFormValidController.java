@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.like.system.menu_role.port.in.menu.MenuSelectUseCase;
-import com.like.system.menu_role.port.in.menu.dto.MenuSaveDTO;
+import com.like.system.menu_role.domain.menu.port.in.MenuSelectUseCase;
+import com.like.system.menu_role.domain.menu.port.in.dto.MenuSaveDTO;
 
 @RestController
 public class MenuFormValidController {

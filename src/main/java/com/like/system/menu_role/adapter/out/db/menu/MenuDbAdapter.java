@@ -8,10 +8,10 @@ import com.like.system.menu_role.adapter.out.db.menu.data.MenuGroupJpaRepository
 import com.like.system.menu_role.adapter.out.db.menu.data.MenuJpaRepository;
 import com.like.system.menu_role.domain.menu.Menu;
 import com.like.system.menu_role.domain.menu.MenuId;
-import com.like.system.menu_role.port.in.menu.dto.MenuQueryDTO;
-import com.like.system.menu_role.port.out.menu.MenuDeleteDbPort;
-import com.like.system.menu_role.port.out.menu.MenuSaveDbPort;
-import com.like.system.menu_role.port.out.menu.MenuSelectDbPort;
+import com.like.system.menu_role.domain.menu.port.in.dto.MenuQueryDTO;
+import com.like.system.menu_role.domain.menu.port.out.MenuDeleteDbPort;
+import com.like.system.menu_role.domain.menu.port.out.MenuSaveDbPort;
+import com.like.system.menu_role.domain.menu.port.out.MenuSelectDbPort;
 
 @Repository
 public class MenuDbAdapter implements MenuSelectDbPort, MenuSaveDbPort, MenuDeleteDbPort {

@@ -4,7 +4,7 @@ import org.springframework.stereotype.Repository;
 
 import com.like.system.webresource.adapter.out.db.data.WebResourceJpaRepository;
 import com.like.system.webresource.domain.WebResource;
-import com.like.system.webresource.port.out.WebResourceCommandDbPort;
+import com.like.system.webresource.domain.port.out.WebResourceCommandDbPort;
 
 @Repository
 public class WebResourceDbAdapter implements WebResourceCommandDbPort {
