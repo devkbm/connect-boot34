@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
 import com.like.system.menu_role.export.MenuHierarchyNgZorroDTO;
-import com.like.system.user.port.in.SystemUserMenuHierarchyQueryUseCase;
+import com.like.system.user.domain.port.in.SystemUserMenuHierarchyQueryUseCase;
 
 import lombok.extern.slf4j.Slf4j;
 

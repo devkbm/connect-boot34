@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
 import com.like.system.menu_role.domain.role.Role;
-import com.like.system.menu_role.port.in.role.RoleSelectUseCase;
+import com.like.system.menu_role.domain.role.port.in.RoleSelectUseCase;
 
 @RestController
 public class RoleSelectController {

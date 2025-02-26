@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 import com.like.system.user.domain.SystemUser;
 import com.like.system.user.domain.SystemUserId;
-import com.like.system.user.port.out.SystemUserCommandDbPort;
+import com.like.system.user.domain.port.out.SystemUserCommandDbPort;
 
 @Component
 public class UserIdExistsValidator implements ConstraintValidator<UserIdExists, SystemUserId> {

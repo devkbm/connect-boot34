@@ -3,7 +3,7 @@ package com.like.system.menu_role.adapter.out.db.role.jpa;
 import static org.springframework.util.StringUtils.hasText;
 
 import com.like.system.menu_role.domain.role.Role;
-import com.like.system.menu_role.port.in.role.dto.RoleQueryDTO;
+import com.like.system.menu_role.domain.role.port.in.dto.RoleQueryDTO;
 //import com.like.system.menu_role.adapter.out.db.role.jpa.QRoleJpaEntity;
 import com.querydsl.core.BooleanBuilder;
 

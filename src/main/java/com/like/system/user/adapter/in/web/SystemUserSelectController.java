@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
-import com.like.system.user.port.in.SystemUserSelectUseCase;
-import com.like.system.user.port.in.dto.SystemUserSelectDTO;
+import com.like.system.user.domain.port.in.SystemUserSelectUseCase;
+import com.like.system.user.domain.port.in.dto.SystemUserSelectDTO;
 
 
 @RestController

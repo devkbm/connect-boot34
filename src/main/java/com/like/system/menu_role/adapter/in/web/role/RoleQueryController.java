@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
 import com.like.system.menu_role.adapter.out.db.role.jpa.RoleJpaEntity;
-import com.like.system.menu_role.port.in.role.RoleQueryUseCase;
-import com.like.system.menu_role.port.in.role.dto.RoleQueryDTO;
+import com.like.system.menu_role.domain.role.port.in.RoleQueryUseCase;
+import com.like.system.menu_role.domain.role.port.in.dto.RoleQueryDTO;
 
 @RestController
 public class RoleQueryController {

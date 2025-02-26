@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
-import com.like.system.menu_role.port.in.role.RoleDeleteUseCase;
+import com.like.system.menu_role.domain.role.port.in.RoleDeleteUseCase;
 
 @RestController
 public class RoleDeleteController {

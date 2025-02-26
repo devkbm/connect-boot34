@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.like.system.menu_role.domain.menu.QMenu;
 import com.like.system.menu_role.domain.menu_role.MenuRoleHierarchy;
 import com.like.system.menu_role.domain.menu_role.QMenuRoleMapping;
-import com.like.system.menu_role.port.out.menu_role.MenuRoleHierarchySelectDbPort;
+import com.like.system.menu_role.domain.menu_role.port.out.MenuRoleHierarchySelectDbPort;
 import com.querydsl.core.types.Expression;
 import com.querydsl.core.types.Projections;
 import com.querydsl.core.types.dsl.CaseBuilder;

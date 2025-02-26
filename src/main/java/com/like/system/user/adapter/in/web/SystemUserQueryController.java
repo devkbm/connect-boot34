@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
-import com.like.system.user.port.in.SystemUserQueryUseCase;
-import com.like.system.user.port.in.dto.SystemUserQueryDTO;
-import com.like.system.user.port.in.dto.SystemUserSelectDTO;
+import com.like.system.user.domain.port.in.SystemUserQueryUseCase;
+import com.like.system.user.domain.port.in.dto.SystemUserQueryDTO;
+import com.like.system.user.domain.port.in.dto.SystemUserSelectDTO;
 
 @RestController
 public class SystemUserQueryController {

@@ -8,7 +8,7 @@ import com.like.system.menu_role.adapter.out.db.role.jpa.RoleJpaEntityId;
 import com.like.system.menu_role.adapter.out.db.role.jpa.RoleJpaEntityMapper;
 import com.like.system.menu_role.adapter.out.db.role.jpa.RoleJpaRepository;
 import com.like.system.menu_role.domain.role.Role;
-import com.like.system.menu_role.port.out.role.RoleCommandDbPort;
+import com.like.system.menu_role.domain.role.port.out.RoleCommandDbPort;
 
 @Repository
 @Transactional

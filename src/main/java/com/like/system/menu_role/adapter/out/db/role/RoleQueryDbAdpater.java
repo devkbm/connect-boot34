@@ -6,9 +6,9 @@ import org.springframework.stereotype.Repository;
 
 import com.like.system.menu_role.adapter.out.db.role.jpa.RoleJpaEntity;
 import com.like.system.menu_role.adapter.out.db.role.jpa.RoleJpaEntityMapper;
+import com.like.system.menu_role.domain.role.port.in.dto.RoleQueryDTO;
+import com.like.system.menu_role.domain.role.port.out.RoleQueryDbPort;
 import com.like.system.menu_role.adapter.out.db.role.jpa.QRoleJpaEntity;
-import com.like.system.menu_role.port.in.role.dto.RoleQueryDTO;
-import com.like.system.menu_role.port.out.role.RoleQueryDbPort;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 
 @Repository

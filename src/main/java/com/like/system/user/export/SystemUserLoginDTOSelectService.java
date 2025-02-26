@@ -2,7 +2,7 @@ package com.like.system.user.export;
 
 import org.springframework.stereotype.Service;
 
-import com.like.system.user.port.out.SystemUserCommandDbPort;
+import com.like.system.user.domain.port.out.SystemUserCommandDbPort;
 
 @Service
 public class SystemUserLoginDTOSelectService implements SystemUserLoginDTOSelectUseCase {

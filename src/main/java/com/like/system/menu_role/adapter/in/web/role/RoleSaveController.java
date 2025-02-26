@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
-import com.like.system.menu_role.port.in.role.RoleSaveUseCase;
-import com.like.system.menu_role.port.in.role.dto.RoleSaveDTO;
+import com.like.system.menu_role.domain.role.port.in.RoleSaveUseCase;
+import com.like.system.menu_role.domain.role.port.in.dto.RoleSaveDTO;
 
 @RestController
 public class RoleSaveController {

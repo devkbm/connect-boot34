@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.like.system.menu_role.domain.menu.QMenuGroup;
 import com.like.system.menu_role.domain.menu.MenuGroup;
 import com.like.system.menu_role.domain.menu_role.QMenuRoleMapping;
-import com.like.system.menu_role.port.out.menu_role.MenuGroupByRolesSelectDbPort;
+import com.like.system.menu_role.domain.menu_role.port.out.MenuGroupByRolesSelectDbPort;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 
 @Repository
