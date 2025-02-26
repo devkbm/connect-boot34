@@ -1,4 +1,4 @@
-package com.like.hrm.staff.domain;
+package com.like.hrm.staff.domain.staff;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;

@@ -7,7 +7,7 @@ import jakarta.persistence.Embeddable;
 
 import org.hibernate.annotations.Comment;
 
-import com.like.hrm.staff.domain.Staff;
+import com.like.hrm.staff.domain.staff.Staff;
 
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;

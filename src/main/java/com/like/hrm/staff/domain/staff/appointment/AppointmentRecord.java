@@ -1,4 +1,4 @@
-package com.like.hrm.staff.domain.appointment;
+package com.like.hrm.staff.domain.staff.appointment;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -19,7 +19,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.like.core.jpa.domain.AbstractAuditEntity;
-import com.like.hrm.staff.domain.Staff;
+import com.like.hrm.staff.domain.staff.Staff;
 
 import lombok.AccessLevel;
 import lombok.Builder;

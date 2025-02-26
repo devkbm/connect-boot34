@@ -1,11 +1,11 @@
-package com.like.hrm.staff.domain;
+package com.like.hrm.staff.domain.staff;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 
 import org.hibernate.annotations.Comment;
 
-import com.like.hrm.staff.domain.appointment.AppointmentInformation;
+import com.like.hrm.staff.domain.staff.appointment.AppointmentInformation;
 
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;

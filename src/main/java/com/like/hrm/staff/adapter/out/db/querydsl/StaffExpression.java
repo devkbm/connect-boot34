@@ -3,7 +3,7 @@ package com.like.hrm.staff.adapter.out.db.querydsl;
 import java.time.LocalDate;
 import java.util.List;
 
-import com.like.hrm.staff.domain.Staff;
+import com.like.hrm.staff.domain.staff.Staff;
 import com.querydsl.core.annotations.QueryDelegate;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.core.types.dsl.DateExpression;

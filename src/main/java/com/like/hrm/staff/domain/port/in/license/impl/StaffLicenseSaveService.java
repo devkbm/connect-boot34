@@ -2,11 +2,11 @@ package com.like.hrm.staff.domain.port.in.license.impl;
 
 import org.springframework.stereotype.Service;
 
-import com.like.hrm.staff.domain.Staff;
-import com.like.hrm.staff.domain.license.StaffLicense;
 import com.like.hrm.staff.domain.port.in.license.StaffLicenseSaveUseCase;
 import com.like.hrm.staff.domain.port.in.license.dto.StaffLicenseFormDTO;
 import com.like.hrm.staff.domain.port.out.StaffCommandDbPort;
+import com.like.hrm.staff.domain.staff.Staff;
+import com.like.hrm.staff.domain.staff.license.StaffLicense;
 
 import jakarta.persistence.EntityNotFoundException;
 

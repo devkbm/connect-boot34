@@ -5,12 +5,12 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.like.hrm.staff.domain.Staff;
-import com.like.hrm.staff.domain.StaffQueryRepository;
 import com.like.hrm.staff.domain.port.in.ResponseStaffAppointmentRecord;
 import com.like.hrm.staff.domain.port.in.ResponseStaffCurrentAppointment;
 import com.like.hrm.staff.domain.port.in.ResponseStaffDutyResponsibility;
 import com.like.hrm.staff.domain.port.in.dto.StaffQueryConditionDTO;
+import com.like.hrm.staff.domain.staff.Staff;
+import com.like.hrm.staff.domain.staff.StaffQueryRepository;
 
 @Service
 @Transactional(readOnly = true)

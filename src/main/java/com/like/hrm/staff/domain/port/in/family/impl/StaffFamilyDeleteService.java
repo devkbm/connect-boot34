@@ -2,9 +2,9 @@ package com.like.hrm.staff.domain.port.in.family.impl;
 
 import org.springframework.stereotype.Service;
 
-import com.like.hrm.staff.domain.Staff;
 import com.like.hrm.staff.domain.port.in.family.StaffFamilyDeleteUseCase;
 import com.like.hrm.staff.domain.port.out.StaffCommandDbPort;
+import com.like.hrm.staff.domain.staff.Staff;
 
 import jakarta.persistence.EntityNotFoundException;
 

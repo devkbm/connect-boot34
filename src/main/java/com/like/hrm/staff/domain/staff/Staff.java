@@ -1,4 +1,4 @@
-package com.like.hrm.staff.domain;
+package com.like.hrm.staff.domain.staff;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -14,12 +14,12 @@ import org.hibernate.annotations.Comment;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.like.core.jpa.domain.AbstractAuditEntity;
-import com.like.hrm.staff.domain.appointment.AppointmentRecord;
-import com.like.hrm.staff.domain.appointment.AppointmentRecordList;
-import com.like.hrm.staff.domain.dutyresponsibility.StaffDutyList;
-import com.like.hrm.staff.domain.family.StaffFamilyList;
-import com.like.hrm.staff.domain.license.StaffLicenseList;
-import com.like.hrm.staff.domain.schoolcareer.StaffSchoolCareerList;
+import com.like.hrm.staff.domain.staff.appointment.AppointmentRecord;
+import com.like.hrm.staff.domain.staff.appointment.AppointmentRecordList;
+import com.like.hrm.staff.domain.staff.dutyresponsibility.StaffDutyList;
+import com.like.hrm.staff.domain.staff.family.StaffFamilyList;
+import com.like.hrm.staff.domain.staff.license.StaffLicenseList;
+import com.like.hrm.staff.domain.staff.schoolcareer.StaffSchoolCareerList;
 
 import lombok.AccessLevel;
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package com.like.hrm.staff.domain.dutyresponsibility;
+package com.like.hrm.staff.domain.staff.schoolcareer;
 
 import java.io.Serializable;
 
@@ -7,7 +7,7 @@ import jakarta.persistence.Embeddable;
 
 import org.hibernate.annotations.Comment;
 
-import com.like.hrm.staff.domain.Staff;
+import com.like.hrm.staff.domain.staff.Staff;
 
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
@@ -18,10 +18,10 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = {"companyCode","staffNo","seq"})
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Embeddable
-public class StaffDutyId implements Serializable {
-	
-	private static final long serialVersionUID = -1176225352272330423L;
-	
+public class StaffSchoolCareerId implements Serializable {
+		
+	private static final long serialVersionUID = -752236787842572663L;
+
 	@Column(name="ORG_CD")
 	String companyCode;
 		
@@ -32,7 +32,7 @@ public class StaffDutyId implements Serializable {
 	@Column(name="SEQ")
 	Long seq;
 	
-	public StaffDutyId(Staff staff, Long seq) {
+	public StaffSchoolCareerId(Staff staff, Long seq) {
 		this.companyCode = staff.getId().companyCode();
 		this.staffNo = staff.getId().staffNo();
 		this.seq = seq;

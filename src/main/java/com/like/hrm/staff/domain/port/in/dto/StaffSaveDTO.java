@@ -3,8 +3,8 @@ package com.like.hrm.staff.domain.port.in.dto;
 import java.time.LocalDate;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.like.hrm.staff.domain.Staff;
-import com.like.hrm.staff.domain.StaffName;
+import com.like.hrm.staff.domain.staff.Staff;
+import com.like.hrm.staff.domain.staff.StaffName;
 
 import jakarta.validation.constraints.NotEmpty;
 

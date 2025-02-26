@@ -1,10 +1,10 @@
-package com.like.hrm.staff.domain.schoolcareer;
+package com.like.hrm.staff.domain.staff.schoolcareer;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.stream.Stream;
 
-import com.like.hrm.staff.domain.Staff;
+import com.like.hrm.staff.domain.staff.Staff;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Embeddable;

@@ -1,4 +1,4 @@
-package com.like.hrm.staff.domain;
+package com.like.hrm.staff.domain.staff;
 
 import java.util.Objects;
 

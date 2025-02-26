@@ -4,11 +4,11 @@ import org.springframework.stereotype.Service;
 
 import com.like.common.vo.Address;
 import com.like.common.vo.PhoneNumber;
-import com.like.hrm.staff.domain.Staff;
-import com.like.hrm.staff.domain.StaffContact;
 import com.like.hrm.staff.domain.port.in.StaffContractSaveUseCase;
 import com.like.hrm.staff.domain.port.in.dto.StaffContactSaveDTO;
 import com.like.hrm.staff.domain.port.out.StaffCommandDbPort;
+import com.like.hrm.staff.domain.staff.Staff;
+import com.like.hrm.staff.domain.staff.StaffContact;
 
 import jakarta.persistence.EntityNotFoundException;
 

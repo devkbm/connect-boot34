@@ -1,4 +1,4 @@
-package com.like.hrm.staff.domain.appointment;
+package com.like.hrm.staff.domain.staff.family;
 
 import java.io.Serializable;
 
@@ -7,7 +7,7 @@ import jakarta.persistence.Embeddable;
 
 import org.hibernate.annotations.Comment;
 
-import com.like.hrm.staff.domain.Staff;
+import com.like.hrm.staff.domain.staff.Staff;
 
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
@@ -18,23 +18,24 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = {"companyCode","staffNo","seq"})
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Embeddable
-public class AppointmentRecordId implements Serializable {
+public class StaffFamilyId implements Serializable {
 	
-	private static final long serialVersionUID = -9052607243196727987L;
-
+	private static final long serialVersionUID = -8748836639137047169L;
+	
 	@Column(name="ORG_CD")
 	String companyCode;
 		
 	@Column(name="STAFF_NO")
 	String staffNo;
-	
+		
 	@Comment("등록순번")
 	@Column(name="SEQ")
-	Long seq;
+	Long seq;		
 	
-	public AppointmentRecordId(Staff staff, Long seq) {
+	public StaffFamilyId(Staff staff, Long seq) {
 		this.companyCode = staff.getId().companyCode();
 		this.staffNo = staff.getId().staffNo();
 		this.seq = seq;
-	}
+	}	
+	
 }

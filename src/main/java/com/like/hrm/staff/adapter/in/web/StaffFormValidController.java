@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.like.hrm.staff.adapter.out.db.data.StaffJpaRepository;
-import com.like.hrm.staff.domain.StaffId;
+import com.like.hrm.staff.domain.staff.StaffId;
 
 @RestController
 public class StaffFormValidController {

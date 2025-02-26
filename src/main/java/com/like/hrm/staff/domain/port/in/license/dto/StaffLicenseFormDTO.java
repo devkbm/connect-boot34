@@ -2,8 +2,8 @@ package com.like.hrm.staff.domain.port.in.license.dto;
 
 import java.time.LocalDate;
 
-import com.like.hrm.staff.domain.Staff;
-import com.like.hrm.staff.domain.license.StaffLicense;
+import com.like.hrm.staff.domain.staff.Staff;
+import com.like.hrm.staff.domain.staff.license.StaffLicense;
 
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AccessLevel;

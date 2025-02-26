@@ -2,8 +2,8 @@ package com.like.hrm.staff.domain.port.in.dutyresponsibility.dto;
 
 import java.time.LocalDate;
 
-import com.like.hrm.staff.domain.Staff;
-import com.like.hrm.staff.domain.dutyresponsibility.StaffDuty;
+import com.like.hrm.staff.domain.staff.Staff;
+import com.like.hrm.staff.domain.staff.dutyresponsibility.StaffDuty;
 
 import lombok.AccessLevel;
 import lombok.Builder;

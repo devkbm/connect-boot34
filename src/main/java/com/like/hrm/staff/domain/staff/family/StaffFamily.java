@@ -1,4 +1,4 @@
-package com.like.hrm.staff.domain.family;
+package com.like.hrm.staff.domain.staff.family;
 
 import java.io.Serializable;
 
@@ -17,7 +17,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.like.core.jpa.domain.AbstractAuditEntity;
-import com.like.hrm.staff.domain.Staff;
+import com.like.hrm.staff.domain.staff.Staff;
 
 import lombok.AccessLevel;
 import lombok.Builder;
