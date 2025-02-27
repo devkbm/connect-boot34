@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.web.util.WebRequestUtil;
 import com.like.login.domain.AuthenticationToken;
-import com.like.login.domain.LoginSuccessEvent;
 import com.like.login.domain.port.in.AuthenticationTokenSelectUseCase;
+import com.like.login.event.LoginSuccessEvent;
 import com.like.system.user.export.SystemUserLoginDTO;
 import com.like.system.user.export.SystemUserLoginDTOSelectUseCase;
 
@@ -55,17 +55,18 @@ public class LoginController {
 		
 		// 로그인 요청정보 SpringSecurityUserService에서 사용하기 위해 THREAD_LOCAL에 저장
 		LoginRequestContext.set(dto);
-										
+														
+		SystemUserLoginDTO systemUser = userPort.get(dto.staffNo(), dto.companyCode());		
 		AuthenticationToken authToken = authTokenSelectUseCase.select(dto.staffNo(), dto.companyCode(), request.getSession().getId(), WebRequestUtil.getIpAddress(request));
-				
-		SystemUserLoginDTO systemUser = userPort.get(dto.staffNo(), dto.companyCode());
-		UsernamePasswordAuthenticationToken securityToken = new UsernamePasswordAuthenticationToken(dto.staffNo(), dto.password(), systemUser.authorities());				
+		
+		UsernamePasswordAuthenticationToken securityToken = new UsernamePasswordAuthenticationToken(dto.staffNo(), dto.password(), systemUser.authorities());			
 		securityToken.setDetails(authToken);
 		
 		Authentication authentication = authenticationManager.authenticate(securityToken); 					
 		SecurityContextHolder.getContext().setAuthentication(authentication);
 		request.getSession().setAttribute(HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY, SecurityContextHolder.getContext());
 		
+		//로그인 요청정보 THREAD_LOCAL에서 제거
 		LoginRequestContext.remove();
 		
 		this.publisher.publishEvent(new LoginSuccessEvent(dto.companyCode(), dto.staffNo(), LocalDate.now(), "login"));

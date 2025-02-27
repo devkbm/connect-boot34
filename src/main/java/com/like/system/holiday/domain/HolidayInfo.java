@@ -8,18 +8,17 @@ import java.util.Locale;
 import lombok.ToString;
 
 @ToString(includeFieldNames = true)
-public class DateInfo {
+public class HolidayInfo {
 
 	private LocalDate date;
 	
 	private Holiday holiday;	
 	
-	public DateInfo(LocalDate date) {
+	public HolidayInfo(LocalDate date) {
 		this.date = date;
 	}
 	
-	public DateInfo(LocalDate date
-				   ,Holiday holiday) {
+	public HolidayInfo(LocalDate date, Holiday holiday) {
 		this.date = date;
 		this.holiday = holiday;
 	}		
@@ -57,7 +56,7 @@ public class DateInfo {
 	}
 	
 	public static void main(String[] args) {
-		DateInfo date = new DateInfo(LocalDate.now());
+		HolidayInfo date = new HolidayInfo(LocalDate.now());
 		
 		System.out.println(date.getDayOfWeek());
 	}

@@ -11,8 +11,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.like.common.vo.LocalDatePeriod;
 import com.like.hrm.attendance.domain.application.AttendanceApplication;
 import com.like.hrm.attendance.domain.application.QAttendanceApplication;
-import com.like.system.holiday.domain.DateInfo;
-import com.like.system.holiday.domain.DateInfoCollection;
+import com.like.system.holiday.domain.HolidayInfo;
+import com.like.system.holiday.domain.HolidayInfoCollection;
 import com.like.system.holiday.domain.port.in.DateInfoSelectUseCase;
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.dsl.BooleanExpression;
@@ -58,7 +58,7 @@ public class DutyApplicationDTO {
 			BigDecimal dutyTime) {
 		
 		public static Form convert(AttendanceApplication e, DateInfoSelectUseCase service) {								
-			DateInfoCollection dateInfoList = service.select("001", e.getPeriod().getFrom(), e.getPeriod().getTo());
+			HolidayInfoCollection dateInfoList = service.select("001", e.getPeriod().getFrom(), e.getPeriod().getTo());
 
 			
 			return Form.builder()
@@ -106,11 +106,11 @@ public class DutyApplicationDTO {
 			return selectedDate.stream().map(e -> e.date()).toList();
 		}
 		
-		private static List<DutyDate> convertDutyDate(AttendanceApplication entity, DateInfoCollection dateInfoList) {
+		private static List<DutyDate> convertDutyDate(AttendanceApplication entity, HolidayInfoCollection dateInfoList) {
 			List<DutyDate> dutyDatelist = new ArrayList<>(dateInfoList.size());
 			List<LocalDate> selectedDate = entity.getSelectedDate();					
 			
-			for (DateInfo date : dateInfoList.getDates()) {							
+			for (HolidayInfo date : dateInfoList.getDates()) {							
 				dutyDatelist.add(new DutyDate(date.getDate()										
 											 ,selectedDate.contains(date.getDate())											 
 											 ,date.isHoliday()
@@ -132,10 +132,10 @@ public class DutyApplicationDTO {
 			@JsonProperty("isSunday")boolean isSunday
 			) {
 		
-		public static List<DutyDate> convertInitDutyDateList(DateInfoCollection dateInfoList) {
+		public static List<DutyDate> convertInitDutyDateList(HolidayInfoCollection dateInfoList) {
 			List<DutyDate> dutyDatelist = new ArrayList<>(dateInfoList.size());
 			
-			for (DateInfo date : dateInfoList.getDates()) {								
+			for (HolidayInfo date : dateInfoList.getDates()) {								
 				if (date.isWeekend() || date.isHoliday() ) {
 					dutyDatelist.add(new DutyDate(date.getDate(), false, date.isHoliday(), date.isSaturDay(), date.isSunday()));
 				} else {

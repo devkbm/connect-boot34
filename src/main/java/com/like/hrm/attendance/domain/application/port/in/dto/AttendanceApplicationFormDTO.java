@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.like.system.holiday.domain.DateInfo;
-import com.like.system.holiday.domain.DateInfoCollection;
+import com.like.system.holiday.domain.HolidayInfo;
+import com.like.system.holiday.domain.HolidayInfoCollection;
 
 import lombok.Builder;
 
@@ -33,10 +33,10 @@ public record AttendanceApplicationFormDTO(
 			@JsonProperty("isSunday")boolean isSunday
 			) {
 		
-		public static List<DutyDate> convertInitDutyDateList(DateInfoCollection dateInfoList) {
+		public static List<DutyDate> convertInitDutyDateList(HolidayInfoCollection dateInfoList) {
 			List<DutyDate> dutyDatelist = new ArrayList<>(dateInfoList.size());
 			
-			for (DateInfo date : dateInfoList.getDates()) {								
+			for (HolidayInfo date : dateInfoList.getDates()) {								
 				if (date.isWeekend() || date.isHoliday() ) {
 					dutyDatelist.add(new DutyDate(date.getDate(), false, date.isHoliday(), date.isHoliday(), date.isSunday()));
 				} else {

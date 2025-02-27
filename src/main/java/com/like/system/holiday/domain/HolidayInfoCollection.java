@@ -7,25 +7,25 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class DateInfoCollection {
+public class HolidayInfoCollection {
 
-	private Map<LocalDate, DateInfo> dates;
+	private Map<LocalDate, HolidayInfo> dates;
 	
-	public DateInfoCollection(List<DateInfo> dates) {
-		this.dates = dates.stream().collect(Collectors.toMap(DateInfo::getDate, dateInfo -> dateInfo));
+	public HolidayInfoCollection(List<HolidayInfo> dates) {
+		this.dates = dates.stream().collect(Collectors.toMap(HolidayInfo::getDate, dateInfo -> dateInfo));
 	}
 	
-	public DateInfoCollection(List<DateInfo> dates, List<Holiday> holidayList) {
-		this.dates = dates.stream().collect(Collectors.toMap(DateInfo::getDate, dateInfo -> dateInfo));
+	public HolidayInfoCollection(List<HolidayInfo> dates, List<Holiday> holidayList) {
+		this.dates = dates.stream().collect(Collectors.toMap(HolidayInfo::getDate, dateInfo -> dateInfo));
 		this.setHolidayList(holidayList);
 	}
 	
-	public DateInfo getDate(LocalDate date) {												
+	public HolidayInfo getDate(LocalDate date) {												
 		return this.dates.get(date);
 	}
 	
-	public List<DateInfo> getDates() {	
-		List<DateInfo> list = new ArrayList<>(this.dates.values());
+	public List<HolidayInfo> getDates() {	
+		List<HolidayInfo> list = new ArrayList<>(this.dates.values());
 		Collections.sort(list, (e1, e2) -> e1.getDate().compareTo(e2.getDate()));
 		return list;
 	}

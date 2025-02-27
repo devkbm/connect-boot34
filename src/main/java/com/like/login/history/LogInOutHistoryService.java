@@ -1,4 +1,4 @@
-package com.like.login.domain.port.in.impl;
+package com.like.login.history;
 
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
@@ -7,10 +7,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.event.TransactionPhase;
 import org.springframework.transaction.event.TransactionalEventListener;
 
-import com.like.login.adapter.out.db.data.LogInOutHistoryRepository;
-import com.like.login.domain.LogInOutHistory;
-import com.like.login.domain.LoginSuccessEvent;
-import com.like.login.domain.LogInOutHistory.LOG_TYPE;
+import com.like.login.event.LoginSuccessEvent;
+import com.like.login.history.LogInOutHistory.LOG_TYPE;
 
 @Transactional
 @Service

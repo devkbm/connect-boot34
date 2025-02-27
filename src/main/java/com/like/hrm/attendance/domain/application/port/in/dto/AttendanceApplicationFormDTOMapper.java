@@ -7,8 +7,8 @@ import java.util.List;
 import com.like.common.vo.LocalDatePeriod;
 import com.like.hrm.attendance.domain.application.AttendanceApplication;
 import com.like.hrm.attendance.domain.application.port.in.dto.AttendanceApplicationFormDTO.DutyDate;
-import com.like.system.holiday.domain.DateInfo;
-import com.like.system.holiday.domain.DateInfoCollection;
+import com.like.system.holiday.domain.HolidayInfo;
+import com.like.system.holiday.domain.HolidayInfoCollection;
 import com.like.system.holiday.domain.port.in.DateInfoSelectUseCase;
 
 public class AttendanceApplicationFormDTOMapper {
@@ -46,7 +46,7 @@ public class AttendanceApplicationFormDTOMapper {
 	public static AttendanceApplicationFormDTO toDTO(AttendanceApplication e, DateInfoSelectUseCase service) {
 		if ( e == null ) return null;
 		
-		DateInfoCollection dateInfoList = service.select("001", e.getPeriod().getFrom(), e.getPeriod().getTo());
+		HolidayInfoCollection dateInfoList = service.select("001", e.getPeriod().getFrom(), e.getPeriod().getTo());
 	
 		return AttendanceApplicationFormDTO.builder()
 				   .dutyId(e.getId())				   
@@ -61,11 +61,11 @@ public class AttendanceApplicationFormDTOMapper {
 	}
 	
 	
-	private static List<DutyDate> convertDutyDate(AttendanceApplication entity, DateInfoCollection dateInfoList) {
+	private static List<DutyDate> convertDutyDate(AttendanceApplication entity, HolidayInfoCollection dateInfoList) {
 		List<DutyDate> dutyDatelist = new ArrayList<>(dateInfoList.size());
 		List<LocalDate> selectedDate = entity.getSelectedDate();					
 		
-		for (DateInfo date : dateInfoList.getDates()) {							
+		for (HolidayInfo date : dateInfoList.getDates()) {							
 			dutyDatelist.add(new DutyDate(date.getDate()										
 										 ,selectedDate.contains(date.getDate())											 
 										 ,date.isHoliday()

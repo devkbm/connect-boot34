@@ -2,9 +2,9 @@ package com.like.system.holiday.domain.port.in;
 
 import java.time.LocalDate;
 
-import com.like.system.holiday.domain.DateInfoCollection;
+import com.like.system.holiday.domain.HolidayInfoCollection;
 
 public interface DateInfoSelectUseCase {
 
-	DateInfoCollection select(String companyCode, LocalDate fromDate, LocalDate toDate);
+	HolidayInfoCollection select(String companyCode, LocalDate fromDate, LocalDate toDate);
 }

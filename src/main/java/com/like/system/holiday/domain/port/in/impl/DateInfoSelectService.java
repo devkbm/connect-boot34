@@ -7,8 +7,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.like.system.holiday.domain.DateInfo;
-import com.like.system.holiday.domain.DateInfoCollection;
+import com.like.system.holiday.domain.HolidayInfo;
+import com.like.system.holiday.domain.HolidayInfoCollection;
 import com.like.system.holiday.domain.Holiday;
 import com.like.system.holiday.domain.port.in.DateInfoSelectUseCase;
 import com.like.system.holiday.domain.port.out.HolidaySelectPort;
@@ -23,23 +23,23 @@ public class DateInfoSelectService implements DateInfoSelectUseCase {
 	}
 	
 	@Override
-	public DateInfoCollection select(String companyCode, LocalDate fromDate, LocalDate toDate) {
-		List<DateInfo> days = this.createDateInfoList(fromDate, toDate);
+	public HolidayInfoCollection select(String companyCode, LocalDate fromDate, LocalDate toDate) {
+		List<HolidayInfo> days = this.createDateInfoList(fromDate, toDate);
 		
 		List<Holiday> holidays = this.getHolidayList(companyCode, fromDate, toDate);
 		
-		return new DateInfoCollection(days, holidays);
+		return new HolidayInfoCollection(days, holidays);
 	}
 	
-	private List<DateInfo> createDateInfoList(LocalDate fromDate, LocalDate toDate) {
+	private List<HolidayInfo> createDateInfoList(LocalDate fromDate, LocalDate toDate) {
 		if (fromDate.isAfter(toDate)) 
 			throw new IllegalArgumentException("종료일자보다 시작일자가 큽니다.");
 		
 		final long dayCnt = fromDate.until(toDate, ChronoUnit.DAYS);
-		List<DateInfo> list = new ArrayList<>(Math.toIntExact(dayCnt));			
+		List<HolidayInfo> list = new ArrayList<>(Math.toIntExact(dayCnt));			
 		
 		while (fromDate.isBefore(toDate) || fromDate.isEqual(toDate)) {
-			list.add(new DateInfo(fromDate));			
+			list.add(new HolidayInfo(fromDate));			
 			fromDate = fromDate.plusDays(1);
 		}
 		

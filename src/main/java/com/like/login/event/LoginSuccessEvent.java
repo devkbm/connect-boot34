@@ -1,4 +1,4 @@
-package com.like.login.domain;
+package com.like.login.event;
 
 import java.time.LocalDate;
 
