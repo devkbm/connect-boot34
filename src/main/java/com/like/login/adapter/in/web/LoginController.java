@@ -25,25 +25,22 @@ import com.like.system.user.export.SystemUserLoginDTOSelectUseCase;
 
 @RestController
 public class LoginController {		
-				
-	SystemUserLoginDTOSelectUseCase userPort;
+	
+	AuthenticationManager authenticationManager;	
+	ApplicationEventPublisher eventPublisher;
+	SystemUserLoginDTOSelectUseCase loginDTOSelectUseCase;
 	AuthenticationTokenSelectUseCase authTokenSelectUseCase;
-	
-	AuthenticationManager authenticationManager;
-	
-	ApplicationEventPublisher publisher;
-	
-	public LoginController(SystemUserLoginDTOSelectUseCase userPort						  						 
-						  ,AuthenticationTokenSelectUseCase authTokenSelectUseCase
-						  ,AuthenticationManager authenticationManager
-						  ,ApplicationEventPublisher publisher) {		
-		
-		this.userPort = userPort;			
-		this.authTokenSelectUseCase = authTokenSelectUseCase;
-		
+			
+	public LoginController(
+			AuthenticationManager authenticationManager,
+			ApplicationEventPublisher eventPublisher,
+			SystemUserLoginDTOSelectUseCase loginDTOSelectUseCase,						  						 
+			AuthenticationTokenSelectUseCase authTokenSelectUseCase
+			) {				
 		this.authenticationManager = authenticationManager;
-		
-		this.publisher = publisher;
+		this.eventPublisher = eventPublisher;		
+		this.loginDTOSelectUseCase = loginDTOSelectUseCase;			
+		this.authTokenSelectUseCase = authTokenSelectUseCase;					
 	}
 		 
 	
@@ -56,22 +53,21 @@ public class LoginController {
 		// 로그인 요청정보 SpringSecurityUserService에서 사용하기 위해 THREAD_LOCAL에 저장
 		LoginRequestContext.set(dto);
 														
-		SystemUserLoginDTO systemUser = userPort.get(dto.staffNo(), dto.companyCode());		
-		AuthenticationToken authToken = authTokenSelectUseCase.select(dto.staffNo(), dto.companyCode(), request.getSession().getId(), WebRequestUtil.getIpAddress(request));
+		SystemUserLoginDTO systemUser = loginDTOSelectUseCase.get(dto.staffNo(), dto.companyCode());		
 		
-		UsernamePasswordAuthenticationToken securityToken = new UsernamePasswordAuthenticationToken(dto.staffNo(), dto.password(), systemUser.authorities());			
-		securityToken.setDetails(authToken);
-		
-		Authentication authentication = authenticationManager.authenticate(securityToken); 					
+		// 스프링 시큐리티 인증
+		UsernamePasswordAuthenticationToken securityToken = new UsernamePasswordAuthenticationToken(dto.staffNo(), dto.password(), systemUser.authorities());											
+		//securityToken.setDetails("추가정보 입력가능");
+		Authentication authentication = authenticationManager.authenticate(securityToken); 				
 		SecurityContextHolder.getContext().setAuthentication(authentication);
 		request.getSession().setAttribute(HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY, SecurityContextHolder.getContext());
 		
 		//로그인 요청정보 THREAD_LOCAL에서 제거
 		LoginRequestContext.remove();
 		
-		this.publisher.publishEvent(new LoginSuccessEvent(dto.companyCode(), dto.staffNo(), LocalDate.now(), "login"));
-				
-		return authToken;
+		this.eventPublisher.publishEvent(new LoginSuccessEvent(dto.companyCode(), dto.staffNo(), LocalDate.now(), "login"));
+						
+		return authTokenSelectUseCase.select(dto.staffNo(), dto.companyCode(), request.getSession().getId(), WebRequestUtil.getIpAddress(request));
 	}	
 	
 }

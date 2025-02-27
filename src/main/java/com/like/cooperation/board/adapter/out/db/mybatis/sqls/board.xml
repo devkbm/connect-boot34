@@ -8,6 +8,7 @@
 	]]>     	  
 	</select>	   
 	
+	<!--
 	<select id="getArticleList" parameterType="map" resultType="com.like.cooperation.board.domain.post.port.in.dto.PostListDTO"><![CDATA[
 		SELECT A.BOARD_ID			boardId
 		     , A.POST_ID			postId
@@ -51,7 +52,7 @@
         limit #{pagesize} + 1 offset #{pagenumber} * #{pagesize}		    
     ]]>
 	</select>
-	
+	-->
 		
 	<select id="getArticleList33" parameterType="map" resultType="map"><![CDATA[
 		select b.SYS_DT		as sysDt

@@ -6,6 +6,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.like.login.adapter.in.web.LoginRequestContext;
 import com.like.login.domain.CustomUserDetails;
 import com.like.system.user.adapter.out.db.data.SystemUserRepository;
 import com.like.system.user.domain.SystemUser;
@@ -25,10 +26,11 @@ public class SpringSecurityUserService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {		
 		SystemUser user = repository.findById(new SystemUserId(username))
 				 					.orElseThrow(() -> new UsernameNotFoundException(username + " is Not Found"));
-					
+	
 		return CustomUserDetails.builder()
 								.userId(user.getId().getUserId())
-								.password(user.getPassword())								
+								.password(user.getPassword())
+								.authorities(user.getRoleList(LoginRequestContext.get().companyCode()))
 								.build();
 	}
 
