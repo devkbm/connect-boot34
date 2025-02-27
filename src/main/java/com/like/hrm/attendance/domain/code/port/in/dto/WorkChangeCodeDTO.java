@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.like.hrm.attendance.domain.application.QWorkChangeCode;
+import com.like.hrm.attendance.domain.code.QWorkChangeCode;
 import com.like.hrm.attendance.domain.code.WorkChangeCode;
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.dsl.BooleanExpression;

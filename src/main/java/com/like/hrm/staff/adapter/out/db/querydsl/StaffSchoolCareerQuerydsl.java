@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import com.like.hrm.hrmcode.domain.QHrmCode;
 import com.like.hrm.staff.domain.port.in.schoolcareer.dto.StaffSchoolCareerQueryResultDTO;
-import com.like.hrm.staff.domain.schoolcareer.QStaffSchoolCareer;
+import com.like.hrm.staff.domain.staff.schoolcareer.QStaffSchoolCareer;
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 

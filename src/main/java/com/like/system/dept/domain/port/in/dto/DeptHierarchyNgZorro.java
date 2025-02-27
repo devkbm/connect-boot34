@@ -1,4 +1,4 @@
-package com.like.system.dept.domain.port.in;
+package com.like.system.dept.domain.port.in.dto;
 
 import java.time.LocalDate;
 import java.util.List;

@@ -8,8 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.like.system.dept.domain.DeptHierarchy;
 import com.like.system.dept.domain.DeptHierarchyGenerator;
-import com.like.system.dept.domain.port.in.DeptHierarchyNgZorro;
 import com.like.system.dept.domain.port.in.DeptHierarchySelectUseCase;
+import com.like.system.dept.domain.port.in.dto.DeptHierarchyNgZorro;
 import com.like.system.dept.domain.port.in.dto.DeptQueryDTO;
 import com.like.system.dept.domain.port.out.DeptHierarchySelectDbPort;
 
