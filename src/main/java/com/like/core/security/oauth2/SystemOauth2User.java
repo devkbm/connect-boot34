@@ -22,15 +22,17 @@ public class SystemOauth2User implements OAuth2User, Serializable {
 
 	private static final long serialVersionUID = SpringSecurityCoreVersion.SERIAL_VERSION_UID;
 
-	private final String userId;
-	
 	private final Set<GrantedAuthority> authorities;
 
 	private final Map<String, Object> attributes;
 
 	private final String nameAttributeKey;
+	
+	private final String userId;
+	
+	private final String userName;
 		
-	public SystemOauth2User(String userId, Collection<? extends GrantedAuthority> authorities, String nameAttributeKey, Map<String, Object> attributes) {
+	public SystemOauth2User(String userId, String userName, Collection<? extends GrantedAuthority> authorities, String nameAttributeKey, Map<String, Object> attributes) {
 		
 		Assert.notEmpty(attributes, "attributes cannot be empty");
 		Assert.hasText(nameAttributeKey, "nameAttributeKey cannot be empty");
@@ -39,6 +41,7 @@ public class SystemOauth2User implements OAuth2User, Serializable {
 		}
 		
 		this.userId = userId;
+		this.userName = userName;
 		this.authorities = (authorities != null)
 				? Collections.unmodifiableSet(new LinkedHashSet<>(this.sortAuthorities(authorities)))
 				: Collections.unmodifiableSet(new LinkedHashSet<>(AuthorityUtils.NO_AUTHORITIES));
@@ -65,6 +68,11 @@ public class SystemOauth2User implements OAuth2User, Serializable {
 	public String getUserId() {
 		return this.userId;
 	}
+	
+	public String getUserName() {
+		return this.userName;
+	}
+	
 	
 	private Set<GrantedAuthority> sortAuthorities(Collection<? extends GrantedAuthority> authorities) {
 		SortedSet<GrantedAuthority> sortedAuthorities = new TreeSet<>(

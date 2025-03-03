@@ -29,6 +29,7 @@ public class SpringSecurityUserService implements UserDetailsService {
 	
 		return CustomUserDetails.builder()
 								.userId(user.getId().getUserId())
+								.userName(user.getName())
 								.password(user.getPassword())
 								.authorities(user.getRoleList(LoginRequestContext.get().companyCode()))
 								.build();

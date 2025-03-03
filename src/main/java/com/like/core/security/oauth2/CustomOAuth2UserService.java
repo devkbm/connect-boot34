@@ -84,10 +84,11 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
 		}			
 				
 		OAuth2User oAuth2 = new SystemOauth2User(
-				   systemUser.getId().getUserId()	               
-				   ,systemUser.getRoleList(companyCode)
-	               ,attributes.getNameAttributeKey()
-	               ,attributes.getAttributes()
+				   systemUser.getId().getUserId(),
+				   systemUser.getName(),
+				   systemUser.getRoleList(companyCode),
+	               attributes.getNameAttributeKey(),
+	               attributes.getAttributes()
 	               );  
 		
 		return oAuth2;       

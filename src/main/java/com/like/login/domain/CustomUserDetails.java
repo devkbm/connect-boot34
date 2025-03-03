@@ -17,6 +17,7 @@ public class CustomUserDetails implements UserDetails {
 	private static final long serialVersionUID = 2960443107859013336L;
 
 	String userId;
+	String userName;
 	String password;
 	Collection<? extends GrantedAuthority> authorities;	
 	
@@ -33,6 +34,10 @@ public class CustomUserDetails implements UserDetails {
 	@Override
 	public String getUsername() {
 		return this.userId;
+	}
+	
+	public String getUserName() {
+		return this.userName;
 	}
 
 }

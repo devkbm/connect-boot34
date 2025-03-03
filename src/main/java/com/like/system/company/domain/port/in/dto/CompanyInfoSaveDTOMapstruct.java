@@ -2,11 +2,21 @@ package com.like.system.company.domain.port.in.dto;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.MappingConstants.ComponentModel;
+import org.mapstruct.NullValueMappingStrategy;
+import org.mapstruct.NullValuePropertyMappingStrategy;
+import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
 import com.like.system.company.domain.CompanyInfo;
 
-@Mapper
+@Mapper(
+	componentModel = ComponentModel.SPRING,
+	nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE,
+    nullValueMappingStrategy = NullValueMappingStrategy.RETURN_DEFAULT,
+    unmappedTargetPolicy = ReportingPolicy.IGNORE,
+    unmappedSourcePolicy = ReportingPolicy.IGNORE
+)
 public interface CompanyInfoSaveDTOMapstruct {
 	
 	CompanyInfoSaveDTOMapstruct INSTANCE = Mappers.getMapper( CompanyInfoSaveDTOMapstruct.class ); 
