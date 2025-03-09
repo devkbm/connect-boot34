@@ -93,7 +93,7 @@
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
 				
-		<!-- QueryDSL -->
+		<!-- QueryDSL -->		
 		<!--
 		<dependency>
 			<groupId>com.querydsl</groupId>
@@ -111,7 +111,7 @@
 		</dependency>
 		-->
 		
-		<!-- QueryDSL OpenFeign -->
+		<!-- QueryDSL OpenFeign -->		
 		<dependency>
 		    <groupId>io.github.openfeign.querydsl</groupId>
 		    <artifactId>querydsl-core</artifactId>
@@ -120,9 +120,21 @@
 		
 		<dependency>
 		    <groupId>io.github.openfeign.querydsl</groupId>
-		    <artifactId>querydsl-jpa</artifactId>
+		    <artifactId>querydsl-apt</artifactId>
 		    <version>6.10.1</version>
 		</dependency>
+		
+		<dependency>
+		    <groupId>io.github.openfeign.querydsl</groupId>
+		    <artifactId>querydsl-codegen</artifactId>
+		    <version>6.10.1</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>io.github.openfeign.querydsl</groupId>
+		    <artifactId>querydsl-jpa</artifactId>
+		    <version>6.10.1</version>
+		</dependency>		
 
 		<!-- Log -->
 		<dependency>
@@ -215,6 +227,11 @@
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
 						</path>
+						<path>
+	                        <groupId>org.mapstruct</groupId>
+	                        <artifactId>mapstruct-processor</artifactId>
+	                        <version>${org.mapstruct.version}</version>
+	                    </path>
 					</annotationProcessorPaths>
 				</configuration>
 			</plugin>
@@ -231,6 +248,7 @@
 				</configuration>
 			</plugin>
 			<!-- Mapstruct -->
+			<!--
 			<plugin>
 	            <groupId>org.apache.maven.plugins</groupId>
 	            <artifactId>maven-compiler-plugin</artifactId>
@@ -247,6 +265,7 @@
 	                </annotationProcessorPaths>
 	            </configuration>
 	        </plugin>
+	        -->
 			<!-- QueryDSL -->
 			<plugin>
 				<groupId>com.mysema.maven</groupId>

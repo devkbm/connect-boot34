@@ -1,62 +1,53 @@
 package com.like.excel.upload;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.lang.reflect.Field;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 // // https://velog.io/@jhoonkim92/DTO%EC%99%80-Custom-Anotation%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-Spring-Excel-Upload-%EA%B3%B5%ED%86%B5-%ED%81%B4%EB%9E%98%EC%8A%A4
 
-public class ExcelHandler<T> {
-    public List<T> handleExcelUpload(MultipartHttpServletRequest mReq, Class<T> clazz) {
-        List<T> dataList = new ArrayList<>();
-        List<MultipartFile> mFiles = mReq.getFiles("temp_file");
-
-        mFiles.forEach(file -> {
-            try (InputStream inputStream = file.getInputStream()) {
-                dataList.addAll(parseExcel(inputStream, clazz));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
-
-        return dataList;
-    }
-
-    private List<T> parseExcel(InputStream inputStream, Class<T> clazz) throws IOException {
-        Workbook workbook = new XSSFWorkbook(inputStream);
-        Sheet sheet = workbook.getSheetAt(0); // 첫 번째 시트를 가져옴
-
-        // 헤더 정보 추출
-        Row headerRow = sheet.getRow(0);
-        List<String> headers = StreamSupport.stream(headerRow.spliterator(), false)
-                .map(Cell::getStringCellValue)
-                .collect(Collectors.toList());
-
-        List<T> dataList = StreamSupport.stream(sheet.spliterator(), false)
-                .skip(1) // 첫 번째 행은 헤더이므로 건너뜁니다.
-                .filter(row -> isRowNotEmpty(row)) // 빈 행이 아닌 경우에만 처리합니다.
-                .map(row -> mapRowToDto(row, clazz, headers))
-                .collect(Collectors.toList());
-
-        workbook.close();
-        return dataList;
-    }
+public class ExcelUploader<T> {
+	
+	Class<T> type;
+	
+	public ExcelUploader(Class<T> clazz) {
+		this.type = clazz;
+	}
+  
+    public List<T> map(MultipartFile file/*, Class<T> clazz*/) {    	
+    	List<T> dataList = null;
+    	
+    	try (XSSFWorkbook workbook = new XSSFWorkbook(file.getInputStream())) {
+    		
+    		XSSFSheet sheet = workbook.getSheetAt(0);
+    					
+    		Row headerRow = sheet.getRow(0);
+    		List<String> headers = StreamSupport.stream(headerRow.spliterator(), false)
+                    .map(Cell::getStringCellValue)
+                    .toList();
+    		
+    		dataList = StreamSupport.stream(sheet.spliterator(), false)
+    				.skip(1) // 첫 번째 행은 헤더이므로 건너뜁니다.
+                    .filter(row -> isRowNotEmpty(row)) // 빈 행이 아닌 경우에만 처리합니다.
+                    .map(row -> mapRowToDto(row, this.type, headers))
+                    .toList();    		    		    
+    	} catch(IOException e) {
+			//new ExcelReaderFileException(e.getMessage(), e);
+		} 
+    	    	
+    	return dataList;
+    }   
 
     private boolean isRowNotEmpty(Row row) {
         Iterator<Cell> cellIterator = row.cellIterator();

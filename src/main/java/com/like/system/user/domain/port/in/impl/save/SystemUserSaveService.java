@@ -79,14 +79,24 @@ public class SystemUserSaveService implements SystemUserSaveUseCase {
 					
 			this.dbPort.save(user);
 			
-			//this.userRoleDbPort.delete(user.getRoleList().stream().toList());
-							
-			//this.userRoleDbPort.save(this.toSystemUserRole(dto, user));
+			SystemUserCompany userCompany = new SystemUserCompany(user, dto.companyCode(), dto.deptCode(), true); 
+			this.userCompanyDbPort.save(userCompany);
+			
+			this.userRoleDbPort.delete(user.getRoleList(dto.companyCode()).stream().toList());					
+			this.userRoleDbPort.save(this.toSystemUserRole(dto, user));		
 		}
 				
 	}
 	
 	private List<SystemUserCompanyRole> toSystemUserRole(SystemUserSaveDTO dto, SystemUser user) {
+		// String userId, String companyCode, String roleCode
+		return this.userRoleDbPort.select(dto.companyCode(), dto.roleList())
+								  .stream()
+								  .map(e -> new SystemUserCompanyRole(user, dto.companyCode(), e.getRoleCode()))
+								  .toList();
+	}
+	
+	private List<SystemUserCompanyRole> toSystemUserRole(SystemUserSaveByExcelDTO dto, SystemUser user) {
 		// String userId, String companyCode, String roleCode
 		return this.userRoleDbPort.select(dto.companyCode(), dto.roleList())
 								  .stream()
