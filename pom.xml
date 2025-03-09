@@ -94,6 +94,7 @@
 		</dependency>
 				
 		<!-- QueryDSL -->
+		<!--
 		<dependency>
 			<groupId>com.querydsl</groupId>
 			<artifactId>querydsl-apt</artifactId>
@@ -108,12 +109,26 @@
 			<version>${querydsl.version}</version>
 			<classifier>jakarta</classifier>
 		</dependency>
+		-->
+		
+		<!-- QueryDSL OpenFeign -->
+		<dependency>
+		    <groupId>io.github.openfeign.querydsl</groupId>
+		    <artifactId>querydsl-core</artifactId>
+		    <version>6.10.1</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>io.github.openfeign.querydsl</groupId>
+		    <artifactId>querydsl-jpa</artifactId>
+		    <version>6.10.1</version>
+		</dependency>
 
 		<!-- Log -->
 		<dependency>
 			<groupId>com.github.gavlyukovskiy</groupId>
 			<artifactId>p6spy-spring-boot-starter</artifactId>
-			<version>1.9.2</version>
+			<version>1.10.0</version>
 		</dependency>
 
 		<dependency>
@@ -126,21 +141,21 @@
 		<dependency>
 		    <groupId>org.apache.poi</groupId>
 		    <artifactId>poi</artifactId>
-		    <version>5.3.0</version>
+		    <version>5.4.0</version>
 		</dependency>
 		
 		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
 		<dependency>
 		    <groupId>org.apache.poi</groupId>
 		    <artifactId>poi-ooxml</artifactId>
-		    <version>5.3.0</version>
+		    <version>5.4.0</version>
 		</dependency>
 
 
 		<dependency>
 			<groupId>com.fasterxml.uuid</groupId>
 			<artifactId>java-uuid-generator</artifactId>
-			<version>5.0.0</version>
+			<version>5.1.0</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/io.hypersistence/hypersistence-utils-hibernate-63 -->
