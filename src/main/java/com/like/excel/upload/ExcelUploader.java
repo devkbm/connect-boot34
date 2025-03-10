@@ -97,6 +97,8 @@ public class ExcelUploader<T> {
         Class<?> fieldType = field.getType();
         field.setAccessible(true);
 
+        System.out.println(field.getName() + " : " + fieldType.toString());               
+        
         if (fieldType == String.class) {
             DataFormatter formatter = new DataFormatter();
             field.set(dataDTO, formatter.formatCellValue(cell));
@@ -110,6 +112,7 @@ public class ExcelUploader<T> {
             field.set(dataDTO, cell.getBooleanCellValue());
         }
         // 다른 타입에 따른 맵핑을 추가할 수 있습니다.
+                          
     }
 
 }

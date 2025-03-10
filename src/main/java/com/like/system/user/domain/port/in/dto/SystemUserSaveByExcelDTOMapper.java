@@ -1,4 +1,4 @@
-package com.like.system.user.domain.port.in.impl.save;
+package com.like.system.user.domain.port.in.dto;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,8 +9,6 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.web.multipart.MultipartFile;
-
-import com.like.system.user.domain.port.in.dto.SystemUserSaveByExcelDTO;
 
 public class SystemUserSaveByExcelDTOMapper {
 

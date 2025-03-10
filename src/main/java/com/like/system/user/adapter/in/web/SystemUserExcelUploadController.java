@@ -13,7 +13,7 @@ import com.like.core.message.MessageUtil;
 import com.like.excel.upload.ExcelUploader;
 import com.like.system.user.domain.port.in.SystemUserSaveUseCase;
 import com.like.system.user.domain.port.in.dto.SystemUserSaveByExcelDTO;
-import com.like.system.user.domain.port.in.impl.save.SystemUserSaveByExcelDTOMapper;
+import com.like.system.user.domain.port.in.dto.SystemUserSaveByExcelDTOMapper;
 
 @Controller
 public class SystemUserExcelUploadController {
