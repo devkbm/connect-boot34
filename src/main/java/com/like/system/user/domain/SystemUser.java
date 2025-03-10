@@ -1,6 +1,7 @@
 package com.like.system.user.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Optional;
@@ -102,6 +103,8 @@ public class SystemUser extends AbstractAuditEntity implements Serializable {
 	}
 	
 	public List<SystemUserCompanyRole> getRoleList(String companyCode) {
+		if (this.roles == null) return new ArrayList<>();		
+		
 		return this.roles.stream().filter(e -> e.id.getCompanyCode().equals(companyCode)).toList();		
 	}
 	

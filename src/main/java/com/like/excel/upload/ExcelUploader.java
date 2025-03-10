@@ -2,6 +2,8 @@ package com.like.excel.upload;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.stream.StreamSupport;
@@ -15,8 +17,11 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import lombok.extern.slf4j.Slf4j;
+
 // // https://velog.io/@jhoonkim92/DTO%EC%99%80-Custom-Anotation%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-Spring-Excel-Upload-%EA%B3%B5%ED%86%B5-%ED%81%B4%EB%9E%98%EC%8A%A4
 
+@Slf4j
 public class ExcelUploader<T> {
 	
 	Class<T> type;
@@ -25,7 +30,7 @@ public class ExcelUploader<T> {
 		this.type = clazz;
 	}
   
-    public List<T> map(MultipartFile file/*, Class<T> clazz*/) {    	
+    public List<T> map(MultipartFile file) {    	
     	List<T> dataList = null;
     	
     	try (XSSFWorkbook workbook = new XSSFWorkbook(file.getInputStream())) {
@@ -96,8 +101,8 @@ public class ExcelUploader<T> {
     private void setFieldValue(Field field, T dataDTO, Cell cell) throws IllegalAccessException {
         Class<?> fieldType = field.getType();
         field.setAccessible(true);
-
-        System.out.println(field.getName() + " : " + fieldType.toString());               
+                             
+        log.info(field.getName() + " : " + fieldType.toString());
         
         // https://whiterussian.tistory.com/83
         
@@ -112,9 +117,10 @@ public class ExcelUploader<T> {
             field.set(dataDTO, cell.getNumericCellValue());
         } else if (fieldType == boolean.class || fieldType == Boolean.class) {
             field.set(dataDTO, cell.getBooleanCellValue());
+        } else if (fieldType == List.class) {        	        	
+        	field.set(dataDTO, new ArrayList<String>(Arrays.asList(cell.getStringCellValue().split(","))));        	        	
         }
-        // 다른 타입에 따른 맵핑을 추가할 수 있습니다.
-                          
+                                 
     }
 
 }

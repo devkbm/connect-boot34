@@ -11,8 +11,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.like.core.message.MessageUtil;
 import com.like.excel.upload.ExcelUploader;
+import com.like.system.user.domain.port.in.SystemUserExcelUploadUseCase;
 import com.like.system.user.domain.port.in.SystemUserSaveUseCase;
 import com.like.system.user.domain.port.in.dto.SystemUserSaveByExcelDTO;
+import com.like.system.user.domain.port.in.dto.SystemUserSaveByExcelDTO2;
 import com.like.system.user.domain.port.in.dto.SystemUserSaveByExcelDTOMapper;
 
 @Controller
@@ -20,11 +22,14 @@ public class SystemUserExcelUploadController {
 
 	SystemUserSaveUseCase useCase;
 	
-	public SystemUserExcelUploadController(SystemUserSaveUseCase useCase) {		
+	SystemUserExcelUploadUseCase uploadUseCase;
+	
+	public SystemUserExcelUploadController(SystemUserSaveUseCase useCase, SystemUserExcelUploadUseCase uploadUseCase) {		
 		this.useCase = useCase;
+		this.uploadUseCase = uploadUseCase;
 	}		
 	
-	@PostMapping("/api/system/user-excel")	
+	//@PostMapping("/api/system/user-excel")	
 	public ResponseEntity<?> ss(MultipartFile file) {
 		
 		List<SystemUserSaveByExcelDTO> list = SystemUserSaveByExcelDTOMapper.map(file);
@@ -42,6 +47,17 @@ public class SystemUserExcelUploadController {
 		List<SystemUserSaveByExcelDTO> list = uploader.map(file);
 		
 		useCase.save(list);
+		
+		return toList(list, MessageUtil.getQueryMessage(list.size()));
+	}
+	
+	@PostMapping("/api/system/user-excel")	
+	public ResponseEntity<?> ss3(MultipartFile file) {
+		
+		ExcelUploader<SystemUserSaveByExcelDTO2> uploader = new ExcelUploader<>(SystemUserSaveByExcelDTO2.class);
+		List<SystemUserSaveByExcelDTO2> list = uploader.map(file);
+		
+		uploadUseCase.save(list);
 		
 		return toList(list, MessageUtil.getQueryMessage(list.size()));
 	}

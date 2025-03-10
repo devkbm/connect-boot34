@@ -1,5 +1,6 @@
 package com.like.system.user.adapter.out.db;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
@@ -25,6 +26,8 @@ public class SystemUserRoleCommandAdapter implements SystemUserRoleCommandDbPort
 	
 	@Override
 	public List<RoleJpaEntity> select(String companyCode, List<String> roles) {
+		if (roles == null) return new ArrayList<>();
+		
 		return roleRepository.findAllById(roles.stream()
 				   			 				   .map(r -> new RoleJpaEntityId(companyCode, r))
 				   			 				   .toList());

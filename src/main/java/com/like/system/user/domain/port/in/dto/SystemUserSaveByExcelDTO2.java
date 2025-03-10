@@ -23,8 +23,7 @@ public class SystemUserSaveByExcelDTO2 {
 	@ExcelHeader("핸드폰번호") String mobileNum;
 	@ExcelHeader("이메일") String email;			
 	@ExcelHeader("사용여부")Boolean enabled;
-	@ExcelHeader("롤리스트")List<String> roleList;
-	@ExcelHeader("메뉴그룹리스트")List<String> menuGroupList;
+	@ExcelHeader("롤리스트")List<String> roleList;	
 	
 	public SystemUser newUser(Dept dept) {
 		SystemUser entity = SystemUser.builder()										  
