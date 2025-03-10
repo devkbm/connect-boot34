@@ -99,6 +99,8 @@ public class ExcelUploader<T> {
 
         System.out.println(field.getName() + " : " + fieldType.toString());               
         
+        // https://whiterussian.tistory.com/83
+        
         if (fieldType == String.class) {
             DataFormatter formatter = new DataFormatter();
             field.set(dataDTO, formatter.formatCellValue(cell));
