@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.like.system.user.adapter.out.db.data.SystemUserRepository;
 import com.like.system.user.domain.SystemUser;
 import com.like.system.user.domain.SystemUserId;
-import com.like.system.user.domain.port.out.SystemUserCommandDbPort;
+import com.like.system.user.port.out.SystemUserCommandDbPort;
 
 
 @Repository

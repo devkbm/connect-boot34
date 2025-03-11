@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import com.like.hrm.hrmcode.domain.QHrmCode;
 import com.like.hrm.staff.domain.staff.family.QStaffFamily;
-import com.like.hrm.staff.domain.port.in.family.dto.StaffFamilyQueryResultDTO;
+import com.like.hrm.staff.port.dto.staff.family.StaffFamilyQueryResultDTO;
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import com.like.hrm.hrmcode.domain.QHrmCode;
 import com.like.hrm.staff.domain.staff.license.QStaffLicense;
-import com.like.hrm.staff.domain.port.in.license.dto.StaffLicenseQueryResultDTO;
+import com.like.hrm.staff.port.dto.staff.license.StaffLicenseQueryResultDTO;
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 

@@ -10,7 +10,7 @@ import com.like.system.menu_role.adapter.out.db.role.jpa.RoleJpaEntityId;
 import com.like.system.menu_role.adapter.out.db.role.jpa.RoleJpaRepository;
 import com.like.system.user.adapter.out.db.data.SystemUserRoleRepository;
 import com.like.system.user.domain.SystemUserCompanyRole;
-import com.like.system.user.domain.port.out.SystemUserRoleCommandDbPort;
+import com.like.system.user.port.out.SystemUserRoleCommandDbPort;
 
 @Repository
 public class SystemUserRoleCommandAdapter implements SystemUserRoleCommandDbPort {

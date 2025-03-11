@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
-import com.like.hrm.staff.domain.port.in.schoolcareer.StaffSchoolCareerQueryUseCase;
-import com.like.hrm.staff.domain.port.in.schoolcareer.dto.StaffSchoolCareerQueryResultDTO;
+import com.like.hrm.staff.port.dto.staff.schoolcareer.StaffSchoolCareerQueryResultDTO;
+import com.like.hrm.staff.port.in.schoolcareer.StaffSchoolCareerQueryUseCase;
 
 @RestController
 public class StaffSchoolCareerQueryController {

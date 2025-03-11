@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
-import com.like.hrm.staff.domain.port.in.license.StaffLicenseSaveUseCase;
-import com.like.hrm.staff.domain.port.in.license.dto.StaffLicenseFormDTO;
+import com.like.hrm.staff.port.dto.staff.license.StaffLicenseFormDTO;
+import com.like.hrm.staff.port.in.license.StaffLicenseSaveUseCase;
 
 @RestController
 public class StaffLicenseSaveController {

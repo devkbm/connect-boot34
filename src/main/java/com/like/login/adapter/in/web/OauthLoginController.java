@@ -17,7 +17,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.like.login.domain.AuthenticationToken;
 import com.like.system.user.domain.SystemUser;
-import com.like.system.user.domain.port.in.impl.select.SystemUserSelectService;
+import com.like.system.user.port.in.impl.select.SystemUserSelectService;
 
 import lombok.extern.slf4j.Slf4j;
 

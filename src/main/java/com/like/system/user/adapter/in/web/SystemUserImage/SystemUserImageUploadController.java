@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.like.system.user.adapter.out.file.SystemUserProfileImageUploader;
-import com.like.system.user.domain.port.in.SystemUserImageUploadUseCase;
+import com.like.system.user.port.in.SystemUserImageUploadUseCase;
 
 @Controller
 public class SystemUserImageUploadController {
