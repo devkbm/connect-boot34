@@ -5,8 +5,8 @@ import java.util.Optional;
 import org.springframework.stereotype.Repository;
 
 import com.like.cooperation.board.adapter.out.db.data.PostRepository;
+import com.like.cooperation.board.application.port.out.post.PostCommandDbPort;
 import com.like.cooperation.board.domain.post.Post;
-import com.like.cooperation.board.domain.post.port.out.PostCommandDbPort;
 import com.like.cooperation.board.adapter.out.db.data.BoardRepository;
 
 @Repository

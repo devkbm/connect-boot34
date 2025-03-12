@@ -6,9 +6,9 @@ import org.springframework.stereotype.Repository;
 
 import com.like.cooperation.board.adapter.out.db.data.PostAttachedFileRepository;
 import com.like.cooperation.board.adapter.out.db.querydsl.PostSelectQuerydsl;
+import com.like.cooperation.board.application.dto.post.PostFormSelectDTO;
+import com.like.cooperation.board.application.port.out.post.PostSelectDbPort;
 import com.like.cooperation.board.domain.post.QPostAttachedFile;
-import com.like.cooperation.board.domain.post.port.in.dto.PostFormSelectDTO;
-import com.like.cooperation.board.domain.post.port.out.PostSelectDbPort;
 import com.like.system.file.export.FileInfoDTO;
 import com.like.system.file.export.FileInfoDTOSelectUseCase;
 

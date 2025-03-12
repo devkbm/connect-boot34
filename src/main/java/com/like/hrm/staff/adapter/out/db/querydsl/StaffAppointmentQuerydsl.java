@@ -5,9 +5,9 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.like.hrm.hrmcode.domain.QHrmCode;
+import com.like.hrm.staff.application.dto.appointment.StaffAppointmentQueryResultDTO;
 import com.like.hrm.staff.domain.staff.QStaff;
 import com.like.hrm.staff.domain.staff.appointment.QAppointmentRecord;
-import com.like.hrm.staff.port.dto.staff.appointment.StaffAppointmentQueryResultDTO;
 import com.like.system.dept.domain.QDept;
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;

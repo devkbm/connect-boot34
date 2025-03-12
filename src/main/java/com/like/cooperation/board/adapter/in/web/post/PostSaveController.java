@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.like.cooperation.board.domain.post.port.in.PostSaveByJsonUseCase;
-import com.like.cooperation.board.domain.post.port.in.dto.PostFormSaveDTO;
+import com.like.cooperation.board.application.dto.post.PostFormSaveDTO;
+import com.like.cooperation.board.application.port.in.post.PostSaveByJsonUseCase;
 import com.like.core.message.MessageUtil;
 
 @Controller

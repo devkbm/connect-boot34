@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
-import com.like.system.dept.domain.port.in.DeptSaveUseCase;
-import com.like.system.dept.domain.port.in.dto.DeptSaveDTO;
+import com.like.system.dept.application.dto.DeptSaveDTO;
+import com.like.system.dept.application.port.in.DeptSaveUseCase;
 
 @RestController
 public class DeptSaveController {

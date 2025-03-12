@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.like.system.dept.domain.port.in.DeptQueryUseCase;
-import com.like.system.dept.domain.port.in.dto.DeptQueryDTO;
-import com.like.system.dept.domain.port.in.dto.DeptSaveDTO;
+import com.like.system.dept.application.dto.DeptQueryDTO;
+import com.like.system.dept.application.dto.DeptSaveDTO;
+import com.like.system.dept.application.port.in.DeptQueryUseCase;
 
 @RestController
 public class DeptQueryController {

@@ -5,8 +5,8 @@ import java.util.Optional;
 import org.springframework.stereotype.Repository;
 
 import com.like.cooperation.board.adapter.out.db.data.BoardRepository;
+import com.like.cooperation.board.application.port.out.board.BoardCommandDbPort;
 import com.like.cooperation.board.domain.board.Board;
-import com.like.cooperation.board.domain.board.port.out.BoardCommandDbPort;
 
 @Repository
 public class BoardDbAdapter implements BoardCommandDbPort {

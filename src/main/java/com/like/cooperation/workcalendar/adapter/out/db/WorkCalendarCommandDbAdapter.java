@@ -3,8 +3,8 @@ package com.like.cooperation.workcalendar.adapter.out.db;
 import org.springframework.stereotype.Repository;
 
 import com.like.cooperation.workcalendar.adapter.out.db.data.WorkCalendarJpaRepository;
+import com.like.cooperation.workcalendar.application.port.out.WorkCalendarCommandDbPort;
 import com.like.cooperation.workcalendar.domain.WorkCalendar;
-import com.like.cooperation.workcalendar.domain.port.out.WorkCalendarCommandDbPort;
 
 @Repository
 public class WorkCalendarCommandDbAdapter implements WorkCalendarCommandDbPort {

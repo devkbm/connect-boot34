@@ -1,0 +1,9 @@
+package com.like.hrm.staff.application.port.out;
+
+import java.util.List;
+
+import com.like.hrm.staff.application.dto.dutyresponsibility.StaffDutyResponsibilityQueryResultDTO;
+
+public interface StaffDutyResponsibilityQueryDbPort {
+	List<StaffDutyResponsibilityQueryResultDTO> select(String companyCode, String staffNo);
+}

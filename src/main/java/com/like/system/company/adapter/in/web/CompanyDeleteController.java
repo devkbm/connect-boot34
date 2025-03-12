@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
-import com.like.system.company.domain.port.in.CompanyDeleteUseCase;
+import com.like.system.company.application.port.in.CompanyDeleteUseCase;
 
 @RestController
 public class CompanyDeleteController {

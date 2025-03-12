@@ -9,8 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import com.like.cooperation.board.domain.post.port.in.PostSelectUseCase;
-import com.like.cooperation.board.domain.post.port.in.dto.PostFormSelectDTO;
+import com.like.cooperation.board.application.dto.post.PostFormSelectDTO;
+import com.like.cooperation.board.application.port.in.post.PostSelectUseCase;
 import com.like.cooperation.board.util.Base64Util;
 import com.like.core.message.MessageUtil;
 import com.like.core.util.SessionUtil;

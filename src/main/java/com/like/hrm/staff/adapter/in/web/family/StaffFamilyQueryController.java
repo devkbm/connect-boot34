@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
-import com.like.hrm.staff.port.dto.staff.family.StaffFamilyQueryResultDTO;
-import com.like.hrm.staff.port.in.family.StaffFamilyQueryUseCase;
+import com.like.hrm.staff.application.dto.family.StaffFamilyQueryResultDTO;
+import com.like.hrm.staff.application.port.in.family.StaffFamilyQueryUseCase;
 
 @RestController
 public class StaffFamilyQueryController {

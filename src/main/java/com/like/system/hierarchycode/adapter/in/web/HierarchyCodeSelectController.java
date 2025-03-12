@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
-import com.like.system.hierarchycode.domain.port.in.dto.CodeHierarchy;
-import com.like.system.hierarchycode.domain.port.in.dto.HierarchyCodeQueryDTO;
-import com.like.system.hierarchycode.domain.port.in.impl.HierarchyCodeSelectService;
+import com.like.system.hierarchycode.application.dto.CodeHierarchy;
+import com.like.system.hierarchycode.application.dto.HierarchyCodeQueryDTO;
+import com.like.system.hierarchycode.application.service.HierarchyCodeSelectService;
 
 @RestController
 public class HierarchyCodeSelectController {
