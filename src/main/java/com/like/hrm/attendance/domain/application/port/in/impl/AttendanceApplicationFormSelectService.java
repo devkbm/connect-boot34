@@ -6,7 +6,7 @@ import com.like.hrm.attendance.domain.application.port.in.AttendanceApplicationF
 import com.like.hrm.attendance.domain.application.port.in.dto.AttendanceApplicationFormDTO;
 import com.like.hrm.attendance.domain.application.port.in.dto.AttendanceApplicationFormDTOMapper;
 import com.like.hrm.attendance.domain.application.port.out.AttendanceApplicationFormCommandDbPort;
-import com.like.system.holiday.domain.port.in.DateInfoSelectUseCase;
+import com.like.system.holiday.application.port.in.DateInfoSelectUseCase;
 
 @Service
 public class AttendanceApplicationFormSelectService implements AttendanceApplicationFormSelectUseCase {

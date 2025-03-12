@@ -16,7 +16,7 @@ import com.like.core.message.MessageUtil;
 import com.like.hrm.attendance.domain.application.port.in.AttendanceApplicationQueryUseCase;
 import com.like.hrm.attendance.domain.application.port.in.dto.AttendanceApplicationQueryResultDTO;
 import com.like.hrm.attendance.domain.application.port.in.dto.DutyApplicationDTO;
-import com.like.system.holiday.domain.port.in.DateInfoSelectUseCase;
+import com.like.system.holiday.application.port.in.DateInfoSelectUseCase;
 
 @RestController
 public class AttendanceApplicationQueryController {

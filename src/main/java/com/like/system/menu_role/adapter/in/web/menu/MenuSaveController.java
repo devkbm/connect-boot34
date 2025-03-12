@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
-import com.like.system.menu_role.domain.menu.port.in.MenuSaveUseCase;
-import com.like.system.menu_role.domain.menu.port.in.dto.MenuSaveDTO;
+import com.like.system.menu_role.application.dto.menu.MenuSaveDTO;
+import com.like.system.menu_role.application.port.in.menu.MenuSaveUseCase;
 
 @RestController
 public class MenuSaveController {

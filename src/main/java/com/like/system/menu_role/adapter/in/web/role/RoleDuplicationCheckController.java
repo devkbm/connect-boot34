@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.like.system.menu_role.application.port.in.role.RoleSelectUseCase;
 import com.like.system.menu_role.domain.role.Role;
-import com.like.system.menu_role.domain.role.port.in.RoleSelectUseCase;
 
 @RestController
 public class RoleDuplicationCheckController {
