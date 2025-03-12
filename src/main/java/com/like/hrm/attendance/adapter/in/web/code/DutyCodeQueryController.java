@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
-import com.like.hrm.attendance.domain.code.port.in.DutyCodeQueryService;
-import com.like.hrm.attendance.domain.code.port.in.dto.WorkChangeCodeDTO;
+import com.like.hrm.attendance.application.dto.code.WorkChangeCodeDTO;
+import com.like.hrm.attendance.application.service.code.DutyCodeQueryService;
 
 @RestController
 public class DutyCodeQueryController {

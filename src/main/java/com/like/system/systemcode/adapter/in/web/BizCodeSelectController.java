@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
-import com.like.system.systemcode.domain.port.in.BizCodeSelectUseCase;
-import com.like.system.systemcode.domain.port.in.dto.BizCodeSaveDTO;
+import com.like.system.systemcode.application.dto.BizCodeSaveDTO;
+import com.like.system.systemcode.application.port.in.BizCodeSelectUseCase;
 
 @RestController
 public class BizCodeSelectController {

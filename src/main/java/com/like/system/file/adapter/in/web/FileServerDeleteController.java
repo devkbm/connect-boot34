@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
-import com.like.system.file.domain.port.in.FileServerDeleteUseCase;
+import com.like.system.file.application.port.in.FileServerDeleteUseCase;
 
 @RestController
 public class FileServerDeleteController {

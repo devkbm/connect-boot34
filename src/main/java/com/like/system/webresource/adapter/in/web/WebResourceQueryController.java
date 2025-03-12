@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.like.common.dto.HtmlSelectOptionRecord;
+import com.like.system.webresource.application.dto.WebResourceQueryDTO;
+import com.like.system.webresource.application.dto.WebResourceQueryResultDTO;
+import com.like.system.webresource.application.port.in.WebResourceQueryUseCase;
 import com.like.system.webresource.domain.WebResourceType;
-import com.like.system.webresource.domain.port.in.WebResourceQueryUseCase;
-import com.like.system.webresource.domain.port.in.dto.WebResourceQueryDTO;
-import com.like.system.webresource.domain.port.in.dto.WebResourceQueryResultDTO;
 
 @RestController
 public class WebResourceQueryController {

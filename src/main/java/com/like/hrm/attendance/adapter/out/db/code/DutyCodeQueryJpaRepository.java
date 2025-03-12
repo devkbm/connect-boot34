@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import com.like.hrm.attendance.application.dto.code.WorkChangeCodeDTO.SearchDutyCode;
 import com.like.hrm.attendance.domain.code.WorkChangeCode;
-import com.like.hrm.attendance.domain.code.port.in.dto.WorkChangeCodeDTO.SearchDutyCode;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 
 @Repository

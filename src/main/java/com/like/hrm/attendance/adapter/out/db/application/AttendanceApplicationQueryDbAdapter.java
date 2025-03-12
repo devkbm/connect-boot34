@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.like.hrm.attendance.adapter.out.db.application.querydsl.AttendanceApplicationQuerydsl;
-import com.like.hrm.attendance.domain.application.port.in.dto.AttendanceApplicationQueryResultDTO;
-import com.like.hrm.attendance.domain.application.port.out.AttendanceApplicationQueryDbPort;
+import com.like.hrm.attendance.application.dto.application.AttendanceApplicationQueryResultDTO;
+import com.like.hrm.attendance.application.port.out.application.AttendanceApplicationQueryDbPort;
 
 @Repository
 public class AttendanceApplicationQueryDbAdapter implements AttendanceApplicationQueryDbPort {

@@ -4,10 +4,10 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import com.like.system.term.application.dto.term.TermQueryDTO;
+import com.like.system.term.application.port.out.TermQueryDbPort;
 import com.like.system.term.domain.QTermDictionary;
 import com.like.system.term.domain.TermDictionary;
-import com.like.system.term.port.in.term.dto.TermQueryDTO;
-import com.like.system.term.port.out.TermQueryDbPort;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 
 @Repository

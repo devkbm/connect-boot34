@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.like.system.file.adapter.out.db.jpa.FileInfoJpaRepository;
+import com.like.system.file.application.port.out.FileInfoCommandDbPort;
 import com.like.system.file.domain.FileInfo;
-import com.like.system.file.domain.port.out.FileInfoCommandDbPort;
 
 @Repository
 public class FileInfoCommandDbAdapter implements FileInfoCommandDbPort  {

@@ -5,8 +5,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import com.like.hrm.attendance.application.dto.application.AttendanceApplicationQueryResultDTO;
 import com.like.hrm.attendance.domain.application.QAttendanceApplication;
-import com.like.hrm.attendance.domain.application.port.in.dto.AttendanceApplicationQueryResultDTO;
 import com.like.hrm.hrmcode.domain.QHrmCode;
 import com.like.hrm.staff.domain.staff.QStaff;
 import com.querydsl.core.types.Projections;

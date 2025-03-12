@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.like.system.file.adapter.out.file.FileConverterUtil;
+import com.like.system.file.application.port.out.FileDownloadWebPort;
+import com.like.system.file.application.port.out.FileInfoCommandDbPort;
 import com.like.system.file.domain.FileInfo;
-import com.like.system.file.domain.port.out.FileDownloadWebPort;
-import com.like.system.file.domain.port.out.FileInfoCommandDbPort;
 
 import jakarta.servlet.http.HttpServletResponse;
 

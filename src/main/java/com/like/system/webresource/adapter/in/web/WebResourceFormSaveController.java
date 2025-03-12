@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.like.system.webresource.domain.port.in.WebResourceFormSaveUseCase;
-import com.like.system.webresource.domain.port.in.dto.WebResourceSaveDTO;
+import com.like.system.webresource.application.dto.WebResourceSaveDTO;
+import com.like.system.webresource.application.port.in.WebResourceFormSaveUseCase;
 
 @RestController
 public class WebResourceFormSaveController {

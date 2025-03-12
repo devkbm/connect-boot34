@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
-import com.like.system.term.port.in.term.TermSelectUseCase;
-import com.like.system.term.port.in.term.dto.TermSaveDTO;
+import com.like.system.term.application.dto.term.TermSaveDTO;
+import com.like.system.term.application.port.in.term.TermSelectUseCase;
 
 @RestController
 public class TermSelectController {

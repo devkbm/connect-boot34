@@ -3,8 +3,8 @@ package com.like.system.term.adapter.out.db;
 import org.springframework.stereotype.Repository;
 
 import com.like.system.term.adapter.out.db.data.DataDomainDictionaryJpaRepository;
+import com.like.system.term.application.port.out.DataDomainCommandDbPort;
 import com.like.system.term.domain.DataDomainDictionary;
-import com.like.system.term.port.out.DataDomainCommandDbPort;
 
 @Repository
 public class DataDomainDbAdapter implements DataDomainCommandDbPort {

@@ -6,8 +6,8 @@ import java.io.FileNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.like.system.file.adapter.out.file.FileServerRepository;
+import com.like.system.file.application.port.out.FileInfoCommandDbPort;
 import com.like.system.file.domain.FileInfo;
-import com.like.system.file.domain.port.out.FileInfoCommandDbPort;
 
 @Service
 public class FileDeleteExportService implements FileDeleteUseCase {

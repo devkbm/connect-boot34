@@ -13,9 +13,9 @@ import com.like.cooperation.board.domain.board.Board;
 import com.like.cooperation.board.domain.post.Post;
 import com.like.cooperation.board.domain.post.PostAttachedFile;
 import com.like.core.util.SessionUtil;
+import com.like.system.file.application.port.in.FileServerSelectUseCase;
+import com.like.system.file.application.port.in.FileServerUploadUseCase;
 import com.like.system.file.domain.FileInfo;
-import com.like.system.file.domain.port.in.FileServerSelectUseCase;
-import com.like.system.file.domain.port.in.FileServerUploadUseCase;
 
 @Transactional
 @Service

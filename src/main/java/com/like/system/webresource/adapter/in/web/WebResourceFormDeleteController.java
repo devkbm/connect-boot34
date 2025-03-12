@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.like.system.webresource.domain.port.in.WebResourceFormDeleteUseCase;
+import com.like.system.webresource.application.port.in.WebResourceFormDeleteUseCase;
 
 @RestController
 public class WebResourceFormDeleteController {

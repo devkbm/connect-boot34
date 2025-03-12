@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
-import com.like.hrm.attendance.domain.application.port.in.AttendanceApplicationQueryUseCase;
-import com.like.hrm.attendance.domain.application.port.in.dto.AttendanceApplicationQueryResultDTO;
-import com.like.hrm.attendance.domain.application.port.in.dto.DutyApplicationDTO;
+import com.like.hrm.attendance.application.dto.application.AttendanceApplicationQueryResultDTO;
+import com.like.hrm.attendance.application.dto.application.DutyApplicationDTO;
+import com.like.hrm.attendance.application.port.in.application.AttendanceApplicationQueryUseCase;
 import com.like.system.holiday.application.port.in.DateInfoSelectUseCase;
 
 @RestController

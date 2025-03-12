@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
+import com.like.hrm.attendance.application.dto.code.WorkChangeCodeDTO;
+import com.like.hrm.attendance.application.service.code.DutyCodeCommandService;
 import com.like.hrm.attendance.domain.code.WorkChangeCode;
-import com.like.hrm.attendance.domain.code.port.in.DutyCodeCommandService;
-import com.like.hrm.attendance.domain.code.port.in.dto.WorkChangeCodeDTO;
 
 @RestController
 public class DutyCodeController {

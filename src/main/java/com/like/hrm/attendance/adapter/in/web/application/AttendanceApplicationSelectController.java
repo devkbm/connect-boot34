@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
-import com.like.hrm.attendance.domain.application.port.in.AttendanceApplicationFormSelectUseCase;
-import com.like.hrm.attendance.domain.application.port.in.dto.AttendanceApplicationFormDTO;
+import com.like.hrm.attendance.application.dto.application.AttendanceApplicationFormDTO;
+import com.like.hrm.attendance.application.port.in.application.AttendanceApplicationFormSelectUseCase;
 
 @RestController
 public class AttendanceApplicationSelectController {

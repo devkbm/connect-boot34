@@ -5,8 +5,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import com.like.hrm.attendance.application.dto.application.DutyApplicationDTO;
 import com.like.hrm.attendance.domain.application.AttendanceApplication;
-import com.like.hrm.attendance.domain.application.port.in.dto.DutyApplicationDTO;
 import com.like.hrm.attendance.domain.code.WorkChangeCode;
 //import com.like.hrm.workchangeapp.domain.QWorkChangeApplication;
 import com.querydsl.jpa.impl.JPAQueryFactory;
