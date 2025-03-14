@@ -11,7 +11,7 @@ import com.like.cooperation.board.application.dto.board.BoardSaveDTO;
 import com.like.cooperation.board.application.dto.board.BoardSaveDTOMapper;
 import com.like.cooperation.board.application.port.out.board.BoardQueryDbPort;
 import com.like.cooperation.board.domain.board.Board;
-import com.like.cooperation.board.domain.board.port.in.dto.QBoardHierarchy;
+import com.like.cooperation.board.application.dto.board.QBoardHierarchy;
 import com.querydsl.jpa.impl.JPAQuery;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 

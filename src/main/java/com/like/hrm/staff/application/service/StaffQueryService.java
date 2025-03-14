@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.like.hrm.staff.application.dto.ResponseStaffAppointmentRecord;
+import com.like.hrm.staff.application.dto.ResponseStaffCurrentAppointment;
+import com.like.hrm.staff.application.dto.ResponseStaffDutyResponsibility;
 import com.like.hrm.staff.application.dto.StaffQueryConditionDTO;
-import com.like.hrm.staff.application.port.in.ResponseStaffAppointmentRecord;
-import com.like.hrm.staff.application.port.in.ResponseStaffCurrentAppointment;
-import com.like.hrm.staff.application.port.in.ResponseStaffDutyResponsibility;
 import com.like.hrm.staff.domain.staff.Staff;
 import com.like.hrm.staff.domain.staff.StaffQueryRepository;
 

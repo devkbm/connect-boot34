@@ -1,6 +1,5 @@
 package com.like.cooperation.board.domain.post;
 
-import java.io.File;
 import java.io.Serializable;
 import java.util.UUID;
 
@@ -77,15 +76,13 @@ public class PostAttachedFile extends AbstractAuditEntity implements Serializabl
 	public PostAttachedFile(Post post, String fileInfo) {		
 		this.post = post;
 		this.fileInfo = Long.parseLong(fileInfo);
-	}
+		
+	}	
 	
-	public PostAttachedFile(Post post, File file) {
-		this.post = post;
-	}
-	
-	public PostAttachedFile(Post post, MultipartFile file) {
+	public PostAttachedFile(Post post, String serverUploadPath, MultipartFile file) {
 		this.post = post;
 		
+		this.path = serverUploadPath;
 		this.uuid = UUID.randomUUID().toString();		
 		this.fileName = file.getOriginalFilename();
 		this.size = file.getSize();

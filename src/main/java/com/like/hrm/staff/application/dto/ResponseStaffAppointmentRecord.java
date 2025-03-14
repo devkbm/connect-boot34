@@ -1,4 +1,4 @@
-package com.like.hrm.staff.application.port.in;
+package com.like.hrm.staff.application.dto;
 
 import java.time.LocalDate;
 
