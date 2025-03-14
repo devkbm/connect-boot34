@@ -2,6 +2,7 @@ package com.like.excel.upload;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -26,6 +27,11 @@ public class ExcelUploader<T> {
 	
 	Class<T> type;
 	
+	/**
+	 * Header Row (매핑시 제외하기 위한 헤더 row)
+	 */
+	int HEADER_ROW = 1;		 
+	
 	public ExcelUploader(Class<T> clazz) {
 		this.type = clazz;
 	}
@@ -43,8 +49,8 @@ public class ExcelUploader<T> {
                     .toList();
     		
     		dataList = StreamSupport.stream(sheet.spliterator(), false)
-    				.skip(1) // 첫 번째 행은 헤더이므로 건너뜁니다.
-                    .filter(row -> isRowNotEmpty(row)) // 빈 행이 아닌 경우에만 처리합니다.
+    				.skip(HEADER_ROW) 					// 헤더 제외
+                    .filter(row -> isRowNotEmpty(row)) 	// 빈 행이 아닌 경우에만 처리합니다.
                     .map(row -> mapRowToDto(row, this.type, headers))
                     .toList();    		    		    
     	} catch(IOException e) {
@@ -105,7 +111,7 @@ public class ExcelUploader<T> {
         log.info(field.getName() + " : " + fieldType.toString());
         
         // https://whiterussian.tistory.com/83
-        
+                       
         if (fieldType == String.class) {
             DataFormatter formatter = new DataFormatter();
             field.set(dataDTO, formatter.formatCellValue(cell));
@@ -115,6 +121,8 @@ public class ExcelUploader<T> {
             field.set(dataDTO, (long) cell.getNumericCellValue());
         } else if (fieldType == double.class || fieldType == Double.class) {
             field.set(dataDTO, cell.getNumericCellValue());
+        } else if (fieldType == BigDecimal.class) {
+            field.set(dataDTO, cell.getNumericCellValue());            
         } else if (fieldType == boolean.class || fieldType == Boolean.class) {
             field.set(dataDTO, cell.getBooleanCellValue());
         } else if (fieldType == List.class) {        	        	

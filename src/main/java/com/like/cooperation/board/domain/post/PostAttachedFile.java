@@ -1,6 +1,10 @@
 package com.like.cooperation.board.domain.post;
 
+import java.io.File;
 import java.io.Serializable;
+import java.util.UUID;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -55,11 +59,39 @@ public class PostAttachedFile extends AbstractAuditEntity implements Serializabl
 	@Column(name="FILE_ID")
 	Long fileInfo;
 
+	@Column(name="FILE_PATH")
+	String path;
+	
+	@Column(name="UUID")
+	String uuid;
+	
+	@Column(name="FILE_NM")
+	String fileName;		
+	
+	@Column(name="FILE_SIZE")
+	long size;
+	
+	@Column(name="CONTENT_TYPE")
+	String contentType;
+	
 	public PostAttachedFile(Post post, String fileInfo) {		
 		this.post = post;
 		this.fileInfo = Long.parseLong(fileInfo);
 	}
+	
+	public PostAttachedFile(Post post, File file) {
+		this.post = post;
+	}
+	
+	public PostAttachedFile(Post post, MultipartFile file) {
+		this.post = post;
 		
+		this.uuid = UUID.randomUUID().toString();		
+		this.fileName = file.getOriginalFilename();
+		this.size = file.getSize();
+		this.contentType = file.getContentType();
+	}
+	
 }
 
 
