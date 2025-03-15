@@ -1,6 +1,7 @@
 package com.like.cooperation.board.adapter.out.db;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
 
@@ -22,6 +23,11 @@ public class PostAttachedFileDbAdapter implements PostAttachedFileDbPort {
 	}
 	
 	@Override
+	public Optional<PostAttachedFile> select(Long postFileId) {
+		return this.repository.findById(postFileId);
+	}
+	
+	@Override
 	public void save(List<PostAttachedFile> files) {
 		this.repository.saveAll(files);
 	}
@@ -40,6 +46,8 @@ public class PostAttachedFileDbAdapter implements PostAttachedFileDbPort {
 	public void deleteAll(Long postId) {
 		this.querydsl.deleteAll(postId);		
 	}
+
+	
 
 	
 

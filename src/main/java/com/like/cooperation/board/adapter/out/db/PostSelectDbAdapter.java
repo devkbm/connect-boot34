@@ -8,43 +8,34 @@ import com.like.cooperation.board.adapter.out.db.data.PostAttachedFileRepository
 import com.like.cooperation.board.adapter.out.db.querydsl.PostSelectQuerydsl;
 import com.like.cooperation.board.application.dto.post.PostFormSelectDTO;
 import com.like.cooperation.board.application.port.out.post.PostSelectDbPort;
+import com.like.cooperation.board.domain.post.PostAttachedFile;
 import com.like.cooperation.board.domain.post.QPostAttachedFile;
-import com.like.system.file.export.FileInfoDTO;
-import com.like.system.file.export.FileInfoDTOSelectUseCase;
 
 @Repository
 public class PostSelectDbAdapter implements PostSelectDbPort {
 
 	PostSelectQuerydsl query;
 	PostAttachedFileRepository fileRepository;
-	FileInfoDTOSelectUseCase fileSelectUseCase;
 	
 	private final QPostAttachedFile qArticleAttachedFile = QPostAttachedFile.postAttachedFile;
 	
 	PostSelectDbAdapter(
 			PostSelectQuerydsl query, 
-			PostAttachedFileRepository fileRepository,
-			FileInfoDTOSelectUseCase fileSelectUseCase) {
+			PostAttachedFileRepository fileRepository) {
 		this.query = query;
-		this.fileRepository = fileRepository;
-		this.fileSelectUseCase = fileSelectUseCase;
+		this.fileRepository = fileRepository;		
 	}
 	
 	@Override
 	public PostFormSelectDTO get(String readerUserId, Long articleId) {
 		 PostFormSelectDTO dto = this.query.get(readerUserId, articleId);
 		 
-		 List<String> fileIds = this.fileRepository.findAll(qArticleAttachedFile.post.postId.eq(articleId))
-												   .stream()
-												   .map(e -> e.getFileInfo().toString())
-												   .toList();
+		 List<PostAttachedFile> files = this.fileRepository.findAll(qArticleAttachedFile.post.postId.eq(articleId));
 		 
-		 
-		 if (fileIds != null) {
-			 List<FileInfoDTO> fileList = fileSelectUseCase.select(fileIds);
-			 dto.addFileList(fileList);			 
+		 if (!files.isEmpty()) {
+			 dto.addFileList(files);
 		 }
-		 
+		 		 
 		return dto;
 	}
 

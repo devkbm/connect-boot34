@@ -4,8 +4,8 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.like.system.file.export.FileInfoDTO;
-import com.like.system.file.export.FileResponseDTO;
+import com.like.cooperation.board.adapter.out.file.PostAttachedFileServerRepository;
+import com.like.cooperation.board.domain.post.PostAttachedFile;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -32,8 +32,29 @@ public class PostFormSelectDTO {
 	int hitCount;				
 	Integer depth;	
 	Boolean editable;	
-	List<FileResponseDTO> fileList;
-		
+	List<PostAttachedFileDTO> fileList;
+	
+	public void addFileList(List<PostAttachedFile> files) {
+    	List<PostAttachedFileDTO> responseList = new ArrayList<>();	
+    	
+    	for (PostAttachedFile file : files) {							
+			responseList.add(
+					PostAttachedFileDTO
+						.builder()
+						.uid(file.getPostFileId().toString())
+						.name(file.getFileName())
+						.size(file.getSize())
+						.contentType(file.getContentType())
+						.url(PostAttachedFileServerRepository.fileDownLoadUrl+file.getPostFileId())
+						.build()
+						);				
+		}
+    	    	
+    	this.setFileList(responseList);    	
+    }
+	
+	/*
+	List<FileResponseDTO> fileList;		
 	public void addFileList(List<FileInfoDTO> fileInfoList) {
     	List<FileResponseDTO> responseList = new ArrayList<>();	
     	
@@ -43,4 +64,5 @@ public class PostFormSelectDTO {
     	    	
     	this.setFileList(responseList);    	
     }
+    */
 }

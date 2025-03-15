@@ -2,7 +2,7 @@ package com.like.cooperation.board.adapter.in.web.post;
 
 import jakarta.validation.Valid;
 
-import static com.like.core.web.util.ResponseEntityUtil.toList;
+import static com.like.core.web.util.ResponseEntityUtil.toOne;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -27,9 +27,9 @@ public class PostSaveController {
 	@ResponseBody
 	public ResponseEntity<?> saveArticleJson(@RequestBody @Valid PostFormSaveDTO dto) throws Exception {															
 										
-		useCase.save(dto);											
+		Long postId = useCase.save(dto);											
 		
-		return toList(null, MessageUtil.getSaveMessage(1));
+		return toOne(postId, MessageUtil.getSaveMessage(1));
 	}	
 	
 }

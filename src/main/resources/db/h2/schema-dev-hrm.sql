@@ -403,7 +403,7 @@ CREATE TABLE GRWPOSTFILE (
 	MODIFIED_APP_URL		VARCHAR(500)		NULL		,
   	POST_FILE_ID     		INT             	NOT NULL  AUTO_INCREMENT,
   	POST_ID          		INT             	NOT NULL	,  
-  	FILE_ID             	BIGINT		      	NOT NULL	,  
+  	FILE_ID             	BIGINT		      	NULL		,  
   	constraint pk_grwpostfile primary key(POST_FILE_ID),  
   	constraint fk_grwpostfile1 foreign key(POST_ID) references GRWPOST(POST_ID)
 );

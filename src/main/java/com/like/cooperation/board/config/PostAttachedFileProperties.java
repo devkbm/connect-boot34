@@ -10,5 +10,14 @@ import lombok.Data;
 @ConfigurationProperties(prefix = "board")
 public class PostAttachedFileProperties {
 
-	String uploadPath;
+	/**
+	 * Server File Path
+	 */
+	String location;	
+	
+	/**
+	 * Client App에서 다운로드하기 위한 URL 경로
+	 */
+	String clientDownloadUrl;
+		
 }

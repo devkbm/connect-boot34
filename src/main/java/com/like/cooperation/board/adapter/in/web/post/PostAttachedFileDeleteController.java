@@ -2,6 +2,8 @@ package com.like.cooperation.board.adapter.in.web.post;
 
 import static com.like.core.web.util.ResponseEntityUtil.toList;
 
+import java.io.FileNotFoundException;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,10 +20,9 @@ public class PostAttachedFileDeleteController {
 	PostAttachedFileDeleteController(PostAttachedFileDeleteUseCase useCase) {
 		this.useCase = useCase;
 	}
-	
-	
+		
 	@DeleteMapping("/api/grw/board/post/{id}/file/{fileId}")
-	public ResponseEntity<?> delete(@PathVariable String id, @PathVariable String fileId) {				
+	public ResponseEntity<?> delete(@PathVariable String id, @PathVariable String fileId) throws FileNotFoundException {				
 												
 		useCase.delete(id, fileId);							
 		

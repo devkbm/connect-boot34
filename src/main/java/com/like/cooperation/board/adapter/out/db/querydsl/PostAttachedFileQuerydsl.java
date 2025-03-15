@@ -21,12 +21,12 @@ public class PostAttachedFileQuerydsl {
 	
 	public void deleteNotMatched(List<PostAttachedFile> files) {
 		List<Long> ids = files.stream()
-							  .filter(e -> e.getPkArticleFile() != null)
-							  .map(e -> e.getPkArticleFile())
+							  .filter(e -> e.getPostFileId() != null)
+							  .map(e -> e.getPostFileId())
 							  .toList();
 		
 		queryFactory.delete(qAttachedFile)
-				    .where(qAttachedFile.pkArticleFile.notIn(ids))
+				    .where(qAttachedFile.postFileId.notIn(ids))
 				    .execute();
 	}
 	

@@ -1,7 +1,5 @@
 package com.like.cooperation.board.application.service.post;
 
-import java.util.List;
-
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
@@ -14,10 +12,7 @@ import com.like.cooperation.board.application.port.out.post.PostAttachedFileDbPo
 import com.like.cooperation.board.application.port.out.post.PostCommandDbPort;
 import com.like.cooperation.board.domain.board.Board;
 import com.like.cooperation.board.domain.post.Post;
-import com.like.cooperation.board.domain.post.PostAttachedFile;
-import com.like.cooperation.board.domain.post.PostAttachedFileConverter;
 import com.like.cooperation.board.util.Base64Util;
-import com.like.system.file.export.FileInfoDTO;
 import com.like.system.file.export.FileInfoDTOSelectUseCase;
 import com.like.system.file.export.FileUploadUseCase;
 
@@ -52,12 +47,12 @@ public class PostSaveByJsonService implements PostSaveByJsonUseCase {
 	
 	
 	@Override
-	public void save(PostFormSaveDTO dto) {
+	public Long save(PostFormSaveDTO dto) {
 		log.info(dto.toString());
 		Board board = boardDbPort.select(Base64Util.fromBase64Decode(dto.boardId()))
 								 .orElseThrow(() -> new IllegalArgumentException("존재 하지 않은 게시판입니다."));		
 						
-		Post entity = StringUtils.hasText(dto.postId()) ? this.findArticle(Base64Util.fromBase64Decode(dto.postId())) : null; 
+		Post entity = StringUtils.hasText(dto.postId()) ? this.findPost(Base64Util.fromBase64Decode(dto.postId())) : null; 
 								
 		if (entity == null) {
 			entity = PostFormSaveDTOMapper.create(dto, board); 
@@ -65,39 +60,14 @@ public class PostSaveByJsonService implements PostSaveByJsonUseCase {
 			PostFormSaveDTOMapper.modify(dto, entity);
 		}
 				
-		this.dbPort.save(entity);		
+		this.dbPort.save(entity);					
 		
-		if (dto.attachFile() != null) {
-			List<FileInfoDTO> fileInfoList = findFileInfoList(dto.attachFile());
-			
-			// FileInfo를 AttachedFile로 변환한다.
-			List<PostAttachedFile> attachedFileList = PostAttachedFileConverter.convert(entity, fileInfoList);
-															
-			entity.setFiles(attachedFileList);
-			
-			// 기존 첨부파일이 있을 경우 저장되는 파일이외의 첨부파일정보는 삭제
-			if (entity.getAttachedFileInfoList() != null) {
-				this.attachedFileDbPort.deleteNotMatched(attachedFileList);
-			}
-											
-			this.attachedFileDbPort.save(attachedFileList);		
-		} else {
-			// 기존 첨부파일이 있을 경우 삭제
-			if (entity.getAttachedFileInfoList() != null) {
-				this.attachedFileDbPort.deleteAll(entity.getPostId());
-			}
-											
-			entity.clearFiles();		
-		}
+		return entity.getId();
 		
 	}
 	
-	private Post findArticle(Long postId) {
+	private Post findPost(Long postId) {
 		return this.dbPort.select(postId).orElse(null);
-	}
-	
-	private List<FileInfoDTO> findFileInfoList(List<String> ids) {
-		return fileSelectUseCase.select(ids); 
-	}
+	}	
 
 }

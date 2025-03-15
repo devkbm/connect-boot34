@@ -47,7 +47,7 @@ public class PostAttachedFile extends AbstractAuditEntity implements Serializabl
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="POST_FILE_ID")
-	Long pkArticleFile;	
+	Long postFileId;	
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "POST_ID", nullable = false)
@@ -75,8 +75,7 @@ public class PostAttachedFile extends AbstractAuditEntity implements Serializabl
 	
 	public PostAttachedFile(Post post, String fileInfo) {		
 		this.post = post;
-		this.fileInfo = Long.parseLong(fileInfo);
-		
+		this.fileInfo = Long.parseLong(fileInfo);		
 	}	
 	
 	public PostAttachedFile(Post post, String serverUploadPath, MultipartFile file) {
