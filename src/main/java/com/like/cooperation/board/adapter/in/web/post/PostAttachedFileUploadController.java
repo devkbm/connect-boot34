@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.like.cooperation.board.application.dto.post.PostAttachedFileDTO;
 import com.like.cooperation.board.application.port.in.post.PostAttachedFileUploadUseCase;
 
 @Controller
@@ -41,7 +40,7 @@ public class PostAttachedFileUploadController {
 		responseHeaders.setContentType(MediaType.APPLICATION_JSON);
 						 					
 		//return new ResponseEntity<List<PostAttachedFileDTO>>(list, responseHeaders, HttpStatus.OK);
-		return new ResponseEntity<List<PostAttachedFileDTO>>(null, responseHeaders, HttpStatus.OK);
+		return new ResponseEntity<String>(null, responseHeaders, HttpStatus.OK);
 	}
 	
 	private List<MultipartFile> convert(MultipartHttpServletRequest request) {				

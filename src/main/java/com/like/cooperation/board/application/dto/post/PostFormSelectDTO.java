@@ -34,11 +34,24 @@ public class PostFormSelectDTO {
 	Boolean editable;	
 	List<PostAttachedFileDTO> fileList;
 	
+	@Builder
+	public record PostAttachedFileDTO(
+			String uid,
+			String name,
+			Long size,
+			String contentType,
+			String url
+			) {
+
+	}
+	
 	public void addFileList(List<PostAttachedFile> files) {
-    	List<PostAttachedFileDTO> responseList = new ArrayList<>();	
-    	
+    	if (this.fileList == null) this.fileList = new ArrayList<>();
+		
+		//List<PostAttachedFileDTO> responseList = new ArrayList<>();	
+    	    	    
     	for (PostAttachedFile file : files) {							
-			responseList.add(
+    		this.fileList.add(
 					PostAttachedFileDTO
 						.builder()
 						.uid(file.getPostFileId().toString())
@@ -50,7 +63,7 @@ public class PostFormSelectDTO {
 						);				
 		}
     	    	
-    	this.setFileList(responseList);    	
+    	//this.setFileList(responseList);    	
     }
 	
 	/*
