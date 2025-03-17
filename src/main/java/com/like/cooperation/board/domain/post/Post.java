@@ -85,6 +85,18 @@ public class Post extends AbstractAuditEntity {
 	
 	public Post(
 			String appUrl,
+			Board board,		    
+		    PostContents content) {
+		
+		if (board == null) throw new IllegalArgumentException("게시판이 존재하지 않습니다.");
+		
+		this.setAppUrl(appUrl);
+		this.board = board;
+		this.content = content;
+	}
+	
+	public Post(
+			String appUrl,
 			Board board,
 		    String userId,
 		    PostContents content,
