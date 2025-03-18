@@ -35,15 +35,14 @@ public class PostExcelUploadService implements PostExcelUploadUseCase {
 		
 		for (PostExcelUploadDTO dto : dtoList) {
 			Board board = boardDbPort.select(Base64Util.fromBase64Decode(dto.boardId()))
-					 .orElseThrow(() -> new IllegalArgumentException("존재 하지 않은 게시판입니다."));
+					 				 .orElseThrow(() -> new IllegalArgumentException("존재 하지 않은 게시판입니다."));
 								
 			Post post = new Post(dto.clientAppUrl(), board, new PostContents(dto.title(), dto.contents()));
 			
 			posts.add(post);
 		}
 		
-		//this.dbPort.save(posts);
-		
+		this.dbPort.save(posts);		
 	}
 
 }
