@@ -129,8 +129,8 @@ public class Staff extends AbstractAuditEntity implements Serializable {
 	public void applyAppointmentRecord(AppointmentRecord record) {		
 		if (this.currentAppointment == null) this.currentAppointment = new CurrentAppointmentInformation(record.getInfo()); 		
 								
-		LocalDate today = LocalDate.now();		
-		if (today.isAfter(record.getAppointmentDate())) {		
+				
+		if (!record.getIsCompleted()) {		
 			this.currentAppointment.apply(record.getInfo());
 					
 			record.complete();
