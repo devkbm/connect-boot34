@@ -6,7 +6,6 @@ import java.util.stream.Stream;
 
 import com.like.hrm.staff.domain.staff.Staff;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToMany;
@@ -18,7 +17,7 @@ import lombok.NoArgsConstructor;
 public class StaffSchoolCareerList {
 	
 	@OrderBy("seq asc")
-	@OneToMany(mappedBy = "staff", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "staff", fetch = FetchType.EAGER)
 	Set<StaffSchoolCareer> schoolCareerList = new LinkedHashSet<>();
 	
 	public Stream<StaffSchoolCareer> getStream() {

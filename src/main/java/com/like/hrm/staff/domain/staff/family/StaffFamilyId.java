@@ -38,4 +38,10 @@ public class StaffFamilyId implements Serializable {
 		this.seq = seq;
 	}	
 	
+	public StaffFamilyId(String companyCode, String staffNo, Long seq) {
+		this.companyCode = companyCode;
+		this.staffNo = staffNo;
+		this.seq = seq;
+	}
+	
 }

@@ -37,4 +37,10 @@ public class StaffSchoolCareerId implements Serializable {
 		this.staffNo = staff.getId().staffNo();
 		this.seq = seq;
 	}
+	
+	public StaffSchoolCareerId(String companyCode, String staffNo, Long seq) {
+		this.companyCode = companyCode;
+		this.staffNo = staffNo;
+		this.seq = seq;
+	}
 }

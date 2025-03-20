@@ -30,8 +30,7 @@ public class StaffAppointmentCommandDbAdapter implements StaffAppointmentCommand
 
 	@Override
 	public void delete(String companyCode, String staffNo, Long seq) {
-		this.repository.deleteById(new AppointmentRecordId(companyCode, staffNo, seq));
-		
+		this.repository.deleteById(new AppointmentRecordId(companyCode, staffNo, seq));		
 	}	
 
 }

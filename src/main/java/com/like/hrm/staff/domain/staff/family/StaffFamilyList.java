@@ -6,7 +6,6 @@ import java.util.stream.Stream;
 
 import com.like.hrm.staff.domain.staff.Staff;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToMany;
@@ -21,7 +20,7 @@ public class StaffFamilyList {
 	 * 직원 가족이력
 	 */
 	@OrderBy("seq asc")
-	@OneToMany(mappedBy = "staff", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "staff", fetch = FetchType.EAGER)
 	Set<StaffFamily> familyList = new LinkedHashSet<>();
 	
 	public Stream<StaffFamily> getStream() {
