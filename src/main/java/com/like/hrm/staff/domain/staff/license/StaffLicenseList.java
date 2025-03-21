@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
 public class StaffLicenseList {
 	
 	@OrderBy("seq asc")
-	@OneToMany(mappedBy = "staff", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "staff", fetch = FetchType.LAZY)
 	Set<StaffLicense> licenseList = new LinkedHashSet<>();
 	
 	public Stream<StaffLicense> getStream() {

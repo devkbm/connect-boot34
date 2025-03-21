@@ -20,7 +20,7 @@ public class AppointmentRecordList {
 	 * 직원 발령기록명단
 	 */
 	@OrderBy("seq asc")
-	@OneToMany(mappedBy = "staff", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "staff", fetch = FetchType.LAZY)
 	Set<AppointmentRecord> appointmentRecordList = new LinkedHashSet<>();
 	
 	public Stream<AppointmentRecord> getStream() {

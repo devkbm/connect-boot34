@@ -20,7 +20,7 @@ public class StaffFamilyList {
 	 * 직원 가족이력
 	 */
 	@OrderBy("seq asc")
-	@OneToMany(mappedBy = "staff", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "staff", fetch = FetchType.LAZY)
 	Set<StaffFamily> familyList = new LinkedHashSet<>();
 	
 	public Stream<StaffFamily> getStream() {

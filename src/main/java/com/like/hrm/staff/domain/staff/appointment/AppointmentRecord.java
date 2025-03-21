@@ -69,10 +69,14 @@ public class AppointmentRecord extends AbstractAuditEntity implements Serializab
 	@Comment("비고")
 	@Column(name="CMT")
 	String comment;
+			
+	@Column(name="APPLY_TYPE_CD")
+	//@Convert(converter = AppointmentApplyTypeConverter.class)
+	AppointmentApplyType applyType;
 	
 	@Comment("완료여부")
 	@Column(name="COMPLETE_YN")
-	Boolean isCompleted;		
+	Boolean isCompleted;			
 	
 	@Embedded
 	AppointmentInformation info;

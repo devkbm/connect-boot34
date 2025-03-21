@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 public class StaffDutyList {
 
 	@OrderBy("seq asc")
-	@OneToMany(mappedBy = "staff", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "staff", fetch = FetchType.LAZY)
 	Set<StaffDuty> staffDutyList = new LinkedHashSet<>();
 		
 	public StaffDuty get(Staff staff, Long seq) {

@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 public class StaffSchoolCareerList {
 	
 	@OrderBy("seq asc")
-	@OneToMany(mappedBy = "staff", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "staff", fetch = FetchType.LAZY)
 	Set<StaffSchoolCareer> schoolCareerList = new LinkedHashSet<>();
 	
 	public Stream<StaffSchoolCareer> getStream() {
