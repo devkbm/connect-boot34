@@ -16,6 +16,8 @@ public abstract class AbstractEnumCodeConverter<T extends Enum<T> & EnumCode<E>,
 
     @Override
     public E convertToDatabaseColumn(T attribute) { 
+    	if (Objects.isNull(attribute)) return null;
+    	
         return attribute.getCode();
     }
 

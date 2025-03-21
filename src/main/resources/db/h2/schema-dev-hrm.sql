@@ -206,6 +206,7 @@ CREATE TABLE HRMSTAFFAPPOINTMENTRECORD (
   	APPOINTMENT_END_DT		DATETIME  			NULL    	,
   	RECORD_NAME		      	VARCHAR(50)			NULL    	,  
   	CMT       		      	VARCHAR(2000)		NULL    	,  
+  	APPLY_TYPE_CD       	VARCHAR(2)     		NULL    	,
   	COMPLETE_YN       		BOOLEAN	      		NULL    	,  
   	BLNG_DEPT_CODE      	VARCHAR(10)			NULL    	,	
   	WORK_DEPT_CODE      	VARCHAR(10)			NULL    	,	
