@@ -11,7 +11,7 @@ import jakarta.validation.constraints.NotBlank;
 public record SystemUserQueryDTO(
 		@NotBlank(message="조직 코드를 선택해주세요.")
 		String companyCode,
-		String staffNo,			
+		String userId,			
 		String name,
 		String deptCode
 		) {
@@ -21,7 +21,7 @@ public record SystemUserQueryDTO(
 		BooleanBuilder builder = new BooleanBuilder();
 		
 		builder.and(eqOrganizationCode(this.companyCode))
-			   .and(likeStaffNo(this.staffNo))
+			   .and(likeUserId(this.userId))
 			   .and(likeUserName(this.name))
 		 	   .and(equalDeptCode(this.deptCode));						
 		
@@ -33,9 +33,8 @@ public record SystemUserQueryDTO(
 		return null;
 	}
 			
-	private BooleanExpression likeStaffNo(String staffNo) {
-		//return hasText(staffNo) ? qType.staffId.staffNo.like("%"+staffNo+"%") : null;
-		return null;
+	private BooleanExpression likeUserId(String userId) {
+		return hasText(userId) ? qType.id.userId.like("%"+userId+"%") : null;		
 	}
 	
 	private BooleanExpression likeUserName(String name) {

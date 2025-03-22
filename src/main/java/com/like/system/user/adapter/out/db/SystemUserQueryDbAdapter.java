@@ -22,6 +22,5 @@ public class SystemUserQueryDbAdapter implements SystemUserQueryDbPort {
 	public List<SystemUser> selectList(SystemUserQueryDTO dto) {
 		return this.repository.findAll(dto.getBooleanBuilder());
 	}
-	
-	
+		
 }
