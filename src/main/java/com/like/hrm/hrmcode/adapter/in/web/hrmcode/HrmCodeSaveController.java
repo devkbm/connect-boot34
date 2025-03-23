@@ -8,9 +8,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
-import com.like.hrm.hrmcode.port.in.hrmcode.HrmCodeSaveUseCase;
-import com.like.hrm.hrmcode.port.in.hrmcode.dto.HrmCodeSaveDTO;
+import com.like.hrm.hrmcode.application.dto.hrmcode.HrmCodeSaveDTO;
+import com.like.hrm.hrmcode.application.port.in.hrmcode.HrmCodeSaveUseCase;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestController
 public class HrmCodeSaveController {
 
@@ -22,7 +25,9 @@ public class HrmCodeSaveController {
 	
 	@PostMapping("/api/hrm/hrmtype/{type}/code")
 	public ResponseEntity<?> saveTypeDetailCode(@RequestBody HrmCodeSaveDTO dto) {				
-																			
+					
+		log.info(dto.toString());
+		
 		useCase.save(dto);						
 								 					
 		return toList(null, MessageUtil.getSaveMessage(1));

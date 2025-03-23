@@ -32,22 +32,33 @@ public class HrmCodeType extends AbstractAuditEntity {
 	@Column(name="CMT")
 	String comment;		
 	
-	public HrmCodeType(String id
-					  ,String name				
-					  ,Integer sequence				  				 
-					  ,String comment) {				
+	@Column(name="FIELD_CONFIG")
+	String fieldConfig;
+	
+	public HrmCodeType(
+			String id,
+			String name,				
+			Integer sequence,				  				 
+			String comment,
+			String fieldConfig
+			) {				
 		this.id = id;
 		this.name = name;		
 		this.sequence = sequence;		
 		this.comment = comment;
+		this.fieldConfig = fieldConfig;
 	}
 	
-	public void modify(String name					  
-					  ,Integer sequence					  
-					  ,String comment ) {		
+	public void modify(
+			String name,
+			Integer sequence,					  
+			String comment,
+			String fieldConfig
+			) {		
 		this.name = name;		
 		this.sequence = sequence;		
 		this.comment = comment;
+		this.fieldConfig = fieldConfig;
 	}	
 	
 }

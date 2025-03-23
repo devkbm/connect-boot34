@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.like.hrm.hrmcode.port.in.hrmcode.HrmCodeSelectUseCase;
+import com.like.hrm.hrmcode.application.port.in.hrmcode.HrmCodeSelectUseCase;
 
 @RestController
 public class HrmCodeValidController {
@@ -18,12 +18,12 @@ public class HrmCodeValidController {
 		this.useCase = useCase;		
 	}
 		
-	@GetMapping("/api/hrm/hrmtype/{type}/{code}/valid")
-	public ResponseEntity<?> validHrmCode(@PathVariable(value="type") String type, @PathVariable(value="code") String code) {
+	@GetMapping("/api/hrm/hrmtype/{type}/code/{code}/valid")
+	public ResponseEntity<?> validHrmCode(@PathVariable String type, @PathVariable String code) {
 		
-		boolean exist = useCase.select(type, code) != null ? true : false;
+		boolean isDuplicated = useCase.select(type, code) == null ? false : true;
 					
-		return toOne(exist, exist ? "중복된 인사유형 코드가 있습니다." : "사용가능한 코드입니다.");
+		return toOne(isDuplicated ? false : true, isDuplicated ? "중복된 인사유형 코드가 있습니다." : "사용가능한 코드입니다.");
 	}
 	
 }

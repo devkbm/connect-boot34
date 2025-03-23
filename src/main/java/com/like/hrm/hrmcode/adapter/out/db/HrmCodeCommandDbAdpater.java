@@ -5,9 +5,9 @@ import java.util.Optional;
 import org.springframework.stereotype.Repository;
 
 import com.like.hrm.hrmcode.adapter.out.db.jpa.HrmCodeRepository;
+import com.like.hrm.hrmcode.application.port.out.hrmcode.HrmCodeCommandDbPort;
 import com.like.hrm.hrmcode.domain.HrmCode;
 import com.like.hrm.hrmcode.domain.HrmCodeId;
-import com.like.hrm.hrmcode.port.out.HrmCodeCommandDbPort;
 
 @Repository
 public class HrmCodeCommandDbAdpater implements HrmCodeCommandDbPort {

@@ -29,15 +29,24 @@ public class PostExcelUploadService implements PostExcelUploadUseCase {
 	}
 	
 	@Override
-	public void upload(List<PostExcelUploadDTO> dtoList) {
+	public void upload(List<PostExcelUploadDTO> dtoList, String userId) {
 		
 		List<Post> posts = new ArrayList<>(dtoList.size());
 		
 		for (PostExcelUploadDTO dto : dtoList) {
+			Board board = boardDbPort.select(Long.parseLong(dto.boardId()))
+	 				 .orElseThrow(() -> new IllegalArgumentException("존재 하지 않은 게시판입니다."));
+			
+			/*
 			Board board = boardDbPort.select(Base64Util.fromBase64Decode(dto.boardId()))
 					 				 .orElseThrow(() -> new IllegalArgumentException("존재 하지 않은 게시판입니다."));
-								
-			Post post = new Post(dto.clientAppUrl(), board, new PostContents(dto.title(), dto.contents()));
+			*/					
+			Post post = new Post(
+					dto.clientAppUrl(),
+					userId,
+					board, 
+					new PostContents(dto.title(), dto.contents())
+					);
 			
 			posts.add(post);
 		}

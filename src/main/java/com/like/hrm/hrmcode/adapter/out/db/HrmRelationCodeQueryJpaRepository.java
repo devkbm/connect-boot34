@@ -4,11 +4,11 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import com.like.hrm.hrmcode.application.service.depandancy.SaveHrmRelationCode;
+import com.like.hrm.hrmcode.application.service.depandancy.HrmRelationCodeDTO.SearchHrmRelationCode;
 import com.like.hrm.hrmcode.domain.QHrmCode;
 import com.like.hrm.hrmcode.domain.QHrmCodeType;
 import com.like.hrm.hrmcode.domain.QHrmRelationCode;
-import com.like.hrm.hrmcode.port.in.hrmdependcode.dto.SaveHrmRelationCode;
-import com.like.hrm.hrmcode.port.in.hrmdependcode.dto.HrmRelationCodeDTO.SearchHrmRelationCode;
 //import com.like.system.hierarchycode.domain.QCode;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 

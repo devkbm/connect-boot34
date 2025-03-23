@@ -11,9 +11,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.like.hrm.hrmcode.port.in.hrmcodetype.HrmCodeTypeQueryUseCase;
-import com.like.hrm.hrmcode.port.in.hrmcodetype.dto.HrmCodeTypeQueryDTO;
-import com.like.hrm.hrmcode.port.in.hrmcodetype.dto.HrmCodeTypeSaveDTO;
+import com.like.hrm.hrmcode.application.dto.hrmcodetype.HrmCodeTypeQueryDTO;
+import com.like.hrm.hrmcode.application.dto.hrmcodetype.HrmCodeTypeSaveDTO;
+import com.like.hrm.hrmcode.application.port.in.hrmcodetype.HrmCodeTypeQueryUseCase;
 import com.like.core.message.MessageUtil;
 
 @RestController
@@ -44,12 +44,13 @@ public class HrmCodeTypeQueryContoller {
 		String comment
 		 */			
 		Map<String, List<HrmCodeTypeSaveDTO>> list = new HashMap<>();
-		
+		/*
 		list.put("a", List.of(new HrmCodeTypeSaveDTO("001","1","2","3",4,"5"),
 							  new HrmCodeTypeSaveDTO("001","1","2","3",4,"5")));
 		list.put("b", List.of(new HrmCodeTypeSaveDTO("001","1","2","3",4,"5"),
 				  			  new HrmCodeTypeSaveDTO("001","1","2","3",4,"5")));
-									
+
+		*/
 		return toMap(list, "0");
 	}
 	

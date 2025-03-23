@@ -43,6 +43,7 @@ CREATE TABLE BIZCODE (
 	USE_YN  				BOOLEAN	    	  	NULL    	,
   	PRT_SEQ			      	INT		       		NULL		,    
 	CMT					    TEXT		 	    NULL 		,
+	ADDITIONAL				TEXT		 	    NULL 		,
 	constraint pk_bizcode primary key(TYPE_ID, CODE, ORG_CD)
 );
 COMMENT ON TABLE BIZCODE IS '업무코드';
@@ -122,6 +123,7 @@ CREATE TABLE HRMCODETYPE (
 	TYPE_NM				    VARCHAR(600)		NOT NULL	,
 	PRT_SEQ			      	INT		       		NULL		,
 	CMT					    TEXT		 	    NULL 		,
+	FIELD_CONFIG		    TEXT		 	    NULL 		,
 	constraint pk_hrmcodetype primary key(TYPE_ID)
 );
 COMMENT ON TABLE HRMCODETYPE IS 'HRM코드구분';
@@ -142,11 +144,7 @@ CREATE TABLE HRMCODE (
 	USE_YN			      	BOOLEAN			  	NOT NULL	,
 	PRT_SEQ			      	INT		       		NULL		,
 	CMT					    TEXT		 	    NULL 		,
-  	THE_1_ADD_INFO      	TEXT		 	    NULL 		,
-  	THE_2_ADD_INFO      	TEXT		 	    NULL 		,
-  	THE_3_ADD_INFO      	TEXT		 	    NULL 		,
-  	THE_4_ADD_INFO      	TEXT		 	    NULL 		,
-  	THE_5_ADD_INFO      	TEXT		 	    NULL 		,
+  	EXTRA_INFO				TEXT		 	    NULL 		,
 	constraint pk_hrmcode primary key(TYPE_ID, CODE),
  	constraint fk_hrmcode1 	foreign key(TYPE_ID) references HRMCODETYPE(TYPE_ID)
 );

@@ -4,10 +4,10 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import com.like.hrm.hrmcode.application.dto.hrmcodetype.HrmCodeTypeQueryDTO;
+import com.like.hrm.hrmcode.application.port.out.hrmcodetype.HrmCodeTypeQueryDbPort;
 import com.like.hrm.hrmcode.domain.HrmCodeType;
 import com.like.hrm.hrmcode.domain.QHrmCodeType;
-import com.like.hrm.hrmcode.port.in.hrmcodetype.dto.HrmCodeTypeQueryDTO;
-import com.like.hrm.hrmcode.port.out.HrmCodeTypeQueryDbPort;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 
 @Repository

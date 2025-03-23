@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
-import com.like.hrm.hrmcode.port.in.hrmdependcode.app.HrmRelationCodeQueryService;
-import com.like.hrm.hrmcode.port.in.hrmdependcode.dto.HrmRelationCodeDTO;
+import com.like.hrm.hrmcode.application.service.depandancy.HrmRelationCodeDTO;
+import com.like.hrm.hrmcode.application.service.depandancy.HrmRelationCodeQueryService;
 
 @RestController
 public class HrmRelationCodeQueryController {

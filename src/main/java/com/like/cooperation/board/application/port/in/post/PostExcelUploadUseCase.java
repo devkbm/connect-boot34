@@ -6,5 +6,5 @@ import com.like.cooperation.board.application.dto.post.PostExcelUploadDTO;
 
 public interface PostExcelUploadUseCase {
 
-	void upload(List<PostExcelUploadDTO> dto);
+	void upload(List<PostExcelUploadDTO> dto, String userId);
 }
