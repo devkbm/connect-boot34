@@ -10,61 +10,18 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.like.hrm.hrmcode.domain.HrmCode;
-import com.like.hrm.hrmcode.domain.HrmCodeId;
+import com.like.hrm.hrmcode.domain.HrmCodeType;
 
-import lombok.AccessLevel;
-import lombok.Builder;
+public class HrmCodeSelectDTOMapper {
 
-@Builder(access = AccessLevel.PRIVATE)
-public record HrmCodeSaveDTO(
-		String companyCode,
-		String clientAppUrl,
-		String typeId,
-		String code,
-		String codeName,
-		boolean useYn,
-		Integer sequence,
-		String comment,
-		Map<String, String> extraInfo
-		) {
-	
-	public HrmCode newEntity() throws JsonProcessingException {
-						
-		return new HrmCode(
-				new HrmCodeId(typeId, code),										
-				this.codeName,
-		  		this.useYn,
-		   		this.sequence,
-		   		this.comment,
-		   		mapToString(this.extraInfo)
-				);
-	}
 		
-	public HrmCode modify(HrmCode entity) throws JsonProcessingException {		
-		
-		entity.modify(
-				this.codeName,
-				this.useYn,
-				this.sequence,
-				this.comment,
-				mapToString(this.extraInfo)
-				);
-		return entity;
-	}
-	
-	private String mapToString(Map<String, String> mapValue) throws JsonProcessingException {
-		
-		
-		return new ObjectMapper().writeValueAsString(mapValue);
-	}
-	
 	public static Map<String, String> stringToMap(String str) throws JsonMappingException, JsonProcessingException {
 		if (!StringUtils.hasText(str)) return null;
 					
 		return new ObjectMapper().readValue(str, new TypeReference<HashMap<String, String>>() {});
 	}
-
-	public static HrmCodeSaveDTO toDTO(HrmCode entity) throws JsonMappingException, JsonProcessingException {
+	
+	public static HrmCodeSelectDTO toDTO(HrmCode entity, HrmCodeType codeType) throws JsonMappingException, JsonProcessingException {
 		if (entity == null) return null;
 									
 		Map<String, String> extraInfo = new HashMap<>();
@@ -73,7 +30,7 @@ public record HrmCodeSaveDTO(
 			extraInfo = stringToMap(entity.getExtraInfo());
 		}
 									
-		return HrmCodeSaveDTO
+		return HrmCodeSelectDTO
 				.builder()
 				.typeId(entity.getId().getTypeId())
 				.code(entity.getId().getCode())
@@ -81,7 +38,8 @@ public record HrmCodeSaveDTO(
 				.useYn(entity.isUseYn())
 				.sequence(entity.getSequence())
 				.comment(entity.getComment())
-				.extraInfo(extraInfo)				
+				.extraInfo(extraInfo)
+				.fieldConfig(codeType.getFieldConfig())
 				/*
 				.fieldConfig(
 						"""
