@@ -44,7 +44,8 @@ public record HrmCodeTypeSaveDTO(
 				   .typeName(entity.getName())					   
 				   .sequence(entity.getSequence())
 				   .comment(entity.getComment())
-				   //.fieldConfig(entity.getFieldConfig())
+				   .fieldConfig(entity.getFieldConfig())
+				   /*
 				   .fieldConfig(
 				   	"""
 				   	[
@@ -69,6 +70,7 @@ public record HrmCodeTypeSaveDTO(
 				   	]
 				   	"""						
 				    )
+				    */
 				   .build();						
 		
 	}
