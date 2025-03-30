@@ -15,7 +15,7 @@ public record HrmCodeSelectDTO(
 		boolean useYn,
 		Integer sequence,
 		String comment,
-		Map<String, String> extraInfo,
+		Map<String, Object> extraInfo,
 		String fieldConfig
 		) {
 	

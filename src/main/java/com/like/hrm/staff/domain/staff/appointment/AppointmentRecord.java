@@ -82,16 +82,20 @@ public class AppointmentRecord extends AbstractAuditEntity implements Serializab
 	AppointmentInformation info;
 	
 	@Builder
-	public AppointmentRecord(Staff staff
-							,String appointmentTypeCode
-							,LocalDate appointmentDate
-							,LocalDate appointmentEndDate
-							,String recordName
-							,String comment
-							,AppointmentInformation info) {
+	public AppointmentRecord(
+			Staff staff,
+			String appointmentTypeCode,
+			AppointmentApplyType applyType,
+			LocalDate appointmentDate,
+			LocalDate appointmentEndDate,
+			String recordName,
+			String comment,
+			AppointmentInformation info
+			) {
 		this.staff = staff;
 		this.id = new AppointmentRecordId(staff, staff.getAppointmentRecordList().getNextSequence());
 		this.appointmentTypeCode = appointmentTypeCode;
+		this.applyType = applyType;
 		this.appointmentDate = appointmentDate;
 		this.appointmentEndDate = appointmentEndDate;
 		this.recordName = recordName;
@@ -102,16 +106,20 @@ public class AppointmentRecord extends AbstractAuditEntity implements Serializab
 	}
 			
 	@Builder(builderMethodName = "modifyBuilder", buildMethodName = "modify")
-	public void modify(LocalDate appointmentDate
-					  ,LocalDate appointmentEndDate
-					  ,String recordName
-					  ,String comment
-					  ,AppointmentInformation info) {
+	public void modify(
+			AppointmentApplyType applyType,
+			LocalDate appointmentDate,
+			LocalDate appointmentEndDate,
+			String recordName,
+			String comment,
+			AppointmentInformation info
+			) {
 		
 		if (isCompleted == true) {
 			throw new IllegalStateException("처리 완료된 발령은 수정할수 없습니다.");
 		}
 		
+		this.applyType = applyType;
 		this.appointmentDate = appointmentDate;
 		this.appointmentEndDate = appointmentEndDate;
 		this.recordName = recordName;

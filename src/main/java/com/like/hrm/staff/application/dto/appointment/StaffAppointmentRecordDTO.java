@@ -1,17 +1,12 @@
 package com.like.hrm.staff.application.dto.appointment;
 
 import java.time.LocalDate;
-import java.util.Optional;
-
-import com.like.hrm.staff.domain.staff.Staff;
-import com.like.hrm.staff.domain.staff.appointment.AppointmentInformation;
-import com.like.hrm.staff.domain.staff.appointment.AppointmentRecord;
 
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AccessLevel;
 import lombok.Builder;
 
-@Builder(access = AccessLevel.PRIVATE)
+@Builder(access = AccessLevel.PACKAGE)
 public record StaffAppointmentRecordDTO(
 		String clientAppUrl,
 		String companyCode,
@@ -20,6 +15,7 @@ public record StaffAppointmentRecordDTO(
 		String staffName,			
 		Long seq,
 		String appointmentTypeCode,
+		String applyType,
 		LocalDate appointmentDate,
 		LocalDate appointmentEndDate,			
 		String recordName,
@@ -35,7 +31,7 @@ public record StaffAppointmentRecordDTO(
 		String jobCode,			
 		String dutyResponsibilityCode
 		) {
-	
+	/*
 	public AppointmentRecord newEntity(Staff staff) {		
 		AppointmentInformation info = newAppointmentInformation();
 		
@@ -91,4 +87,5 @@ public record StaffAppointmentRecordDTO(
 										 ,jobCode
 										 ,dutyResponsibilityCode);
 	}
+	*/
 }

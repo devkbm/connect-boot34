@@ -1,3 +1,4 @@
+/*
 package com.like.hrm.staff.domain.staff.appointment;
 
 import jakarta.persistence.AttributeConverter;
@@ -13,8 +14,8 @@ public class AppointmentApplyTypeConverter implements AttributeConverter<Appoint
 
 	@Override
 	public AppointmentApplyType convertToEntityAttribute(String dbCode) {
-		//return AppointmentApplyType.of(dbCode);
-		return null;
+		return AppointmentApplyType.of(dbCode);		
 	}
 
 }
+*/

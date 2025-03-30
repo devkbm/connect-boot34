@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.like.hrm.staff.application.dto.appointment.StaffAppointmentRecordDTO;
+import com.like.hrm.staff.application.dto.appointment.StaffAppointmentRecordDTOMapper;
 import com.like.hrm.staff.application.port.in.appointment.StaffAppointmentSaveUseCase;
 import com.like.hrm.staff.application.port.out.StaffAppointmentCommandDbPort;
 import com.like.hrm.staff.application.port.out.StaffCommandDbPort;
@@ -32,9 +33,10 @@ public class StaffAppointmentSaveService implements StaffAppointmentSaveUseCase 
 				
 		AppointmentRecord entity = this.appointmentDbPort.select(dto.companyCode(), dto.staffNo(), dto.seq()).orElse(null);		
 		if (entity == null) {
-			entity = dto.newEntity(staff);
+			entity = StaffAppointmentRecordDTOMapper.newEntity(dto, staff);
 		} else {
-			dto.modifyEntity(entity);
+			StaffAppointmentRecordDTOMapper.modifyEntity(dto, entity);
+			//dto.modifyEntity(entity);
 		}
 		this.appointmentDbPort.save(entity);
 				

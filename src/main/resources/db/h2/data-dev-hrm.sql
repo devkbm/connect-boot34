@@ -1,6 +1,6 @@
 INSERT INTO HRMCODETYPE
 (TYPE_ID,CREATED_APP_URL,CREATED_USER_ID,CREATED_HOST_IP,CREATED_DT,MODIFIED_APP_URL,MODIFIED_USER_ID,MODIFIED_HOST_IP,MODIFIED_DT,CMT,TYPE_NM,PRT_SEQ, FIELD_CONFIG)
-VALUES('HR0000','localhost','admin','local','2022-01-01','localhost','admin','local','2022-01-01',null,'발령분류','0','[{"key":"th1AddInfo","type":"input","props":{"label":"Input","placeholder":"placeholder","description":"description"}},{"key":"th2AddInfo","type":"input","props":{"label":"Input","placeholder":"placeholder","description":"description"}}]');
+VALUES('HR0000','localhost','admin','local','2022-01-01','localhost','admin','local','2022-01-01',null,'발령분류','0','[{"key":"joinDateYn","type":"checkbox","props":{"label":"입사일 적용 여부","description":"입사 발령의 경우 체크해주세요."}},{"key":"retireDateYn","type":"checkbox","props":{"label":"퇴사일 적용 여부","description":"퇴사 발령의 경우 체크해주세요."}},{"key":"th2AddInfo","type":"input","props":{"label":"Input","placeholder":"placeholder","description":"description"}}]');
 INSERT INTO HRMCODETYPE
 (TYPE_ID,CREATED_APP_URL,CREATED_USER_ID,CREATED_HOST_IP,CREATED_DT,MODIFIED_APP_URL,MODIFIED_USER_ID,MODIFIED_HOST_IP,MODIFIED_DT,CMT,TYPE_NM,PRT_SEQ)
 VALUES('HR0001','localhost','admin','local','2022-01-01','localhost','admin','local','2022-01-01',null,'직군','1');
@@ -40,10 +40,10 @@ VALUES('HR1001','localhost','admin','local','2001-01-01','localhost','admin','lo
 
 INSERT INTO HRMCODE
 (CREATED_DT,CREATED_USER_ID,CREATED_HOST_IP,CREATED_APP_URL,MODIFIED_DT,MODIFIED_USER_ID,MODIFIED_HOST_IP,MODIFIED_APP_URL,TYPE_ID,CODE,CODE_NM,USE_YN,PRT_SEQ,CMT,EXTRA_INFO)
-VALUES('2022-01-01','admin','local','local','2022-01-01','admin','local','local','HR0000','A01','입사',TRUE,'1',null, '{"th1AddInfo":"123","th2AddInfo":"456"}');
+VALUES('2022-01-01','admin','local','local','2022-01-01','admin','local','local','HR0000','A01','입사',TRUE,'1',null, '{"joinDateYn":true,"retireDateYn":false}');
 INSERT INTO HRMCODE
-(CREATED_DT,CREATED_USER_ID,CREATED_HOST_IP,CREATED_APP_URL,MODIFIED_DT,MODIFIED_USER_ID,MODIFIED_HOST_IP,MODIFIED_APP_URL,TYPE_ID,CODE,CODE_NM,USE_YN,PRT_SEQ,CMT)
-VALUES('2022-01-01','admin','local','local','2022-01-01','admin','local','local','HR0000','B01','퇴사',TRUE,'2',null);
+(CREATED_DT,CREATED_USER_ID,CREATED_HOST_IP,CREATED_APP_URL,MODIFIED_DT,MODIFIED_USER_ID,MODIFIED_HOST_IP,MODIFIED_APP_URL,TYPE_ID,CODE,CODE_NM,USE_YN,PRT_SEQ,CMT,EXTRA_INFO)
+VALUES('2022-01-01','admin','local','local','2022-01-01','admin','local','local','HR0000','B01','퇴사',TRUE,'2',null, '{"joinDateYn":false,"retireDateYn":true}');
 INSERT INTO HRMCODE
 (CREATED_DT,CREATED_USER_ID,CREATED_HOST_IP,CREATED_APP_URL,MODIFIED_DT,MODIFIED_USER_ID,MODIFIED_HOST_IP,MODIFIED_APP_URL,TYPE_ID,CODE,CODE_NM,USE_YN,PRT_SEQ,CMT)
 VALUES('2022-01-01','admin','local','local','2022-01-01','admin','local','local','HR0001','A','A직군',TRUE,'1',null);

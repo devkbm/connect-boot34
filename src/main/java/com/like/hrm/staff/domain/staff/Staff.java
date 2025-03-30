@@ -35,7 +35,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "HRMSTAFF")
 @EntityListeners(AuditingEntityListener.class)
-public class Staff extends AbstractAuditEntity implements Serializable {
+public class Staff extends AbstractStaff implements Serializable {
 
 	private static final long serialVersionUID = -3164713918774455925L;
 	
@@ -60,6 +60,9 @@ public class Staff extends AbstractAuditEntity implements Serializable {
 				
 	@Embedded
 	ResidentRegistrationNumber residentRegistrationNumber;
+	
+	@Column(name="STAFF_YN")
+	Boolean isStaff = true;
 	
 	@Embedded
 	StaffContact contact;

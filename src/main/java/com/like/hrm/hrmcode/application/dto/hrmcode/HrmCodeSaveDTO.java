@@ -25,7 +25,7 @@ public record HrmCodeSaveDTO(
 		boolean useYn,
 		Integer sequence,
 		String comment,
-		Map<String, String> extraInfo
+		Map<String, Object> extraInfo
 		) {
 	
 	public HrmCode newEntity() throws JsonProcessingException {
@@ -52,22 +52,22 @@ public record HrmCodeSaveDTO(
 		return entity;
 	}
 	
-	private String mapToString(Map<String, String> mapValue) throws JsonProcessingException {
+	private String mapToString(Map<String, Object> mapValue) throws JsonProcessingException {
 		
 		
 		return new ObjectMapper().writeValueAsString(mapValue);
 	}
 	
-	public static Map<String, String> stringToMap(String str) throws JsonMappingException, JsonProcessingException {
+	public static Map<String, Object> stringToMap(String str) throws JsonMappingException, JsonProcessingException {
 		if (!StringUtils.hasText(str)) return null;
 					
-		return new ObjectMapper().readValue(str, new TypeReference<HashMap<String, String>>() {});
+		return new ObjectMapper().readValue(str, new TypeReference<HashMap<String, Object>>() {});
 	}
 
 	public static HrmCodeSaveDTO toDTO(HrmCode entity) throws JsonMappingException, JsonProcessingException {
 		if (entity == null) return null;
 									
-		Map<String, String> extraInfo = new HashMap<>();
+		Map<String, Object> extraInfo = new HashMap<>();
 		
 		if (StringUtils.hasText(entity.getExtraInfo())) {
 			extraInfo = stringToMap(entity.getExtraInfo());

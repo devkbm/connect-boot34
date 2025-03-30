@@ -164,6 +164,7 @@ CREATE TABLE HRMSTAFF (
   	STAFF_NAME		      	VARCHAR(50)			NULL    	,
   	STAFF_NAME_ENG	    	VARCHAR(50)			NULL    	,
   	STAFF_NAME_CHI	    	VARCHAR(50)			NULL    	,
+  	STAFF_YN				BOOLEAN				NULL		,
   	RREGNO	            	VARCHAR(20)			NULL    	,
   	HOME_ADDR_TYPE      	VARCHAR(20)			NULL    	,
   	HOME_POST_NO        	VARCHAR(20)			NULL    	,

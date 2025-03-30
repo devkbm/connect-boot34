@@ -15,16 +15,16 @@ import com.like.hrm.hrmcode.domain.HrmCodeType;
 public class HrmCodeSelectDTOMapper {
 
 		
-	public static Map<String, String> stringToMap(String str) throws JsonMappingException, JsonProcessingException {
+	public static Map<String, Object> stringToMap(String str) throws JsonMappingException, JsonProcessingException {
 		if (!StringUtils.hasText(str)) return null;
 					
-		return new ObjectMapper().readValue(str, new TypeReference<HashMap<String, String>>() {});
+		return new ObjectMapper().readValue(str, new TypeReference<HashMap<String, Object>>() {});
 	}
 	
 	public static HrmCodeSelectDTO toDTO(HrmCode entity, HrmCodeType codeType) throws JsonMappingException, JsonProcessingException {
 		if (entity == null) return null;
 									
-		Map<String, String> extraInfo = new HashMap<>();
+		Map<String, Object> extraInfo = new HashMap<>();
 		
 		if (StringUtils.hasText(entity.getExtraInfo())) {
 			extraInfo = stringToMap(entity.getExtraInfo());
