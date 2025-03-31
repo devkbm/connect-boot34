@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.like.hrm.staff.adapter.out.db.querydsl.StaffLicenseQuerydsl;
-import com.like.hrm.staff.application.dto.license.StaffLicenseQueryResultDTO;
+import com.like.hrm.staff.application.dto.staff.license.StaffLicenseQueryResultDTO;
 import com.like.hrm.staff.application.port.out.StaffLicenseQueryDbPort;
 
 @Repository
