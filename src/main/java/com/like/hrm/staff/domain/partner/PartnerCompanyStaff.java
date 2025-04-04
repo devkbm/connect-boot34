@@ -1,9 +1,14 @@
-package com.like.hrm.staff.domain.staff;
+package com.like.hrm.staff.domain.partner;
 
 import java.time.LocalDate;
 
 import org.hibernate.annotations.Comment;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import com.like.hrm.staff.domain.AbstractStaff;
+import com.like.hrm.staff.domain.staff.ResidentRegistrationNumber;
+import com.like.hrm.staff.domain.staff.StaffId;
+import com.like.hrm.staff.domain.staff.StaffName;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;

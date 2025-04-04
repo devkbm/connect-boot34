@@ -14,6 +14,7 @@ import org.hibernate.annotations.Comment;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.like.core.jpa.domain.AbstractAuditEntity;
+import com.like.hrm.staff.domain.AbstractStaff;
 import com.like.hrm.staff.domain.staff.appointment.AppointmentRecord;
 import com.like.hrm.staff.domain.staff.appointment.AppointmentRecordList;
 import com.like.hrm.staff.domain.staff.dutyresponsibility.StaffDutyList;
