@@ -23,7 +23,8 @@ public interface BoardMapper {
 
 <![CDATA[
 SELECT A.BOARD_ID			boardId
-     , A.POST_ID			postId
+     , A.POST_ID			postId     
+     , D.USER_ID			writerId
      , D.USER_NAME 			writerName
      , D.FK_FILE			writerImage	         	         	        
      , A.TITLE				title	         
