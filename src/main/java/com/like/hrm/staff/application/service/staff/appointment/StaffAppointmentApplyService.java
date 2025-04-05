@@ -3,8 +3,8 @@ package com.like.hrm.staff.application.service.staff.appointment;
 import org.springframework.stereotype.Service;
 
 import com.like.hrm.staff.application.port.in.staff.appointment.StaffAppointmentApplyUseCase;
-import com.like.hrm.staff.application.port.out.StaffAppointmentCommandDbPort;
-import com.like.hrm.staff.application.port.out.StaffCommandDbPort;
+import com.like.hrm.staff.application.port.out.staff.StaffAppointmentCommandDbPort;
+import com.like.hrm.staff.application.port.out.staff.StaffCommandDbPort;
 import com.like.hrm.staff.domain.staff.Staff;
 import com.like.hrm.staff.domain.staff.appointment.AppointmentRecord;
 

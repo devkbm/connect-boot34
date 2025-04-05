@@ -6,8 +6,8 @@ import org.springframework.transaction.annotation.Transactional;
 import com.like.hrm.staff.application.dto.staff.appointment.StaffAppointmentRecordDTO;
 import com.like.hrm.staff.application.dto.staff.appointment.StaffAppointmentRecordDTOMapper;
 import com.like.hrm.staff.application.port.in.staff.appointment.StaffAppointmentSaveUseCase;
-import com.like.hrm.staff.application.port.out.StaffAppointmentCommandDbPort;
-import com.like.hrm.staff.application.port.out.StaffCommandDbPort;
+import com.like.hrm.staff.application.port.out.staff.StaffAppointmentCommandDbPort;
+import com.like.hrm.staff.application.port.out.staff.StaffCommandDbPort;
 import com.like.hrm.staff.domain.staff.Staff;
 import com.like.hrm.staff.domain.staff.appointment.AppointmentRecord;
 

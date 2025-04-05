@@ -5,8 +5,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.like.hrm.staff.application.dto.staff.schoolcareer.StaffSchoolCareerFormDTO;
 import com.like.hrm.staff.application.port.in.staff.schoolcareer.StaffSchoolCareerSaveUseCase;
-import com.like.hrm.staff.application.port.out.StaffCommandDbPort;
-import com.like.hrm.staff.application.port.out.StaffSchoolCareerCommandDbPort;
+import com.like.hrm.staff.application.port.out.staff.StaffCommandDbPort;
+import com.like.hrm.staff.application.port.out.staff.StaffSchoolCareerCommandDbPort;
 import com.like.hrm.staff.domain.staff.Staff;
 import com.like.hrm.staff.domain.staff.schoolcareer.StaffSchoolCareer;
 import com.like.hrm.staff.domain.staff.schoolcareer.StaffSchoolCareerId;

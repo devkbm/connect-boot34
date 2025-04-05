@@ -5,8 +5,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.like.hrm.staff.application.dto.staff.license.StaffLicenseFormDTO;
 import com.like.hrm.staff.application.port.in.staff.license.StaffLicenseSaveUseCase;
-import com.like.hrm.staff.application.port.out.StaffCommandDbPort;
-import com.like.hrm.staff.application.port.out.StaffLicenseCommandDbPort;
+import com.like.hrm.staff.application.port.out.staff.StaffCommandDbPort;
+import com.like.hrm.staff.application.port.out.staff.StaffLicenseCommandDbPort;
 import com.like.hrm.staff.domain.staff.Staff;
 import com.like.hrm.staff.domain.staff.license.StaffLicense;
 import com.like.hrm.staff.domain.staff.license.StaffLicenseId;

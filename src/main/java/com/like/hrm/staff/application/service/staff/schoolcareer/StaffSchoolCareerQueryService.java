@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.like.hrm.staff.application.dto.staff.schoolcareer.StaffSchoolCareerQueryResultDTO;
 import com.like.hrm.staff.application.port.in.staff.schoolcareer.StaffSchoolCareerQueryUseCase;
-import com.like.hrm.staff.application.port.out.StaffSchoolCareerQueryDbPort;
+import com.like.hrm.staff.application.port.out.staff.StaffSchoolCareerQueryDbPort;
 
 @Transactional(readOnly = true)
 @Service

@@ -9,7 +9,7 @@ import com.like.hrm.anualleave.boundary.AnualLeaveDTO;
 import com.like.hrm.anualleave.domain.model.AnualLeave;
 import com.like.hrm.anualleave.domain.model.AnualLeaveId;
 import com.like.hrm.anualleave.domain.model.AnualLeaveRepository;
-import com.like.hrm.staff.adapter.out.db.data.StaffJpaRepository;
+import com.like.hrm.staff.adapter.out.db.staff.data.StaffJpaRepository;
 import com.like.hrm.staff.domain.staff.Staff;
 import com.like.hrm.staff.domain.staff.StaffId;
 

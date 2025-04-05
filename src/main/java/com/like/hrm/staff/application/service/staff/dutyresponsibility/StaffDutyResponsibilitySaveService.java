@@ -5,8 +5,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.like.hrm.staff.application.dto.staff.dutyresponsibility.StaffDutyResponsibilityFormDTO;
 import com.like.hrm.staff.application.port.in.staff.dutyresponsibility.StaffDutyResponsibilitySaveUseCase;
-import com.like.hrm.staff.application.port.out.StaffCommandDbPort;
-import com.like.hrm.staff.application.port.out.StaffDutyResponsibilityCommandDbPort;
+import com.like.hrm.staff.application.port.out.staff.StaffCommandDbPort;
+import com.like.hrm.staff.application.port.out.staff.StaffDutyResponsibilityCommandDbPort;
 import com.like.hrm.staff.domain.staff.Staff;
 import com.like.hrm.staff.domain.staff.dutyresponsibility.StaffDuty;
 import com.like.hrm.staff.domain.staff.dutyresponsibility.StaffDutyId;

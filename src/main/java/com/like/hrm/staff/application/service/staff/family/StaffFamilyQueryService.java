@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.like.hrm.staff.application.dto.staff.family.StaffFamilyQueryResultDTO;
 import com.like.hrm.staff.application.port.in.staff.family.StaffFamilyQueryUseCase;
-import com.like.hrm.staff.application.port.out.StaffFamilyQueryDbPort;
+import com.like.hrm.staff.application.port.out.staff.StaffFamilyQueryDbPort;
 
 @Transactional(readOnly = true)
 @Service

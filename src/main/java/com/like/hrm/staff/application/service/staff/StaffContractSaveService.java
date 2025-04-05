@@ -6,7 +6,7 @@ import com.like.common.vo.Address;
 import com.like.common.vo.PhoneNumber;
 import com.like.hrm.staff.application.dto.staff.StaffContactSaveDTO;
 import com.like.hrm.staff.application.port.in.staff.StaffContractSaveUseCase;
-import com.like.hrm.staff.application.port.out.StaffCommandDbPort;
+import com.like.hrm.staff.application.port.out.staff.StaffCommandDbPort;
 import com.like.hrm.staff.domain.staff.Staff;
 import com.like.hrm.staff.domain.staff.StaffContact;
 

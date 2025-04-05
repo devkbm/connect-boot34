@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 
 import com.like.hrm.staff.application.dto.staff.ResponseStaff;
 import com.like.hrm.staff.application.port.in.staff.StaffSelectUseCase;
-import com.like.hrm.staff.application.port.out.StaffCommandDbPort;
+import com.like.hrm.staff.application.port.out.staff.StaffCommandDbPort;
 
 @Service
 public class StaffSelectService implements StaffSelectUseCase {

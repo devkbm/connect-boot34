@@ -3,7 +3,7 @@ package com.like.hrm.staff.application.service.staff;
 import org.springframework.stereotype.Service;
 
 import com.like.hrm.staff.application.port.in.staff.StaffDeleteUseCase;
-import com.like.hrm.staff.application.port.out.StaffCommandDbPort;
+import com.like.hrm.staff.application.port.out.staff.StaffCommandDbPort;
 
 @Service
 public class StaffDeleteService implements StaffDeleteUseCase {

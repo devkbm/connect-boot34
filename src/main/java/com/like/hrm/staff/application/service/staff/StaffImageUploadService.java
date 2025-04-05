@@ -6,7 +6,7 @@ import java.io.IOException;
 import org.springframework.stereotype.Service;
 
 import com.like.hrm.staff.application.port.in.staff.StaffImageUploadUseCase;
-import com.like.hrm.staff.application.port.out.StaffCommandDbPort;
+import com.like.hrm.staff.application.port.out.staff.StaffCommandDbPort;
 import com.like.hrm.staff.domain.staff.Staff;
 
 import jakarta.persistence.EntityNotFoundException;

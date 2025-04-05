@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.like.hrm.staff.application.dto.staff.StaffCreateExcelUploadDTO;
 import com.like.hrm.staff.application.port.in.staff.StaffCreateExcelUploadUseCase;
-import com.like.hrm.staff.application.port.out.StaffCommandDbPort;
+import com.like.hrm.staff.application.port.out.staff.StaffCommandDbPort;
 import com.like.hrm.staff.domain.staff.Staff;
 import com.like.hrm.staff.domain.staff.StaffName;
 import com.like.hrm.staff.domain.staff.StaffNoCreateStrategy;

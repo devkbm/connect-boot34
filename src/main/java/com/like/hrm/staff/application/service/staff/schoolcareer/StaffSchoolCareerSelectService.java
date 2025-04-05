@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 
 import com.like.hrm.staff.application.dto.staff.schoolcareer.StaffSchoolCareerFormDTO;
 import com.like.hrm.staff.application.port.in.staff.schoolcareer.StaffSchoolCareerSelectUseCase;
-import com.like.hrm.staff.application.port.out.StaffCommandDbPort;
+import com.like.hrm.staff.application.port.out.staff.StaffCommandDbPort;
 import com.like.hrm.staff.domain.staff.Staff;
 
 import jakarta.persistence.EntityNotFoundException;

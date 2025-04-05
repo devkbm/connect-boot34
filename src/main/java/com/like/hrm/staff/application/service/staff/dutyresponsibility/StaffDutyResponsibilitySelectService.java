@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 
 import com.like.hrm.staff.application.dto.staff.dutyresponsibility.StaffDutyResponsibilityFormDTO;
 import com.like.hrm.staff.application.port.in.staff.dutyresponsibility.StaffDutyResponsibilitySelectUseCase;
-import com.like.hrm.staff.application.port.out.StaffCommandDbPort;
+import com.like.hrm.staff.application.port.out.staff.StaffCommandDbPort;
 import com.like.hrm.staff.domain.staff.Staff;
 import com.like.hrm.staff.domain.staff.dutyresponsibility.StaffDuty;
 

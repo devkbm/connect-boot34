@@ -10,20 +10,20 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.like.core.message.MessageUtil;
-import com.like.hrm.staff.application.dto.staff.StaffSaveDTO;
-import com.like.hrm.staff.application.port.in.staff.StaffSaveUseCase;
+import com.like.hrm.staff.application.dto.partner.PartnerCompanyStaffFormDTO;
+import com.like.hrm.staff.application.port.in.partner.PartnerCompanyStaffSaveUseCase;
 
 @RestController
 public class PartnerCompanyStaffSaveController {
 	
-	private StaffSaveUseCase useCase;
+	private PartnerCompanyStaffSaveUseCase useCase;
 		
-	public PartnerCompanyStaffSaveController(StaffSaveUseCase useCase) {
+	public PartnerCompanyStaffSaveController(PartnerCompanyStaffSaveUseCase useCase) {
 		this.useCase = useCase;
 	}		
 			
-	@PostMapping("/api/hrm/staff")
-	public ResponseEntity<?> saveStaff(@RequestBody @Valid StaffSaveDTO dto) {			
+	@PostMapping("/api/hrm/partnerstaff")
+	public ResponseEntity<?> save(@RequestBody @Valid PartnerCompanyStaffFormDTO dto) {			
 														
 		useCase.save(dto);
 											 				
