@@ -29,8 +29,8 @@ public class PartnerCompanyStaffCommandDbAdapter implements PartnerCompanyStaffC
 	}
 
 	@Override
-	public void delete(PartnerCompanyStaff companyCode, String staffNo) {
-		this.repository.deleteById(new StaffId(staffNo, staffNo));
+	public void delete(String companyCode, String staffNo) {
+		this.repository.deleteById(new StaffId(companyCode, staffNo));
 	}
 
 }

@@ -10,6 +10,6 @@ public interface PartnerCompanyStaffCommandDbPort {
 	
 	void save(PartnerCompanyStaff entity);
 	
-	void delete(PartnerCompanyStaff companyCode, String staffNo);
+	void delete(String companyCode, String staffNo);
 	
 }
