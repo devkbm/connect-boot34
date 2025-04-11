@@ -76,6 +76,14 @@ public class Staff extends AbstractStaff implements Serializable {
 	@Column(name="BIRTHDAY")
 	LocalDate birthday;	
 		
+	@Comment("입사일")
+	@Column(name="JOIN_COMP_DT")
+	LocalDate joinDate;
+	
+	@Comment("퇴사일")
+	@Column(name="RETIRE_COMP_DT")
+	LocalDate retireDate;
+	
 	@Comment("근무상태")
 	@Column(name="WORK_STATE_CODE")
 	String workStateCode;
