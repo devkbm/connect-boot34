@@ -24,8 +24,8 @@ public class StaffAppointmentCommandDbAdapter implements StaffAppointmentCommand
 	}
 
 	@Override
-	public void save(AppointmentRecord entity) {
-		this.repository.save(entity);
+	public AppointmentRecord save(AppointmentRecord entity) {
+		return this.repository.saveAndFlush(entity);			
 	}
 
 	@Override

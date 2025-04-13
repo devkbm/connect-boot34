@@ -5,6 +5,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.like.hrm.staff.application.dto.staff.appointment.StaffAppointmentRecordDTO;
 import com.like.hrm.staff.application.dto.staff.appointment.StaffAppointmentRecordDTOMapper;
+import com.like.hrm.staff.application.port.in.staff.appointment.StaffAppointmentApplyUseCase;
 import com.like.hrm.staff.application.port.in.staff.appointment.StaffAppointmentSaveUseCase;
 import com.like.hrm.staff.application.port.out.staff.StaffAppointmentCommandDbPort;
 import com.like.hrm.staff.application.port.out.staff.StaffCommandDbPort;
@@ -20,9 +21,16 @@ public class StaffAppointmentSaveService implements StaffAppointmentSaveUseCase 
 	StaffCommandDbPort staffDbPort;
 	StaffAppointmentCommandDbPort appointmentDbPort;
 	
-	StaffAppointmentSaveService(StaffCommandDbPort staffDbPort, StaffAppointmentCommandDbPort appointmentDbPort) {
+	StaffAppointmentApplyUseCase apply;
+	
+	StaffAppointmentSaveService(
+			StaffCommandDbPort staffDbPort, 
+			StaffAppointmentCommandDbPort appointmentDbPort,
+			StaffAppointmentApplyUseCase apply
+			) {
 		this.staffDbPort = staffDbPort;
 		this.appointmentDbPort = appointmentDbPort;
+		this.apply = apply;
 	}
 	
 	@Override
@@ -38,12 +46,9 @@ public class StaffAppointmentSaveService implements StaffAppointmentSaveUseCase 
 			StaffAppointmentRecordDTOMapper.modifyEntity(dto, entity);
 			//dto.modifyEntity(entity);
 		}
-		this.appointmentDbPort.save(entity);
-				
-		staff.getAppointmentRecordList().add(entity);		
-		staff.applyAppointmentRecord(entity);		 
-		
-		staffDbPort.save(staff);			
+		entity = this.appointmentDbPort.save(entity);
+						
+		apply.apply(entity.getId().getCompanyCode(), entity.getId().getStaffNo(), entity.getId().getSeq());							
 	}
 	
 }

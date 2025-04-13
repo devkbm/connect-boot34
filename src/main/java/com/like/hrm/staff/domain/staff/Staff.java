@@ -138,15 +138,18 @@ public class Staff extends AbstractStaff implements Serializable {
 		this.contact = contact;
 	}
 	
+	public void joinCompany(LocalDate joinDate) {
+		this.joinDate = joinDate;			
+	}
+	
+	public void retireCompany(LocalDate retireDate) {
+		this.retireDate = retireDate;
+	}
+	
 	public void applyAppointmentRecord(AppointmentRecord record) {		
 		if (this.currentAppointment == null) this.currentAppointment = new CurrentAppointmentInformation(record.getInfo()); 		
 								
-				
-		if (!record.getIsCompleted()) {		
-			this.currentAppointment.apply(record.getInfo());
-					
-			record.complete();
-		}
+		this.currentAppointment.apply(record.getInfo());					
 	}	
 		
 }
