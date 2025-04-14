@@ -1,9 +1,11 @@
 package com.like.hrm.staff.domain.staff.period;
 
+import java.time.LocalDate;
+
 import org.hibernate.annotations.Comment;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import com.like.common.vo.Period;
+import com.like.common.vo.LocalDatePeriod;
 import com.like.core.jpa.domain.AbstractAuditEntity;
 import com.like.hrm.staff.domain.staff.Staff;
 
@@ -17,9 +19,14 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinColumns;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.AccessLevel;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
+@EqualsAndHashCode(callSuper = false, of = {"id"})
 @Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 @Table(name = "HRMSTAFFPERIOD")
 @EntityListeners(AuditingEntityListener.class)
@@ -36,9 +43,32 @@ public class StaffPeriod extends AbstractAuditEntity {
 	StaffPeriodId id;
 		
 	@Embedded
-	Period period;
+	LocalDatePeriod period;
 	
 	@Comment("비고")
 	@Column(name="CMT")
 	String comment;
+	
+	public StaffPeriod(
+			Staff staff,
+			String periodType,
+			LocalDate from,
+			LocalDate to,
+			String comment
+			) {
+		this.staff = staff;
+		this.id = new StaffPeriodId(staff, periodType, staff.getPeriodList().getNextSequence());
+		this.period = new LocalDatePeriod(from, to);
+		this.comment = comment;		
+	}
+	
+	public void modify(
+			LocalDate from,
+			LocalDate to,
+			String comment
+			) {
+		this.period = new LocalDatePeriod(from, to);
+		this.comment = comment;		
+	}
+	
 }

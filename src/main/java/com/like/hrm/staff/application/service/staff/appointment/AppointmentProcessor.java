@@ -7,26 +7,30 @@ import com.like.hrm.hrmcode.application.port.in.hrmcode.HrmCodeSelectUseCase;
 import com.like.hrm.staff.application.port.in.staff.appointment.StaffAppointmentApplyUseCase;
 import com.like.hrm.staff.application.port.out.staff.StaffAppointmentCommandDbPort;
 import com.like.hrm.staff.application.port.out.staff.StaffCommandDbPort;
+import com.like.hrm.staff.application.port.out.staff.StaffPeriodCommandDbPort;
 import com.like.hrm.staff.domain.staff.Staff;
 import com.like.hrm.staff.domain.staff.appointment.AppointmentRecord;
+import com.like.hrm.staff.domain.staff.period.StaffPeriod;
 
 import jakarta.persistence.EntityNotFoundException;
-
 
 @Service
 public class AppointmentProcessor implements StaffAppointmentApplyUseCase {
 	
 	StaffCommandDbPort staffDbPort;
 	StaffAppointmentCommandDbPort appointmentDbPort;
+	StaffPeriodCommandDbPort periodDbPort;
 	HrmCodeSelectUseCase hrmCode;
 	
 	AppointmentProcessor(
 			StaffCommandDbPort staffDbPort,
 			StaffAppointmentCommandDbPort appointmentDbPort,
+			StaffPeriodCommandDbPort periodDbPort,
 			HrmCodeSelectUseCase hrmCode
 			) {
 		this.staffDbPort = staffDbPort;
 		this.appointmentDbPort = appointmentDbPort;
+		this.periodDbPort = periodDbPort;
 		this.hrmCode = hrmCode;
 	}
 
@@ -42,12 +46,14 @@ public class AppointmentProcessor implements StaffAppointmentApplyUseCase {
 		
 		boolean isJoin = (boolean)appointmentCode.extraInfo().getOrDefault("joinDateYn", false);						
 		if (isJoin) {
-			staff.joinCompany(record.getAppointmentDate());
+			StaffPeriod period = staff.joinCompany(record.getAppointmentDate());
+			periodDbPort.save(period);
 		}
 		
 		boolean isRetire = (boolean)appointmentCode.extraInfo().getOrDefault("retireDateYn", false);						
 		if (isRetire) {
-			staff.retireCompany(record.getAppointmentDate());
+			StaffPeriod period = staff.retireCompany(record.getAppointmentDate());
+			periodDbPort.save(period);
 		}
 
 		staff.applyAppointmentRecord(record);

@@ -20,6 +20,8 @@ import com.like.hrm.staff.domain.staff.appointment.AppointmentRecordList;
 import com.like.hrm.staff.domain.staff.dutyresponsibility.StaffDutyList;
 import com.like.hrm.staff.domain.staff.family.StaffFamilyList;
 import com.like.hrm.staff.domain.staff.license.StaffLicenseList;
+import com.like.hrm.staff.domain.staff.period.StaffPeriod;
+import com.like.hrm.staff.domain.staff.period.StaffPeriodList;
 import com.like.hrm.staff.domain.staff.schoolcareer.StaffSchoolCareerList;
 
 import lombok.AccessLevel;
@@ -111,7 +113,10 @@ public class Staff extends AbstractStaff implements Serializable {
 	 * 자격면허 명단
 	 */
 	@Embedded
-	StaffLicenseList licenseList;			
+	StaffLicenseList licenseList;
+	
+	@Embedded
+	StaffPeriodList periodList = new StaffPeriodList();
 			
 	public Staff(String companyCode, StaffNoCreateStrategy strategy, StaffName name, String residentRegistrationNumber) {
 		this.id 						= new StaffId(companyCode, strategy.create());
@@ -138,12 +143,34 @@ public class Staff extends AbstractStaff implements Serializable {
 		this.contact = contact;
 	}
 	
-	public void joinCompany(LocalDate joinDate) {
+	public StaffPeriod joinCompany(LocalDate joinDate) {
 		this.joinDate = joinDate;			
+		
+		if (this.periodList == null) {
+			this.periodList = new StaffPeriodList();
+		}
+						
+		StaffPeriod period = new StaffPeriod(
+				this,
+				"A",
+				joinDate,
+				LocalDate.of(9999, 12, 31),
+				""
+				); 
+		
+		this.periodList.add(period);
+		
+		return period;
 	}
 	
-	public void retireCompany(LocalDate retireDate) {
+	public StaffPeriod retireCompany(LocalDate retireDate) {
 		this.retireDate = retireDate;
+		
+		StaffPeriod period = this.periodList.getMax(this, "A");
+		
+		period.modify(period.getPeriod().getFrom(), retireDate, "");
+		
+		return period;
 	}
 	
 	public void applyAppointmentRecord(AppointmentRecord record) {		

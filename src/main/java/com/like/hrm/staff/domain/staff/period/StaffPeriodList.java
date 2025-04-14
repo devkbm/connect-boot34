@@ -32,5 +32,33 @@ public class StaffPeriodList {
 				.orElse(null);
 	}
 	
+	public StaffPeriod getMax(Staff staff, String periodType) {
+		return this.periodList
+				.stream()			
+				.filter(e -> e.getId().getPeriodType().equals(periodType))
+				.max((s1, s2) -> Long.compare(s1.getId().getSeq(), s2.getId().getSeq()))				
+				.orElse(null);
+	}
+	
+	
+	public void add(StaffPeriod period) {
+		this.periodList.add(period);
+	}
+	
+	
+	long getNextSequence() {
+		long maxSeq = 0;
+		
+		if (this.periodList == null || this.periodList.isEmpty()) {
+			maxSeq = 0;
+		} else {			
+			maxSeq = this.periodList.stream()
+							  		.mapToLong(e -> e.getId().getSeq())
+							  		.max()
+							  		.getAsLong();							 
+		}
+					
+		return maxSeq + 1;
+	}
 	
 }
