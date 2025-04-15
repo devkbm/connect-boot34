@@ -1,4 +1,4 @@
-package com.like.hrm.staff.application.dto.staff;
+package com.like.hrm.staff.application.dto.staff.contact;
 
 import java.util.Optional;
 

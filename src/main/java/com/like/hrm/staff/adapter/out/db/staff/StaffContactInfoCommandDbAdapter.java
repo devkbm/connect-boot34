@@ -1,5 +1,6 @@
 package com.like.hrm.staff.adapter.out.db.staff;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
@@ -27,10 +28,18 @@ public class StaffContactInfoCommandDbAdapter implements StaffContactInfoCommand
 	public ContactInfo save(ContactInfo entity) {
 		return this.repository.save(entity);
 	}
+	
+	@Override
+	public void save(List<ContactInfo> entityList) {
+		this.repository.saveAll(entityList);
+		
+	}
 
 	@Override
 	public void delete(ContactInfoId id) {
 		this.repository.deleteById(id);
 	}
+
+	
 
 }

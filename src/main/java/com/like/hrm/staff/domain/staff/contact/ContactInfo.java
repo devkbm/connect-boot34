@@ -42,4 +42,24 @@ public class ContactInfo extends AbstractAuditEntity {
 	
 	@Embedded
 	PhoneNumber phoneNumber;
+	
+	public ContactInfo(
+			Staff staff,
+			String type,
+			Address address
+			) {
+		this.staff = staff;
+		this.id = new ContactInfoId(staff, type);
+		this.address = address;	
+	}
+	
+	public ContactInfo(
+			Staff staff,
+			String type,
+			PhoneNumber phoneNumber
+			) {
+		this.staff = staff;
+		this.id = new ContactInfoId(staff, type);
+		this.phoneNumber = phoneNumber;	
+	}
 }
