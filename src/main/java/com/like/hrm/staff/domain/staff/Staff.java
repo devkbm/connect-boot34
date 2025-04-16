@@ -13,10 +13,10 @@ import jakarta.persistence.Table;
 import org.hibernate.annotations.Comment;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import com.like.core.jpa.domain.AbstractAuditEntity;
 import com.like.hrm.staff.domain.AbstractStaff;
 import com.like.hrm.staff.domain.staff.appointment.AppointmentRecord;
 import com.like.hrm.staff.domain.staff.appointment.AppointmentRecordList;
+import com.like.hrm.staff.domain.staff.contact.ContactInfoList;
 import com.like.hrm.staff.domain.staff.dutyresponsibility.StaffDutyList;
 import com.like.hrm.staff.domain.staff.family.StaffFamilyList;
 import com.like.hrm.staff.domain.staff.license.StaffLicenseList;
@@ -44,19 +44,6 @@ public class Staff extends AbstractStaff implements Serializable {
 	
 	@EmbeddedId
 	StaffId id;
-	
-	/*
-	@Id
-	@Comment("직원ID")
-	@Column(name="STAFF_ID")
-	String id;
-	
-	@Column(name="ORG_CD")
-	String companyCode;
-	
-	@Column(name="STAFF_NO")
-	String staffNo;
-	*/
 		
 	@Embedded
 	StaffName name;
@@ -66,10 +53,7 @@ public class Staff extends AbstractStaff implements Serializable {
 	
 	@Column(name="STAFF_YN")
 	Boolean isStaff = true;
-	
-	@Embedded
-	StaffContact contact;
-	
+			
 	@Comment("성별")
 	@Column(name="GENDER")
 	String gender;
@@ -113,16 +97,16 @@ public class Staff extends AbstractStaff implements Serializable {
 	 * 자격면허 명단
 	 */
 	@Embedded
-	StaffLicenseList licenseList;
+	StaffLicenseList licenseList = new StaffLicenseList();
 	
 	@Embedded
 	StaffPeriodList periodList = new StaffPeriodList();
+	
+	@Embedded
+	ContactInfoList contactInfoList = new ContactInfoList();
 			
 	public Staff(String companyCode, StaffNoCreateStrategy strategy, StaffName name, String residentRegistrationNumber) {
 		this.id 						= new StaffId(companyCode, strategy.create());
-		//this.id 						= companyCode + "_" + strategy.create();
-		//this.companyCode 			= companyCode;
-		//this.staffNo					= strategy.create();
 		this.name 						= name; 
 		this.residentRegistrationNumber = ResidentRegistrationNumber.of(residentRegistrationNumber);
 		this.gender 					= this.residentRegistrationNumber.getGender();
@@ -137,11 +121,7 @@ public class Staff extends AbstractStaff implements Serializable {
 					
 	public void changeImagePath(String imagePath) {
 		this.imagePath = imagePath;
-	}
-	
-	public void changeContact(StaffContact contact) {
-		this.contact = contact;
-	}
+	}	
 	
 	public StaffPeriod joinCompany(LocalDate joinDate) {
 		this.joinDate = joinDate;			

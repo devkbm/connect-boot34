@@ -1,6 +1,7 @@
 package com.like.hrm.staff.domain.staff.contact;
 
 import java.util.LinkedHashSet;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Stream;
 
@@ -14,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Embeddable
 public class ContactInfoList {
 
-	@OrderBy("type asc")
+	@OrderBy("CONTACT_TYPE asc")
 	@OneToMany(mappedBy = "staff", fetch = FetchType.LAZY)
 	Set<ContactInfo> contactList = new LinkedHashSet<>();
 	
@@ -24,5 +25,12 @@ public class ContactInfoList {
 	
 	public void add(ContactInfo contact) {
 		this.contactList.add(contact);
+	}
+	
+	public Optional<ContactInfo> get(String type) {
+		return this.contactList
+				   .stream()	
+				   .filter(e -> e.id.type.equals(type))
+				   .findFirst();
 	}
 }
