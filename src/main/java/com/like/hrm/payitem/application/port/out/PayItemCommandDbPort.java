@@ -1,13 +1,8 @@
 package com.like.hrm.payitem.application.port.out;
 
-import java.util.List;
-
-import com.like.hrm.payitem.application.dto.PayItemDTO;
-import com.like.hrm.payitem.domain.model.PayItem;
+import com.like.hrm.payitem.domain.PayItem;
 
 public interface PayItemCommandDbPort {
-
-	List<PayItem> getPayItemList(PayItemDTO.SearchPayItem condition);
 	
 	PayItem getPayItem(String code);
 	

@@ -1,13 +1,8 @@
 package com.like.hrm.payitem.application.port.out;
 
-import java.util.List;
+import com.like.hrm.payitem.domain.PayTable;
 
-import com.like.hrm.payitem.application.dto.PayTableDTO;
-import com.like.hrm.payitem.domain.model.PayTable;
-
-public interface PayTableCommandDbPort {
-	
-	List<PayTable> getPayTableList(PayTableDTO.SearchPayTable dto);
+public interface PayTableCommandDbPort {	
 	
 	PayTable getPayTable(Long id);
 	

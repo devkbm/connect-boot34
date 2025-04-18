@@ -1,9 +1,9 @@
-package com.like.hrm.payitem.domain.model;
+package com.like.hrm.payitem.domain;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityListeners;
-import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -21,15 +21,14 @@ import lombok.NoArgsConstructor;
 @EntityListeners(AuditingEntityListener.class)
 public class PayItem extends AbstractAuditEntity {
 
-	@Id
-	@Column(name="CODE")
-	String code;
+	@EmbeddedId	
+	PayItemId id;
 	
-	@Column(name="CODE_NM")
-	String codeName;
+	@Column(name="PAY_ITEM_NAME")
+	String itemName;
 	
 	// 지급분, 공제분, 합산분
-	@Column(name="ITEM_TYPE")
+	@Column(name="PAY_ITEM_TYPE")
 	String type;
 	
 	// 급여테이블 사용여부
@@ -42,26 +41,30 @@ public class PayItem extends AbstractAuditEntity {
 	@Column(name="CMT")
 	String comment;
 	
-	public PayItem(String code
-				  ,String codeName
-				  ,String type
-				  ,Boolean usePayTable
-				  ,Integer seq
-				  ,String comment) {		
-		this.code = code;
-		this.codeName = codeName;
+	public PayItem(
+			PayItemId id,
+			String itemName,
+			String type,
+			Boolean usePayTable,
+			Integer seq,
+			String comment
+			) {		
+		this.id = id;
+		this.itemName = itemName;
 		this.type = type;
 		this.seq = seq;
 		this.comment = comment;
 		this.usePayTable = usePayTable;
 	}
 	
-	public void modify(String codeName
-					  ,String type
-					  ,Boolean usePayTable
-					  ,Integer seq
-					  ,String comment) {
-		this.codeName = codeName;
+	public void modify(
+			String itemName,
+			String type,
+			Boolean usePayTable,
+			Integer seq,
+			String comment
+			) {
+		this.itemName = itemName;
 		this.type = type;
 		this.seq = seq;
 		this.comment = comment;
