@@ -1,21 +1,21 @@
-package com.like.hrm.payitem.infra.jparepository;
+package com.like.hrm.payitem.adapter.out.db;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.like.hrm.payitem.boundary.PayItemDTO.SearchPayItem;
+import com.like.hrm.payitem.adapter.out.db.data.PayJpaRepository;
+import com.like.hrm.payitem.application.dto.PayItemDTO.SearchPayItem;
+import com.like.hrm.payitem.application.port.out.PayItemCommandDbPort;
 import com.like.hrm.payitem.domain.model.PayItem;
-import com.like.hrm.payitem.domain.repository.PayItemRepository;
-import com.like.hrm.payitem.infra.jparepository.springdata.JpaPayItem;
 
 @Repository
-public class PayItemJpaRepository implements PayItemRepository {
+public class PayItemCommandDbAdapter implements PayItemCommandDbPort {
 
-	private JpaPayItem jpaPayItem;
+	private PayJpaRepository jpaPayItem;
 	
-	public PayItemJpaRepository(JpaPayItem jpaPayItem) {
+	public PayItemCommandDbAdapter(PayJpaRepository jpaPayItem) {
 		this.jpaPayItem = jpaPayItem;		
 	}
 	

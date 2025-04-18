@@ -1,22 +1,22 @@
-package com.like.hrm.payitem.service;
+package com.like.hrm.payitem.application.service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.like.hrm.payitem.boundary.PayTableDTO;
+import com.like.hrm.payitem.application.dto.PayTableDTO;
+import com.like.hrm.payitem.application.port.out.PayTableCommandDbPort;
 import com.like.hrm.payitem.domain.model.PayTable;
 import com.like.hrm.payitem.domain.model.PayTableItem;
-import com.like.hrm.payitem.domain.repository.PayTableRepository;
 
 @Transactional
 @Service
 public class PayTableService {
 
-	private PayTableRepository payTableRepository;
+	private PayTableCommandDbPort payTableRepository;
 	
-	public PayTableService(PayTableRepository payTableRepository) {
+	public PayTableService(PayTableCommandDbPort payTableRepository) {
 		this.payTableRepository = payTableRepository;
 	}
 	

@@ -1,4 +1,4 @@
-package com.like.hrm.payitem.web;
+package com.like.hrm.payitem.adapter.in.web;
 
 import static com.like.core.web.util.ResponseEntityUtil.toList;
 import static com.like.core.web.util.ResponseEntityUtil.toOne;
@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.like.hrm.payitem.boundary.PayTableDTO;
+import com.like.hrm.payitem.application.dto.PayTableDTO;
+import com.like.hrm.payitem.application.service.PayTableService;
 import com.like.hrm.payitem.domain.model.PayTable;
 import com.like.hrm.payitem.domain.model.PayTableItem;
-import com.like.hrm.payitem.service.PayTableService;
 
 @RestController
 public class PayTableController {

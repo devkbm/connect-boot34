@@ -1,4 +1,4 @@
-package com.like.hrm.payitem.boundary;
+package com.like.hrm.payitem.application.dto;
 
 import static org.springframework.util.StringUtils.hasText;
 

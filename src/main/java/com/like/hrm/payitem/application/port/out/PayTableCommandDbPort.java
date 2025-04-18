@@ -1,11 +1,11 @@
-package com.like.hrm.payitem.domain.repository;
+package com.like.hrm.payitem.application.port.out;
 
 import java.util.List;
 
-import com.like.hrm.payitem.boundary.PayTableDTO;
+import com.like.hrm.payitem.application.dto.PayTableDTO;
 import com.like.hrm.payitem.domain.model.PayTable;
 
-public interface PayTableRepository {
+public interface PayTableCommandDbPort {
 	
 	List<PayTable> getPayTableList(PayTableDTO.SearchPayTable dto);
 	

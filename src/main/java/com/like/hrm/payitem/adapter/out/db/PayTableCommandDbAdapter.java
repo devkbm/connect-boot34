@@ -1,21 +1,21 @@
-package com.like.hrm.payitem.infra.jparepository;
+package com.like.hrm.payitem.adapter.out.db;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.like.hrm.payitem.boundary.PayTableDTO.SearchPayTable;
+import com.like.hrm.payitem.adapter.out.db.data.PayTableJpaRepository;
+import com.like.hrm.payitem.application.dto.PayTableDTO.SearchPayTable;
+import com.like.hrm.payitem.application.port.out.PayTableCommandDbPort;
 import com.like.hrm.payitem.domain.model.PayTable;
-import com.like.hrm.payitem.domain.repository.PayTableRepository;
-import com.like.hrm.payitem.infra.jparepository.springdata.JpaPayTable;
 
 @Repository
-public class PayTableJpaRepository implements PayTableRepository {
+public class PayTableCommandDbAdapter implements PayTableCommandDbPort {
 
-	private JpaPayTable jpaPayTable;
+	private PayTableJpaRepository jpaPayTable;
 	
-	public PayTableJpaRepository(JpaPayTable jpaPayTable) {
+	public PayTableCommandDbAdapter(PayTableJpaRepository jpaPayTable) {
 		this.jpaPayTable = jpaPayTable;			
 	}
 	
