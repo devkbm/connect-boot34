@@ -21,7 +21,7 @@ public class PayItemDeleteController {
 	}
 	
 	@DeleteMapping("/api/hrm/payitem/{id}")
-	public ResponseEntity<?> deleteStaff(@RequestParam String companyCode, @PathVariable String id) {
+	public ResponseEntity<?> delete(@RequestParam String companyCode, @PathVariable String id) {
 								
 		useCase.delete(companyCode, id); 
 		

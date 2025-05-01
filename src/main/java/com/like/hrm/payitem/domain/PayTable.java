@@ -76,5 +76,15 @@ public class PayTable extends AbstractAuditEntity {
 		this.isEnable = isEnable;
 		this.comment = comment;		
 	}
+	
+	public void modify(
+			BigDecimal wageAmount,
+			Boolean isEnable,
+			String comment
+			) {
+		this.wageAmount = wageAmount;
+		this.isEnable = isEnable;
+		this.comment = comment;
+	}
 		
 }
