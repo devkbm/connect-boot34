@@ -20,7 +20,7 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
 				
 		OAuth2LoginRequestThreadLocal.remove();
 		
-		getRedirectStrategy().sendRedirect(request, response, "http://localhost:4200/oauth2/" + request.getSession().getId());
+		getRedirectStrategy().sendRedirect(request, response, "https://localhost:4200/oauth2/" + request.getSession().getId());
 	
 	}
 
