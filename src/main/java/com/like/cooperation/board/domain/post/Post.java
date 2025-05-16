@@ -87,7 +87,8 @@ public class Post extends AbstractAuditEntity {
 			String appUrl,
 			String userId,
 			Board board,		    
-		    PostContents content) {
+		    PostContents content
+		    ) {
 		
 		if (board == null) throw new IllegalArgumentException("게시판이 존재하지 않습니다.");
 		
@@ -103,7 +104,8 @@ public class Post extends AbstractAuditEntity {
 		    String userId,
 		    PostContents content,
 		    PostPassword password,
-			List<PostAttachedFile> files) {
+			List<PostAttachedFile> files
+			) {
 		
 		if (board == null) throw new IllegalArgumentException("게시판이 존재하지 않습니다.");
 		

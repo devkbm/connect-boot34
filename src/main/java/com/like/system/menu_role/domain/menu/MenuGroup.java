@@ -41,7 +41,13 @@ public class MenuGroup extends AbstractAuditEntity implements Serializable {
 	String description;		
 			
 	@Builder
-	public MenuGroup(String companyCode, String code, String name, String menuGroupUrl, String description) {	
+	public MenuGroup(
+			String companyCode, 
+			String code, 
+			String name, 
+			String menuGroupUrl, 
+			String description
+			) {	
 		this.id = new MenuGroupId(companyCode, code);
 		this.name = name;
 		this.menuGroupUrl = menuGroupUrl;
@@ -49,9 +55,11 @@ public class MenuGroup extends AbstractAuditEntity implements Serializable {
 	}	
 	
 	@Builder(builderMethodName = "modifyBuilder", buildMethodName = "modify")
-	public void modifyEntity(String menuGroupName
-							,String menuGroupUrl
-							,String description) {
+	public void modifyEntity(
+			String menuGroupName,
+			String menuGroupUrl,
+			String description
+			) {
 		this.name = menuGroupName;
 		this.menuGroupUrl = menuGroupUrl;
 		this.description = description;

@@ -53,10 +53,12 @@ public class SystemUserCompany extends AbstractAuditEntity implements Serializab
 	@JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID")
 	SystemUser systemUser;
 	
-	public SystemUserCompany(SystemUser user
-			                ,String companyCode
-			                ,String deptCode
-			                ,Boolean useYn) {		
+	public SystemUserCompany(
+			SystemUser user,
+			String companyCode,
+			String deptCode,
+			Boolean useYn
+			) {		
 		this.systemUser = user;
 		this.id = new SystemUserCompanyId(companyCode, user.getId().getUserId());
 		this.deptCode = deptCode;

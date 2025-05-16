@@ -4,7 +4,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.like.system.company.application.dto.CompanyInfoSaveDTO;
-import com.like.system.company.application.dto.CompanyInfoSaveDTOMapper;
 import com.like.system.company.application.dto.CompanyInfoSaveDTOMapstruct;
 import com.like.system.company.application.port.in.CompanySelectUseCase;
 import com.like.system.company.application.port.out.CompanyCommandDbPort;
@@ -25,8 +24,7 @@ public class CompanySelectService implements CompanySelectUseCase {
 	public CompanyInfoSaveDTO select(String companyCode) {
 		CompanyInfo entity = this.dbPort.select(new CompanyInfoId(companyCode)).orElse(null);
 		
-		//return entity == null ? null : CompanyInfoSaveDTOMapper.toDTO(entity);
-		return entity == null ? null : CompanyInfoSaveDTOMapstruct.INSTANCE.toDTO(entity);
+		return CompanyInfoSaveDTOMapstruct.INSTANCE.toDTO(entity); 
 	}
 
 }

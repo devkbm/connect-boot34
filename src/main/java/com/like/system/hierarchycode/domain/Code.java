@@ -74,16 +74,18 @@ public class Code extends AbstractAuditEntity  {
 	String _parentCode;
 
 	@Builder
-	public Code(String systemTypeCode
-			   ,String code
-			   ,String codeName
-			   ,String codeNameAbbreviation
-			   ,LocalDateTime fromDate
-			   ,LocalDateTime toDate
-			   ,int seq			   
-			   ,Integer lowLevelCodeLength
-			   ,String cmt
-			   ,Code parentCode) {
+	public Code(
+			String systemTypeCode,
+			String code,
+			String codeName,
+			String codeNameAbbreviation,
+			LocalDateTime fromDate,
+			LocalDateTime toDate,
+			int seq,			   
+			Integer lowLevelCodeLength,
+			String cmt,
+			Code parentCode
+			) {
 		
 		this.id = new CodeId(systemTypeCode, parentCode, code);
 		this.code = code;
@@ -101,13 +103,15 @@ public class Code extends AbstractAuditEntity  {
 	}
 		
 	@Builder(builderMethodName = "modifyBuilder", buildMethodName = "modify")
-	public void modifyEntity(String codeName
-							,String codeNameAbbreviation
-							,LocalDateTime fromDate
-							,LocalDateTime toDate
-							,int seq							
-							,Integer lowLevelCodeLength
-							,String cmt) {
+	public void modifyEntity(
+			String codeName,
+			String codeNameAbbreviation,
+			LocalDateTime fromDate,
+			LocalDateTime toDate,
+			int seq,
+			Integer lowLevelCodeLength,
+			String cmt
+			) {
 		this.codeName = codeName;
 		this.codeNameAbbreviation = codeNameAbbreviation;
 		this.fromDate = fromDate;

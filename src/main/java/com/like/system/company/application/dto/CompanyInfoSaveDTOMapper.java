@@ -6,12 +6,13 @@ public class CompanyInfoSaveDTOMapper {
 
 	public static CompanyInfo toEntity(CompanyInfoSaveDTO dto) {
 		return new CompanyInfo(
-				dto.companyCode()
-				,dto.companyName()
-				,dto.businessRegistrationNumber()
-				,dto.coporationNumber()
-				,dto.nameOfRepresentative()
-				,dto.establishmentDate()
+				dto.clientAppUrl(),
+				dto.companyCode(),
+				dto.companyName(),
+				dto.businessRegistrationNumber(),
+				dto.coporationNumber(),
+				dto.nameOfRepresentative(),
+				dto.establishmentDate()
 				);
 	}
 	

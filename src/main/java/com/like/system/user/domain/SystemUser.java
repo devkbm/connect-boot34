@@ -30,11 +30,8 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "comuser")
 public class SystemUser extends AbstractAuditEntity implements Serializable {		
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+		
+	private static final long serialVersionUID = -3236968483235126531L;
 
 	@EmbeddedId
 	SystemUserId id;	

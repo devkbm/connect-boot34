@@ -19,12 +19,13 @@ public class BizCode {
 	BizCodeType bizCodeType;
 	
 	@Builder
-	public BizCode(BizCodeType bizCodeType
-				  ,String code
-				  ,Boolean useYn
-	              ,String name
-	              ,Integer sequence
-			      ,String comment) {
+	public BizCode(
+			BizCodeType bizCodeType,
+			String code,
+			Boolean useYn,
+			String name,
+			Integer sequence,
+			String comment) {
 		this.bizCodeType = bizCodeType;
 		this.id = new BizCodeId(bizCodeType.getId().getCompanyCode()
 							   ,bizCodeType.getId().getTypeId()

@@ -88,16 +88,18 @@ public class Menu extends AbstractAuditEntity implements Serializable {
 	MenuGroup menuGroup;	
 		
 	@Builder
-	public Menu(@NonNull MenuGroup menuGroup,
-				Menu parent,
-				String companyCode,
-				String menuCode, 
-				String menuName, 				 			
-				MenuType menuType,
-				String appUrl,
-				MenuAppIcon appIcon,
-				long sequence,
-				long level) {
+	public Menu(						
+			@NonNull MenuGroup menuGroup,
+			Menu parent,
+			String companyCode,
+			String menuCode, 
+			String menuName, 				 			
+			MenuType menuType,
+			String appUrl,
+			MenuAppIcon appIcon,
+			long sequence,
+			long level
+			) {
 		
 		this.id = new MenuId(companyCode, menuGroup.getId().getMenuGroupCode(), menuCode);
 		this.parent = parent == null ? null : parent;
@@ -113,14 +115,16 @@ public class Menu extends AbstractAuditEntity implements Serializable {
 	}
 	
 	@Builder(builderMethodName = "modifyBuilder", buildMethodName = "modify")
-	public void modifyEntity(String menuName
-							,MenuType menuType
-							,String appUrl
-							,MenuAppIcon appIcon
-							,long sequence
-							,long level
-							,Menu parent
-							,MenuGroup menuGroup) {
+	public void modifyEntity(
+			String menuName,
+			MenuType menuType,
+			String appUrl,
+			MenuAppIcon appIcon,
+			long sequence,
+			long level,
+			Menu parent,
+			MenuGroup menuGroup
+			) {
 		this.name = menuName;
 		this.type = menuType;
 		this.sequence = sequence;

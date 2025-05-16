@@ -84,12 +84,16 @@ public class CompanyInfo extends AbstractAuditEntity {
 	@Column(name="BIZ_ITEM_NM")
 	String itemOfBusiness;
 	
-	public CompanyInfo(String id
-					  ,String companyName
-					  ,String businessRegistrationNumber
-					  ,String coporationNumber
-					  ,String nameOfRepresentative
-					  ,LocalDate establishmentDate) {		
+	public CompanyInfo(
+			String appUrl,
+			String id,
+			String companyName,
+			String businessRegistrationNumber,
+			String coporationNumber,
+			String nameOfRepresentative,
+			LocalDate establishmentDate
+			) {
+		this.setAppUrl(appUrl);
 		this.id = new CompanyInfoId(id);
 		this.companyName = companyName;
 		this.businessRegistrationNumber = businessRegistrationNumber;
