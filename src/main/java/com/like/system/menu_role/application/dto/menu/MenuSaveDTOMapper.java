@@ -2,7 +2,6 @@ package com.like.system.menu_role.application.dto.menu;
 
 import java.util.Optional;
 
-import com.like.system.dept.domain.Dept;
 import com.like.system.menu_role.domain.menu.Menu;
 import com.like.system.menu_role.domain.menu.MenuAppIcon;
 import com.like.system.menu_role.domain.menu.MenuGroup;

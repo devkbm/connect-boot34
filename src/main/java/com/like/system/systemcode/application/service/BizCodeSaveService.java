@@ -5,24 +5,24 @@ import org.springframework.stereotype.Service;
 import com.like.system.systemcode.application.dto.BizCodeSaveDTO;
 import com.like.system.systemcode.application.dto.BizCodeSaveDTOMapper;
 import com.like.system.systemcode.application.port.in.BizCodeSaveUseCase;
-import com.like.system.systemcode.application.port.out.BizCodeSavePort;
-import com.like.system.systemcode.application.port.out.BizCodeTypeSelectPort;
+import com.like.system.systemcode.application.port.out.BizCodeCommandDbPort;
+import com.like.system.systemcode.application.port.out.BizCodeTypeCommandDbPort;
 import com.like.system.systemcode.domain.BizCodeType;
 
 @Service
 public class BizCodeSaveService implements BizCodeSaveUseCase {
 
-	BizCodeSavePort port;
-	BizCodeTypeSelectPort bizCodeTypeSelectPort;
+	BizCodeCommandDbPort port;
+	BizCodeTypeCommandDbPort bizCodeTypeDbPort;
 	
-	public BizCodeSaveService(BizCodeSavePort port, BizCodeTypeSelectPort bizCodeTypeSelectPort) {	
+	public BizCodeSaveService(BizCodeCommandDbPort port, BizCodeTypeCommandDbPort bizCodeTypeDbPort) {	
 		this.port = port;
-		this.bizCodeTypeSelectPort = bizCodeTypeSelectPort;
+		this.bizCodeTypeDbPort = bizCodeTypeDbPort;
 	}
 	
 	@Override
 	public void save(BizCodeSaveDTO dto) {
-		BizCodeType bizCodeType = bizCodeTypeSelectPort.select(dto.companyCode(), dto.typeId());
+		BizCodeType bizCodeType = this.bizCodeTypeDbPort.select(dto.companyCode(), dto.typeId()).orElse(null);
 		this.port.save(BizCodeSaveDTOMapper.toEntity(dto, bizCodeType));
 	}
 	

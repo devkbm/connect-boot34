@@ -3,14 +3,14 @@ package com.like.system.systemcode.application.service;
 import org.springframework.stereotype.Service;
 
 import com.like.system.systemcode.application.port.in.BizCodeTypeDeleteUseCase;
-import com.like.system.systemcode.application.port.out.BizCodeTypeDeletePort;
+import com.like.system.systemcode.application.port.out.BizCodeTypeCommandDbPort;
 
 @Service
 public class BizCodeTypeDeleteService implements BizCodeTypeDeleteUseCase {
 
-	BizCodeTypeDeletePort port;
+	BizCodeTypeCommandDbPort port;
 	
-	public BizCodeTypeDeleteService(BizCodeTypeDeletePort port) {
+	BizCodeTypeDeleteService(BizCodeTypeCommandDbPort port) {
 		this.port = port;
 	}
 	

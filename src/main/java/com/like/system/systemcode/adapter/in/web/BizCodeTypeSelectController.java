@@ -22,8 +22,10 @@ public class BizCodeTypeSelectController {
 	}	
 	
 	@GetMapping("/api/system/bizcodetype/{typeId}")
-	public ResponseEntity<?> getBizCodeType(@RequestParam String companyCode
-										   ,@PathVariable String typeId) {
+	public ResponseEntity<?> getBizCodeType(
+			@RequestParam String companyCode,
+			@PathVariable String typeId
+			) {
 		
 		BizCodeTypeSaveDTO dto = useCase.select(companyCode, typeId);
 					

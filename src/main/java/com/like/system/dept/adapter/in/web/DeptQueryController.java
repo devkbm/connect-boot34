@@ -13,6 +13,9 @@ import com.like.system.dept.application.dto.DeptQueryDTO;
 import com.like.system.dept.application.dto.DeptSaveDTO;
 import com.like.system.dept.application.port.in.DeptQueryUseCase;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestController
 public class DeptQueryController {
 
@@ -25,6 +28,8 @@ public class DeptQueryController {
 	@GetMapping("/api/system/dept")
 	public ResponseEntity<?> getDeptList(@ModelAttribute DeptQueryDTO dto) {
 							
+		log.info(dto.toString());
+		
 		List<DeptSaveDTO> list = useCase.select(dto);  						 						
 		
 		return toList(list, String.format("%d 건 조회되었습니다.", list.size()));

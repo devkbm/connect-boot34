@@ -13,7 +13,9 @@ import com.like.system.dept.application.dto.DeptQueryDTO;
 import com.like.system.dept.application.port.in.DeptHierarchySelectUseCase;
 
 import jakarta.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @RestController
 public class DeptHierarchySelectController {
 
@@ -26,6 +28,8 @@ public class DeptHierarchySelectController {
 	@GetMapping("/api/system/depttree")
 	public ResponseEntity<?> getDeptHierarchyList(@ModelAttribute @Valid DeptQueryDTO dto) {
 							
+		log.info(dto.toString());
+		
 		List<?> list = useCase.select(dto);  						 						
 		
 		return toList(list, String.format("%d 건 조회되었습니다.", list.size()));

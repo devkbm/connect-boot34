@@ -5,13 +5,13 @@ import org.springframework.stereotype.Service;
 import com.like.system.systemcode.application.dto.BizCodeTypeSaveDTO;
 import com.like.system.systemcode.application.dto.BizCodeTypeSaveDTOMapper;
 import com.like.system.systemcode.application.port.in.BizCodeTypeSaveUseCase;
-import com.like.system.systemcode.application.port.out.BizCodeTypeSavePort;
+import com.like.system.systemcode.application.port.out.BizCodeTypeCommandDbPort;
 
 @Service
 public class BizCodeTypeSaveService implements BizCodeTypeSaveUseCase {
-	BizCodeTypeSavePort port;
+	BizCodeTypeCommandDbPort port;
 
-	public BizCodeTypeSaveService(BizCodeTypeSavePort port) {
+	public BizCodeTypeSaveService(BizCodeTypeCommandDbPort port) {
 		this.port = port;
 	}
 	

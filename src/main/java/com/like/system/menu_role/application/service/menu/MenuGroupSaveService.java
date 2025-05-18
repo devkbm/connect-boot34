@@ -5,14 +5,14 @@ import org.springframework.stereotype.Service;
 import com.like.system.menu_role.application.dto.menu.MenuGroupSaveDTO;
 import com.like.system.menu_role.application.dto.menu.MenuGroupSaveDTOMapper;
 import com.like.system.menu_role.application.port.in.menu.MenuGroupSaveUseCase;
-import com.like.system.menu_role.application.port.out.menu.MenuGroupSaveDbPort;
+import com.like.system.menu_role.application.port.out.menu.MenuGroupCommandDbPort;
 
 @Service
 public class MenuGroupSaveService implements MenuGroupSaveUseCase {
 
-	MenuGroupSaveDbPort port;
+	MenuGroupCommandDbPort port;
 	
-	MenuGroupSaveService(MenuGroupSaveDbPort port) {
+	MenuGroupSaveService(MenuGroupCommandDbPort port) {
 		this.port = port;
 	}
 	

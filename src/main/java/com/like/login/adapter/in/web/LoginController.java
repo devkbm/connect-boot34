@@ -1,7 +1,7 @@
 package com.like.login.adapter.in.web;
 
 import jakarta.servlet.http.HttpServletRequest;
-
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 
 import java.time.LocalDate;
@@ -10,8 +10,10 @@ import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -68,6 +70,22 @@ public class LoginController {
 		this.eventPublisher.publishEvent(new LoginSuccessEvent(dto.companyCode(), dto.staffNo(), LocalDate.now(), "login"));
 						
 		return authTokenSelectUseCase.select(dto.staffNo(), dto.companyCode(), request.getSession().getId(), WebRequestUtil.getIpAddress(request));
-	}	
+	}
+	
+	@GetMapping("/api/system/user/logout")
+	public void login(HttpServletRequest request, HttpSession session) {			
+						         		 							                   
+		//String ipAddress = WebRequestUtil.getIpAddress(request);
+		//System.out.println("접속 IP주소: " + ipAddress);
+		
+		if (session != null) {
+			session.invalidate();
+		}
+		
+		SecurityContext context = SecurityContextHolder.getContext();
+		SecurityContextHolder.clearContext();		
+		context.setAuthentication(null);
+		
+	}
 	
 }

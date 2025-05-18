@@ -25,8 +25,10 @@ public class DeptHierarchySelectService implements DeptHierarchySelectUseCase {
 
 	@Override
 	public List<?> select(DeptQueryDTO dto) {
+		
+		String comanyCode = dto.company() == null ? dto.companyCode() : dto.company();
 
-		DeptHierarchyGenerator generator = new DeptHierarchyGenerator(this.repository.getAllNodes(dto.companyCode()));
+		DeptHierarchyGenerator generator = new DeptHierarchyGenerator(this.repository.getAllNodes(comanyCode));
 		
 		List<DeptHierarchy> list = generator.getTreeNodes();		
 		

@@ -3,8 +3,8 @@ package com.like.cooperation.todo.adapter.out.db;
 import org.springframework.stereotype.Repository;
 
 import com.like.cooperation.todo.adapter.out.db.data.TodoGroupJpaRepository;
+import com.like.cooperation.todo.application.port.out.TodoGroupCommandDbPort;
 import com.like.cooperation.todo.domain.TodoGroup;
-import com.like.cooperation.todo.port.out.TodoGroupCommandDbPort;
 
 @Repository
 public class TodoGroupDbAdapter implements TodoGroupCommandDbPort {

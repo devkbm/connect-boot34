@@ -1,19 +1,16 @@
 package com.like.system.menu_role.adapter.out.db.menu;
 
-import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
 
 import com.like.system.menu_role.adapter.out.db.menu.data.MenuGroupJpaRepository;
-import com.like.system.menu_role.application.dto.menu.MenuGroupQueryDTO;
-import com.like.system.menu_role.application.port.out.menu.MenuGroupDeleteDbPort;
-import com.like.system.menu_role.application.port.out.menu.MenuGroupSaveDbPort;
-import com.like.system.menu_role.application.port.out.menu.MenuGroupSelectDbPort;
+import com.like.system.menu_role.application.port.out.menu.MenuGroupCommandDbPort;
 import com.like.system.menu_role.domain.menu.MenuGroup;
 import com.like.system.menu_role.domain.menu.MenuGroupId;
 
 @Repository
-public class MenuGroupDbAdapter implements MenuGroupSelectDbPort, MenuGroupSaveDbPort, MenuGroupDeleteDbPort {
+public class MenuGroupDbAdapter implements MenuGroupCommandDbPort {
 
 	MenuGroupJpaRepository repository;
 	
@@ -22,14 +19,9 @@ public class MenuGroupDbAdapter implements MenuGroupSelectDbPort, MenuGroupSaveD
 	}
 
 	@Override
-	public MenuGroup select(String companyCode, String menuGroupCode) {		
+	public Optional<MenuGroup> select(String companyCode, String menuGroupCode) {		
 		
-		return this.repository.findById(new MenuGroupId(companyCode, menuGroupCode)).orElse(null); 
-	}
-
-	@Override
-	public List<MenuGroup> selectList(MenuGroupQueryDTO dto) {		
-		return this.repository.findAll(dto.getBooleanBuilder());
+		return this.repository.findById(new MenuGroupId(companyCode, menuGroupCode)); 
 	}
 	
 	@Override

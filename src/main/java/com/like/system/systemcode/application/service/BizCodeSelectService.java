@@ -4,14 +4,14 @@ import org.springframework.stereotype.Service;
 
 import com.like.system.systemcode.application.dto.BizCodeSaveDTO;
 import com.like.system.systemcode.application.port.in.BizCodeSelectUseCase;
-import com.like.system.systemcode.application.port.out.BizCodeSelectPort;
+import com.like.system.systemcode.application.port.out.BizCodeCommandDbPort;
 
 @Service
 public class BizCodeSelectService implements BizCodeSelectUseCase {
 	
-	BizCodeSelectPort port;
+	BizCodeCommandDbPort port;
 	
-	public BizCodeSelectService(BizCodeSelectPort port) {		
+	public BizCodeSelectService(BizCodeCommandDbPort port) {		
 		this.port = port;
 	}
 	

@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.like.common.dto.HtmlSelectOptionRecord;
@@ -13,14 +14,14 @@ import com.like.common.dto.HtmlSelectOptionable;
 import com.like.core.message.MessageUtil;
 import com.like.system.systemcode.adapter.out.db.entity.JpaBizTypeEnum;
 import com.like.system.systemcode.application.dto.BizCodeTypeSaveDTO;
-import com.like.system.systemcode.application.port.in.BizCodeTypeSelectAllUseCase;
+import com.like.system.systemcode.application.port.in.BizCodeTypeQuerylUseCase;
 
 @RestController
 public class BizCodeTypeQueryController {
 
-	private BizCodeTypeSelectAllUseCase service;
+	private BizCodeTypeQuerylUseCase service;
 	
-	public BizCodeTypeQueryController(BizCodeTypeSelectAllUseCase service) {
+	public BizCodeTypeQueryController(BizCodeTypeQuerylUseCase service) {
 		this.service = service;
 	}
 	
@@ -33,8 +34,8 @@ public class BizCodeTypeQueryController {
 	}
 	
 	@GetMapping("/api/system/bizcodetype")
-	public ResponseEntity<?> getBizCodeTypeList() {			
-		List<BizCodeTypeSaveDTO> list = service.select("001");											   
+	public ResponseEntity<?> getBizCodeTypeList(@RequestParam String companyCode) {			
+		List<BizCodeTypeSaveDTO> list = service.select(companyCode);											   
 					
 		return toList(list, MessageUtil.getQueryMessage(list.size()));
 	}

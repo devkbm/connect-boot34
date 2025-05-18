@@ -3,14 +3,14 @@ package com.like.system.menu_role.application.service.menu;
 import org.springframework.stereotype.Service;
 
 import com.like.system.menu_role.application.port.in.menu.MenuGroupDeleteUseCase;
-import com.like.system.menu_role.application.port.out.menu.MenuGroupDeleteDbPort;
+import com.like.system.menu_role.application.port.out.menu.MenuGroupCommandDbPort;
 
 @Service
 public class MenuGroupDeleteService implements MenuGroupDeleteUseCase {
 
-	MenuGroupDeleteDbPort port;
+	MenuGroupCommandDbPort port;
 	
-	MenuGroupDeleteService(MenuGroupDeleteDbPort port) {
+	MenuGroupDeleteService(MenuGroupCommandDbPort port) {
 		this.port = port;
 	}
 	

@@ -57,8 +57,8 @@ public class WebSecurityConfigLocalTest<S extends Session> {
 				authorize.requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
 						.requestMatchers(new AntPathRequestMatcher("/api/system/user/login")).permitAll()			// 로그인 API
 						.requestMatchers(new AntPathRequestMatcher("/h2/**")).permitAll()					// h2-console 
-						//.anyRequest().authenticated()
-						.anyRequest().permitAll()
+						.anyRequest().authenticated()
+						//.anyRequest().permitAll()
 						)								
 			.oauth2Login(customConfigurer -> customConfigurer
 				.successHandler(oAuth2AuthenticationSuccessHandler)
@@ -66,11 +66,16 @@ public class WebSecurityConfigLocalTest<S extends Session> {
 				.userInfoEndpoint(endPointConfig -> endPointConfig.userService(customOAuth2UserService))														
 			)
 			//.oauth2Login(Customizer.withDefaults())
-			//.oauth2Client(Customizer.withDefaults())			
-			.logout(logout -> logout.logoutUrl("/common/user/logout")
+			//.oauth2Client(Customizer.withDefaults())
+			/*
+			.logout(logout -> logout.logoutUrl("/api/system/user/logout")
 									.invalidateHttpSession(true)
-									.deleteCookies("JSESSIONID")
-									.permitAll());
+									.deleteCookies("JSESSIONID")			
+									.logoutSuccessUrl("/")
+									.permitAll())
+									*/
+			;
+				
 			
 		return http.build();
 	}		
