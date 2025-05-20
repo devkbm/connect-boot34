@@ -57,8 +57,8 @@ public class WebSecurityConfigLocalTest<S extends Session> {
 				authorize.requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
 						.requestMatchers(new AntPathRequestMatcher("/api/system/user/login")).permitAll()			// 로그인 API
 						.requestMatchers(new AntPathRequestMatcher("/h2/**")).permitAll()					// h2-console 
-						.anyRequest().authenticated()
-						//.anyRequest().permitAll()
+						//.anyRequest().authenticated()
+						.anyRequest().permitAll()
 						)								
 			.oauth2Login(customConfigurer -> customConfigurer
 				.successHandler(oAuth2AuthenticationSuccessHandler)
@@ -84,7 +84,7 @@ public class WebSecurityConfigLocalTest<S extends Session> {
 	CorsConfigurationSource corsConfigurationSource() {
        CorsConfiguration configuration = new CorsConfiguration();       
 
-       configuration.setAllowedOriginPatterns(Arrays.asList("*"));
+       configuration.setAllowedOriginPatterns(Arrays.asList("https://localhost:4200","https://4200-firebase-connect-angular19-antdgit-1746601239828.cluster-zumahodzirciuujpqvsniawo3o.cloudworkstations.dev:[*]"));
        //configuration.addAllowedOrigin("http://localhost:4200");
        //configuration.addAllowedOrigin("http://175.114.176.195:4200");
        //configuration.setAllowedOrigins(Arrays.asList("http://localhost:4200","http://175.114.176.195:4200"));       

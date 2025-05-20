@@ -73,7 +73,7 @@ public class LoginController {
 	}
 	
 	@GetMapping("/api/system/user/logout")
-	public void login(HttpServletRequest request, HttpSession session) {			
+	public boolean logout(HttpServletRequest request, HttpSession session) {			
 						         		 							                   
 		//String ipAddress = WebRequestUtil.getIpAddress(request);
 		//System.out.println("접속 IP주소: " + ipAddress);
@@ -86,6 +86,7 @@ public class LoginController {
 		SecurityContextHolder.clearContext();		
 		context.setAuthentication(null);
 		
+		return session == null || request.isRequestedSessionIdValid() ? true : false;
 	}
 	
 }
